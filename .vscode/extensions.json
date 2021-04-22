@@ -1,5 +1,8 @@
 {
   "recommendations": [
+    // Elixir:
+    "jakebecker.elixir-ls",
+
     // EditorConfig:
     "editorconfig.editorconfig",
 
