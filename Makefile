@@ -12,7 +12,7 @@ help: app-help docker-help
 .PHONY: app-help
 app-help:
 	@echo ""
-	@echo "Template Elixir"
+	@echo "Code from the course "Developing with Elixir/OTP" from Pragmatic Studio."
 	@echo ""
 	@echo "App options:"
 	@echo "  app-access        Access the app service"

@@ -41,7 +41,26 @@
   },
 
   // Spelling:
-  "cSpell.words": ["aifrak", "fkirc", "markdownlint", "nosborn"],
+  "cSpell.words": ["editorconfig", "hadolint", "markdownlint"],
+  "cSpell.ignoreWords": [
+    "aifrak",
+    "davidanson",
+    "esbenp",
+    "exiasr",
+    "fkirc",
+    "jakebecker",
+    "nosborn"
+  ],
+
+  // Remote:
+  "remote.extensionKind": {
+    // Markdown
+    "shd101wyy.markdown-preview-enhanced": ["ui", "workspace"],
+    "yzhang.markdown-all-in-one": ["ui", "workspace"],
+
+    // Comments
+    "stackbreak.comment-divider": ["ui", "workspace"]
+  },
 
   // Markdownlint:
   "markdownlint.config": {

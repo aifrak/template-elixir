@@ -1,0 +1,25 @@
+{
+  "name": "Existing Docker Compose (Extend)",
+  "dockerComposeFile": ["../docker-compose.yml", "../docker-compose.dev.yml"],
+  "service": "app",
+  "workspaceFolder": "/app",
+  "extensions": [
+    // Settings
+    "editorconfig.editorconfig",
+
+    // Markdown
+    "davidanson.vscode-markdownlint",
+
+    // Format
+    "esbenp.prettier-vscode",
+
+    // Spelling
+    "streetsidesoftware.code-spell-checker",
+
+    // Elixir
+    "jakebecker.elixir-ls",
+
+    // Dockerfile
+    "exiasr.hadolint"
+  ]
+}
