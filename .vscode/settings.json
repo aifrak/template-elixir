@@ -69,6 +69,9 @@
 
   // Comment Divider:
   "comment-divider.length": 50,
+  "comment-divider.languagesMap": {
+    "elixir": ["#", "#"]
+  },
 
   // VSIcons:
   "vsicons.associations.files": [
