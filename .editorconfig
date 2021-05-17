@@ -3,6 +3,7 @@ root = true
 [*]
 indent_style = space
 indent_size = 2
+tab_width = 2
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
@@ -10,11 +11,12 @@ insert_final_newline = true
 max_line_length = 80
 quote_type = auto
 
-[{*.ex, *.exs}]
+[{*.ex,*.exs}]
 max_line_length = 98
 
-[{*.md, *.markdown}]
+[{*.md,*.markdown}]
 trim_trailing_whitespace = false
 
-[{Makefile, **.mk}]
+[{Makefile,**.mk}]
 indent_style = tab
+indent_size = tab
