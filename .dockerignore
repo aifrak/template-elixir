@@ -1,7 +1,7 @@
 # VSCode
 .history/
 
-# Node
+# NodeJS
 node_modules/
 
 # Elixir
@@ -13,8 +13,5 @@ doc/
 erl_crash.dump
 *.ez
 *.beam
-config/*.secret.exs
+/config/*.secret.exs
 .elixir_ls/
-
-# Keep .gitkeep files
-!/**/.gitkeep

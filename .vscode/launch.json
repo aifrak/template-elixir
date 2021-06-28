@@ -17,13 +17,5 @@
       "projectDir": "${workspaceRoot}",
       "requireFiles": ["test/**/test_helper.exs", "test/**/*_test.exs"]
     }
-    // Start Phoenix manually for debug
-    // {
-    //   "type": "mix_task",
-    //   "name": "mix phx.server",
-    //   "request": "launch",
-    //   "projectDir": "${workspaceRoot}",
-    //   "task": "phx.server"
-    // }
   ]
 }

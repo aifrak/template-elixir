@@ -1,15 +1,22 @@
-version: "3.8"
+version: "3.9"
 
 services:
   app:
     image: aifrak/template-elixir:dev
     build:
-      target: build-dev
-      context: .
-    command: /bin/sh -c "while sleep 1000; do :; done"
+      target: dev
+      args:
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
+    user: ${USER_UID:-1000}:${USER_GID:-1000}
     volumes:
       - .:/app:cached
-      # To make git work without "VSCode - Remote Container" extension, uncomment and modify those lines
-      # - ~/.ssh:/home/app-user/.ssh
-      # - ~/.gnupg:/home/app-user/.gnupg
-      # - ~/.gitconfig:/home/app-user/.gitconfig
+      - app-node-modules:/app/node_modules
+      - app-build:/app/_build
+      - app-deps:/app/deps
+    command: sleep infinity
+
+volumes:
+  app-node-modules:
+  app-build:
+  app-deps:

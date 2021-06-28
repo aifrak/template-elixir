@@ -1,25 +1,53 @@
 {
-  "name": "Existing Docker Compose (Extend)",
-  "dockerComposeFile": ["../docker-compose.yml", "../docker-compose.dev.yml"],
+  "name": "template-elixir",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "../docker-compose.dev.yml",
+    "docker-compose.yml"
+  ],
   "service": "app",
   "workspaceFolder": "/app",
+  "settings": {
+    "shellformat.path": "/usr/local/bin/shfmt"
+  },
   "extensions": [
-    // Settings
+    // Elixir
+    "jakebecker.elixir-ls",
+    "pantajoe.vscode-elixir-credo",
+
+    // EditorConfig
     "editorconfig.editorconfig",
+
+    // Github Actions
+    "cschleiden.vscode-github-actions",
+
+    // Docker
+    "ms-azuretools.vscode-docker",
+
+    // Dockerfile
+    "exiasr.hadolint",
+
+    // Shell
+    "foxundermoon.shell-format",
+    "timonwong.shellcheck",
 
     // Markdown
     "davidanson.vscode-markdownlint",
+    "yzhang.markdown-all-in-one",
 
-    // Format
+    // YAML
+    "redhat.vscode-yaml",
+
+    // Gitignore
+    "codezombiech.gitignore",
+
+    // Formatters
     "esbenp.prettier-vscode",
 
+    // Comments
+    "stackbreak.comment-divider",
+
     // Spelling
-    "streetsidesoftware.code-spell-checker",
-
-    // Elixir
-    "jakebecker.elixir-ls",
-
-    // Dockerfile
-    "exiasr.hadolint"
+    "streetsidesoftware.code-spell-checker"
   ]
 }
