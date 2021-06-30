@@ -2,224 +2,195 @@
   "version": "2.0.0",
   "tasks": [
     /* -------------------------------------------- */
-    /*                  Application                 */
+    /*                     Main                     */
     /* -------------------------------------------- */
     {
-      "label": "app-access",
+      "label": "format",
       "type": "shell",
-      "command": "make",
-      "args": ["app-access", "APP_SHELL=${input:appShell}"],
+      "command": "./run",
+      "args": ["format"],
       "problemMatcher": [],
-      "detail": "Access the app service"
+      "detail": "Format code of the whole project"
+    },
+    {
+      "label": "lint",
+      "type": "shell",
+      "command": "./run",
+      "args": ["lint"],
+      "problemMatcher": [],
+      "detail": "Lint of the whole project"
+    },
+    {
+      "label": "pre-commit",
+      "type": "shell",
+      "command": "./run",
+      "args": ["pre-commit"],
+      "problemMatcher": [],
+      "detail": "Format, lint and test the whole project"
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "./run",
+      "args": ["test"],
+      "problemMatcher": [],
+      "detail": "Test and lint the whole project"
     },
     /* -------------------------------------------- */
-    /*                    Docker                    */
+    /*                docker-compose                */
     /* -------------------------------------------- */
     {
-      "label": "docker-build",
+      "label": "dc:build",
       "type": "shell",
-      "command": "make",
-      "args": [
-        "docker-build",
-        "ENV=${input:dockerComposeEnv}",
-        "FORCE_RECREATE=${input:dockerForceRecreate}"
-      ],
+      "command": "./run dc:build",
       "problemMatcher": [],
-      "detail": "Build images"
+      "detail": "Build all docker services"
     },
     {
-      "label": "docker-build-up",
+      "label": "dc:run",
       "type": "shell",
-      "command": "make",
-      "args": [
-        "docker-build-up",
-        "ENV=${input:dockerComposeEnv}",
-        "FORCE_RECREATE=${input:dockerForceRecreate}"
-      ],
+      "command": "./run dc:run ${input:fun}",
       "problemMatcher": [],
-      "detail": "Build images, start all and clean"
+      "detail": "Run a function from './run' inside the 'app' docker service and remove stopped containers"
+    },
+    /* -------------------------------------------- */
+    /*                      Dev                     */
+    /* -------------------------------------------- */
+    {
+      "label": "dev:code",
+      "type": "shell",
+      "command": "./run",
+      "args": ["dev:code"],
+      "problemMatcher": [],
+      "detail": "Build, run a command and down a docker service"
     },
     {
-      "label": "docker-clean",
+      "label": "dev:dc",
       "type": "shell",
-      "command": "make",
-      "args": ["docker-clean"],
+      "command": "./run",
+      "args": ["dev:dc", "${input:dockerCmd}"],
       "problemMatcher": [],
-      "detail": "Remove all docker unused data"
+      "detail": "Run docker-compose with development configuration"
     },
     {
-      "label": "docker-clean-all",
+      "label": "dev:build",
       "type": "shell",
-      "command": "make",
-      "args": ["docker-clean-all"],
+      "command": "./run",
+      "args": ["dev:build"],
       "problemMatcher": [],
-      "detail": "Remove all unused data"
+      "detail": "Build docker service with development configuration"
+    },
+    /* -------------------------------------------- */
+    /*                    Elixir                    */
+    /* -------------------------------------------- */
+    {
+      "label": "elixir:format",
+      "type": "shell",
+      "command": "./run",
+      "args": ["elixir:format"],
+      "problemMatcher": [],
+      "detail": "Format Elixir files"
     },
     {
-      "label": "docker-container-id",
+      "label": "elixir:lint",
       "type": "shell",
-      "command": "make",
-      "args": [
-        "docker-container-id",
-        "SERVICE=${input:dockerComposeServiceId}"
-      ],
+      "command": "./run",
+      "args": ["elixir:lint"],
       "problemMatcher": [],
-      "detail": "Get the container id from a service id"
+      "detail": "Lint Elixir files"
+    },
+    /* -------------------------------------------- */
+    /*                  Elixir EEx                  */
+    /* -------------------------------------------- */
+    {
+      "label": "elixir:eex:format",
+      "type": "shell",
+      "command": "./run",
+      "args": ["elixir:eex:format"],
+      "problemMatcher": [],
+      "detail": "Format Embedded Elixir files"
     },
     {
-      "label": "docker-down",
+      "label": "elixir:eex:lint",
       "type": "shell",
-      "command": "make",
-      "args": ["docker-down", "SERVICE=${input:dockerComposeServiceId}"],
+      "command": "./run",
+      "args": ["elixir:eex:lint"],
       "problemMatcher": [],
-      "detail": "Stop and remove services"
+      "detail": "Lint Embedded Elixir files"
+    },
+    /* -------------------------------------------- */
+    /*                     Shell                    */
+    /* -------------------------------------------- */
+    {
+      "label": "shell:format",
+      "type": "shell",
+      "command": "./run",
+      "args": ["shell:format"],
+      "problemMatcher": [],
+      "detail": "Format Shell scripts"
     },
     {
-      "label": "docker-images",
+      "label": "shell:lint",
       "type": "shell",
-      "command": "make",
-      "args": ["docker-images"],
+      "command": "./run",
+      "args": ["shell:lint"],
       "problemMatcher": [],
-      "detail": "Show a list of images"
+      "detail": "Lint Shell scripts"
+    },
+    /* -------------------------------------------- */
+    /*                  Dockerfile                  */
+    /* -------------------------------------------- */
+    {
+      "label": "dockerfile:format",
+      "type": "shell",
+      "command": "./run",
+      "args": ["dockerfile:format"],
+      "problemMatcher": [],
+      "detail": "Format all Dockerfiles"
     },
     {
-      "label": "docker-logs",
+      "label": "dockerfile:lint",
       "type": "shell",
-      "command": "make",
-      "args": ["docker-logs", "SERVICE=${input:dockerComposeServiceId}"],
+      "command": "./run",
+      "args": ["dockerfile:lint"],
       "problemMatcher": [],
-      "detail": "Show logs of all services and follow from the last 20 lines"
-    },
-    {
-      "label": "docker-restart",
-      "type": "shell",
-      "command": "make",
-      "args": ["docker-restart", "SERVICE=${input:dockerComposeServiceId}"],
-      "problemMatcher": [],
-      "detail": "Restart services"
-    },
-    {
-      "label": "docker-start",
-      "type": "shell",
-      "command": "make",
-      "args": ["docker-start", "SERVICE=${input:dockerComposeServiceId}"],
-      "problemMatcher": [],
-      "detail": "Start services"
-    },
-    {
-      "label": "docker-stop",
-      "type": "shell",
-      "command": "make",
-      "args": ["docker-stop", "SERVICE=${input:dockerComposeServiceId}"],
-      "problemMatcher": [],
-      "detail": "Stop services"
-    },
-    {
-      "label": "docker-prune-volumes",
-      "type": "shell",
-      "command": "make",
-      "args": ["docker-prune-volumes"],
-      "problemMatcher": [],
-      "detail": "Clean unused volumes"
-    },
-    {
-      "label": "docker-ps",
-      "type": "shell",
-      "command": "make",
-      "args": ["docker-ps", "SERVICE=${input:dockerComposeServiceId}"],
-      "problemMatcher": [],
-      "detail": "Show status of services"
-    },
-    {
-      "label": "docker-pull",
-      "type": "shell",
-      "command": "make",
-      "args": ["docker-pull"],
-      "problemMatcher": [],
-      "detail": "Pull images"
-    },
-    {
-      "label": "docker-rm-container-with-volumes",
-      "type": "shell",
-      "command": "make",
-      "args": [
-        "docker-rm-container-with-volumes",
-        "NAME=${input:dockerComposeServiceId}"
-      ],
-      "problemMatcher": [],
-      "detail": "Remove all containers with volumes, else show errors"
-    },
-    {
-      "label": "docker-rm-stopped-containers",
-      "type": "shell",
-      "command": "make",
-      "args": ["docker-rm-stopped-containers"],
-      "problemMatcher": [],
-      "detail": "Remove all non running containers, else show errors"
-    },
-    {
-      "label": "docker-rm-dangling-images",
-      "type": "shell",
-      "command": "make",
-      "args": ["docker-rm-dangling-images"],
-      "problemMatcher": [],
-      "detail": "Delete all untagged/dangling (<none>) images, else show errors"
-    },
-    {
-      "label": "docker-rm-dangling-volumes",
-      "type": "shell",
-      "command": "make",
-      "args": ["docker-rm-dangling-volumes"],
-      "problemMatcher": [],
-      "detail": "Delete all untagged/dangling (<none>) volumes, else show errors"
-    },
-    {
-      "label": "docker-up",
-      "type": "shell",
-      "command": "make",
-      "args": [
-        "docker-up",
-        "ENV=${input:dockerComposeEnv}",
-        "FORCE_RECREATE=${input:dockerForceRecreate}"
-      ],
-      "problemMatcher": [],
-      "detail": "Start all containers"
+      "detail": "Lint all Dockerfiles"
     }
   ],
   "inputs": [
-    /* -------------------------------------------- */
-    /*                  Application                 */
-    /* -------------------------------------------- */
     {
-      "id": "appShell",
+      "id": "dockerService",
       "type": "pickString",
-      "description": "Shell to access the container?",
-      "options": ["bash", "sh", "zsh"],
-      "default": "zsh"
-    },
-    /* -------------------------------------------- */
-    /*                    Docker                    */
-    /* -------------------------------------------- */
-    {
-      "id": "dockerComposeEnv",
-      "type": "pickString",
-      "description": "Environment?",
-      "options": ["dev", "prod"],
-      "default": "dev"
-    },
-    {
-      "id": "dockerComposeServiceId",
-      "type": "pickString",
-      "description": "Service name?",
+      "description": "Docker service?",
       "options": ["app"],
       "default": "app"
     },
     {
-      "id": "dockerForceRecreate",
-      "type": "pickString",
-      "description": "Recreate all containers?",
-      "options": ["y", "n"],
-      "default": "n"
+      "id": "cmd",
+      "type": "promptString",
+      "description": "Command? (e.g. ./run test)"
+    },
+    {
+      "id": "fun",
+      "type": "promptString",
+      "description": "Function from './run'? (e.g. lint)"
+    },
+    {
+      "id": "dockerCmd",
+      "type": "promptString",
+      "description": "Docker command? (e.g. up -d)"
+    },
+    {
+      "id": "userUid",
+      "type": "promptString",
+      "description": "User ID?",
+      "default": "1000"
+    },
+    {
+      "id": "groupUid",
+      "type": "promptString",
+      "description": "Group ID?",
+      "default": "1000"
     }
   ]
 }

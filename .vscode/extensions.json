@@ -1,33 +1,50 @@
 {
   "recommendations": [
-    // EditorConfig
+    // Elixir
+    "jakebecker.elixir-ls",
+    "pantajoe.vscode-elixir-credo",
+
+    // Remote container
+    "ms-vscode-remote.remote-containers",
+
+    // EditorConfig:
     "editorconfig.editorconfig",
 
     // Tasks / Makefile targets
     "spmeesseman.vscode-taskexplorer",
 
-    // Github Actions
+    // Github Actions:
     "cschleiden.vscode-github-actions",
 
-    // Markdown
+    // Dockerfile:
+    "exiasr.hadolint",
+
+    // Docker:
+    "ms-azuretools.vscode-docker",
+
+    // Shell:
+    "foxundermoon.shell-format",
+    "timonwong.shellcheck",
+
+    // YAML
+    "redhat.vscode-yaml",
+
+    // Markdown:
     "davidanson.vscode-markdownlint",
     "shd101wyy.markdown-preview-enhanced",
     "yzhang.markdown-all-in-one",
 
-    // Formatters
-    "esbenp.prettier-vscode", // YAML, Markdown
+    // Formatters:
+    "esbenp.prettier-vscode",
 
-    // Comments
+    // Comments:
     "stackbreak.comment-divider",
 
-    // Spelling
-    "streetsidesoftware.code-spell-checker",
+    // Cron jobs:
+    "tumido.cron-explained",
 
-    // Elixir
-    "jakebecker.elixir-ls",
-
-    // Docker
-    "exiasr.hadolint"
+    // Spelling:
+    "streetsidesoftware.code-spell-checker"
   ],
 
   "unwantedRecommendations": []

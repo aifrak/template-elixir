@@ -10,11 +10,10 @@ cover/
 deps/
 doc/
 .fetch/
-erl_crash.dump
-*.ez
-*.beam
-config/*.secret.exs
 .elixir_ls/
 
-# Keep .gitkeep files
-!/**/.gitkeep
+# see ./docs/setup.md in "Known issues" section
+*.md
+*.json
+*.yaml
+*.yml

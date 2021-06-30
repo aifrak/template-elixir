@@ -1,9 +1,8 @@
-version: "3.8"
+version: "3.9"
 
 services:
   app:
     image: aifrak/template-elixir:latest
     build:
       context: .
-    volumes:
-      - .:/app
+      target: base
