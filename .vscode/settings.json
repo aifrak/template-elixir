@@ -120,15 +120,45 @@
   ],
 
   // Spelling:
-  "cSpell.words": [
-    "Dependabot",
-    "buildx",
+  "cSpell.enableFiletypes": [
+    "dockercompose",
+    "dockerfile",
     "editorconfig",
+    "elixir",
+    "ignore",
+    "properties",
+    "shellscript"
+  ],
+  "cSpell.words": [
+    "BUILDKIT",
+    "Dependabot",
+    "GROUPNAME",
+    "TIMEFORMAT",
+    "WORKDIR",
+    "autoremove",
+    "buildx",
+    "chmod",
+    "deps",
+    "editorconfig",
+    "gitkeep",
+    "gnupg",
     "hadolint",
+    "leex",
+    "libodbc",
+    "libsctp",
+    "libssl",
     "markdownlint",
     "mkdir",
+    "noninteractive",
+    "nopasswd",
+    "npmrc",
     "prettierignore",
-    "semver"
+    "rebar",
+    "sbin",
+    "semver",
+    "shellcheck",
+    "shfmt",
+    "xtype"
   ],
   "cSpell.ignoreWords": [
     "aifrak",
@@ -136,7 +166,10 @@
     "esbenp",
     "exiasr",
     "fkirc",
+    "hexpm",
     "jakebecker",
+    "koalaman",
+    "mvdan",
     "nosborn",
     "softprops",
     "tvdias"
