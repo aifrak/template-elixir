@@ -49,9 +49,9 @@
     {
       "label": "dc:run",
       "type": "shell",
-      "command": "./run dc:run ${input:fun}",
+      "command": "./run dc:run ${input:cmd}",
       "problemMatcher": [],
-      "detail": "Run a function from './run' inside the 'app' docker service and remove stopped containers"
+      "detail": "Run a command inside the 'app' docker service and remove stopped containers"
     },
     /* -------------------------------------------- */
     /*                      Dev                     */
@@ -169,11 +169,6 @@
       "id": "cmd",
       "type": "promptString",
       "description": "Command? (e.g. ./run test)"
-    },
-    {
-      "id": "fun",
-      "type": "promptString",
-      "description": "Function from './run'? (e.g. lint)"
     },
     {
       "id": "dockerCmd",

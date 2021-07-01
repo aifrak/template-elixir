@@ -5,18 +5,4 @@ services:
     image: aifrak/template-elixir:dev
     build:
       target: dev
-      args:
-        USER_UID: ${USER_UID:-1000}
-        USER_GID: ${USER_GID:-1000}
-    user: ${USER_UID:-1000}:${USER_GID:-1000}
-    volumes:
-      - .:/app:cached
-      - app-node-modules:/app/node_modules
-      - app-build:/app/_build
-      - app-deps:/app/deps
     command: sleep infinity
-
-volumes:
-  app-node-modules:
-  app-build:
-  app-deps:
