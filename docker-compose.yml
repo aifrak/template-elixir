@@ -13,8 +13,6 @@ services:
     volumes:
       - .:/app
       - app-node-modules:/app/node_modules
-      - app-deps:/app/deps
 
 volumes:
   app-node-modules:
-  app-deps:

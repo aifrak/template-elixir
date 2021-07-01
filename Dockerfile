@@ -70,19 +70,16 @@ RUN set -e \
   && useradd --uid ${USER_UID} --gid ${USER_GID} --shell /bin/bash \
     --create-home ${USERNAME} \
   && mkdir ${APP_DIR} \
-  && chown ${USER_GID}:${USER_GID} ${APP_DIR}
+  && chown ${USERNAME}: ${APP_DIR}
 
 USER ${USERNAME}
 
 WORKDIR ${APP_DIR}
 
-# Install elixir deps
-COPY --chown=${USERNAME} mix.exs mix.lock ./
+# Install hex and rebar
 RUN set -e \
   && mix local.hex --force \
-  && mix local.rebar --force \
-  && mix deps.get \
-  && touch deps/.gitkeep
+  && mix local.rebar --force
 
 # Install node modules
 COPY --chown=${USERNAME} package-lock.json package.json .npmrc ./
