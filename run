@@ -31,7 +31,7 @@ Main commands:
 
 docker-compose commands:
   dc:build                   Build all docker services
-  dc:run                     Run a function from "./run" inside the "app" docker service and remove stopped containers
+  dc:run                     Run a command inside the "app" docker service and remove stopped containers
 
 Dev commands:
   dev:code                   Prepare docker services for development environment
@@ -66,7 +66,7 @@ function test {
   if is_inside_docker; then
     elixir:test
   else
-    dc:run test
+    dc:run ./run test
   fi
 }
 
@@ -88,7 +88,7 @@ function lint {
       exit ${status}
     fi
   else
-    dc:run lint
+    dc:run ./run lint
   fi
 }
 
@@ -102,7 +102,7 @@ function format {
 
     success "✔ Project formatted"
   else
-    dc:run format
+    dc:run ./run format
   fi
 }
 
@@ -112,7 +112,7 @@ function pre-commit {
     lint
     test
   else
-    dc:run pre-commit
+    dc:run ./run pre-commit
   fi
 }
 
@@ -125,7 +125,7 @@ function dc:build {
 }
 
 function dc:run {
-  docker-compose run ${TTY} app ./run "${@}"
+  docker-compose run ${TTY} app "${@}"
   docker-compose rm -f -v
 }
 

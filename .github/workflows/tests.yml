@@ -14,6 +14,11 @@ jobs:
       CACHE_NEW: /tmp/.buildx-cache-new
 
     steps:
+      - name: Add environment variables
+        run: |
+          echo "USER_UID=$(id -u)" >> $GITHUB_ENV
+          echo "USER_GID=$(id -g)" >> $GITHUB_ENV
+
       - name: Checkout
         uses: actions/checkout@v2.3.4
 
@@ -28,25 +33,48 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: Build image and cache
+      - name: Build Docker image and Docker cache
         uses: docker/build-push-action@v2.5.0
         with:
           load: true
           target: ${{ env.IMAGE_TARGET }}
           tags: ${{ env.IMAGE_TAG }}
+          build-args: |
+            USER_UID: ${{ env.USER_UID }}
+            USER_GID: ${{ env.USER_GID }}
           cache-from: type=local,src=${{ env.CACHE_OLD }}
           cache-to: type=local,dest=${{ env.CACHE_NEW }}
 
       # Temp fix
       # https://github.com/docker/build-push-action/issues/252
       # https://github.com/moby/buildkit/issues/1896
-      - name: Move cache
+      - name: Move Docker cache
         run: |
           rm -rf ${{ env.CACHE_OLD }}
           mv ${{ env.CACHE_NEW }} ${{ env.CACHE_OLD }}
 
+      - name: Build Elixir cache
+        id: cache-elixir
+        uses: actions/cache@v2.1.6
+        with:
+          path: |
+            _build
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-mix-
+
+      - name: mix compile (dev)
+        if: steps.cache-elixir.outputs.cache-hit != 'true'
+        run: |
+          ./run dc:run bash -c "MIX_ENV=dev mix compile"
+
+      - name: mix compile (test)
+        if: steps.cache-elixir.outputs.cache-hit != 'true'
+        run: |
+          ./run dc:run bash -c "MIX_ENV=test mix compile"
+
       - name: Test
-        run: ./run dc:run test
+        run: ./run dc:run ./run test
 
       - name: Lint
-        run: ./run dc:run lint
+        run: ./run dc:run ./run lint

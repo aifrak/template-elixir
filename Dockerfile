@@ -12,28 +12,12 @@ FROM ubuntu:focal-20210609 as base
 USER root
 
 ENV INSIDE_DOCKER=1
-
 ENV LANG=en_US.UTF-8
 
-ENV USERNAME=app-user
-ARG GROUPNAME=${USERNAME}
-ARG USER_UID=1000
-ARG USER_GID=${USER_UID}
-
-ENV HOME=/home/${USERNAME}
-ENV APP_DIR=/app
-
-# 1. Add username and groupname
-# 2. Create project directory and add ownersip
-# 3. Install erlang dependencies
-# 4. Install `locales` package and setup locale
-# 5. Clean
+# 1. Install erlang dependencies
+# 2. Install `locales` package and setup locale
+# 3. Clean
 RUN set -e \
-  && groupadd --gid ${USER_GID} ${GROUPNAME} \
-  && useradd --uid ${USER_UID} --gid ${USER_GID} --shell /bin/bash \
-    --create-home ${USERNAME} \
-  && mkdir ${APP_DIR} \
-  && chown ${USER_GID}:${USER_GID} ${APP_DIR} \
   && apt-get update -qq \
   && apt-get install -y -qq --no-install-recommends \
     libodbc1=2.3.6-* \
@@ -71,6 +55,23 @@ COPY --from=elixir --chown=root /usr/local/bin /usr/local/bin
 COPY --from=elixir --chown=root /usr/local/lib /usr/local/lib
 COPY --from=elixir --chown=root /usr/local/sbin /usr/local/sbin
 
+ENV USERNAME=app-user
+ARG GROUPNAME=${USERNAME}
+ARG USER_UID=1000
+ARG USER_GID=${USER_UID}
+
+ENV HOME=/home/${USERNAME}
+ENV APP_DIR=/app
+
+# 1. Add username and groupname
+# 2. Create project directory and add ownership
+RUN set -e \
+  && groupadd --gid ${USER_GID} ${GROUPNAME} \
+  && useradd --uid ${USER_UID} --gid ${USER_GID} --shell /bin/bash \
+    --create-home ${USERNAME} \
+  && mkdir ${APP_DIR} \
+  && chown ${USER_GID}:${USER_GID} ${APP_DIR}
+
 USER ${USERNAME}
 
 WORKDIR ${APP_DIR}
@@ -88,9 +89,6 @@ COPY --chown=${USERNAME} package-lock.json package.json .npmrc ./
 RUN set -e \
   && npm ci --quiet \
   && touch node_modules/.gitkeep
-
-# Copy the whole project into the container
-COPY --chown=${USERNAME} . .
 
 CMD [ "bash" ]
 
