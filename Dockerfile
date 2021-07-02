@@ -76,16 +76,12 @@ USER ${USERNAME}
 
 WORKDIR ${APP_DIR}
 
+ENV npm_config_cache=${APP_DIR}/.npm-cache
+
 # Install hex and rebar
 RUN set -e \
   && mix local.hex --force \
   && mix local.rebar --force
-
-# Install node modules
-COPY --chown=${USERNAME} package-lock.json package.json .npmrc ./
-RUN set -e \
-  && npm ci --quiet \
-  && touch node_modules/.gitkeep
 
 CMD [ "bash" ]
 
