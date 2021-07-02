@@ -40,8 +40,8 @@ jobs:
           target: ${{ env.IMAGE_TARGET }}
           tags: ${{ env.IMAGE_TAG }}
           build-args: |
-            USER_UID: ${{ env.USER_UID }}
-            USER_GID: ${{ env.USER_GID }}
+            USER_UID=${{ env.USER_UID }}
+            USER_GID=${{ env.USER_GID }}
           cache-from: type=local,src=${{ env.CACHE_OLD }}
           cache-to: type=local,dest=${{ env.CACHE_NEW }}
 
@@ -58,17 +58,23 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: |
+            deps
             _build
           key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
           restore-keys: |
             ${{ runner.os }}-mix-
 
-      - name: mix compile (dev)
+      - name: Install Elixir dependencies
         if: steps.cache-elixir.outputs.cache-hit != 'true'
         run: |
-          ./run dc:run bash -c "MIX_ENV=dev mix compile"
+          ./run dc:run mix deps.get
 
-      - name: mix compile (test)
+      - name: Compile Elixir application (dev)
+        if: steps.cache-elixir.outputs.cache-hit != 'true'
+        run: |
+          ./run dc:run mix compile
+
+      - name: Compile Elixir application (test)
         if: steps.cache-elixir.outputs.cache-hit != 'true'
         run: |
           ./run dc:run bash -c "MIX_ENV=test mix compile"
