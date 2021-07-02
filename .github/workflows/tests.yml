@@ -14,13 +14,17 @@ jobs:
       CACHE_NEW: /tmp/.buildx-cache-new
 
     steps:
-      - name: Add environment variables
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      # ---------------------------------------------- #
+      #                     Docker                     #
+      # ---------------------------------------------- #
+
+      - name: Add environment variables used by Docker build
         run: |
           echo "USER_UID=$(id -u)" >> $GITHUB_ENV
           echo "USER_GID=$(id -g)" >> $GITHUB_ENV
-
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1.4.1
@@ -53,6 +57,33 @@ jobs:
           rm -rf ${{ env.CACHE_OLD }}
           mv ${{ env.CACHE_NEW }} ${{ env.CACHE_OLD }}
 
+      # ---------------------------------------------- #
+      #                     NodeJS                     #
+      # ---------------------------------------------- #
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Build npm cache
+        uses: actions/cache@v2.1.6
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install node modules
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: |
+          ./run dc:run bash -c "npm install --quiet && touch node_modules/.gitkeep"
+
+      # ---------------------------------------------- #
+      #                     Elixir                     #
+      # ---------------------------------------------- #
+
       - name: Build Elixir cache
         id: elixir-cache
         uses: actions/cache@v2.1.6
@@ -78,6 +109,10 @@ jobs:
         if: steps.elixir-cache.outputs.cache-hit != 'true'
         run: |
           ./run dc:run bash -c "MIX_ENV=test mix compile"
+
+      # ---------------------------------------------- #
+      #                   Application                  #
+      # ---------------------------------------------- #
 
       - name: Test
         run: |
