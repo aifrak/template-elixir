@@ -1,7 +1,7 @@
-FROM hexpm/elixir:1.12.1-erlang-24.0.2-ubuntu-focal-20210325 as elixir
+FROM hexpm/elixir:1.12.2-erlang-24.0.2-ubuntu-focal-20210325 as elixir
 
 FROM node:16.3.0-buster as node
-RUN npm install -g npm@7.19.0 --quiet
+RUN npm install -g npm@7.19.1 --quiet
 
 FROM koalaman/shellcheck:v0.7.2 as shellcheck
 FROM mvdan/shfmt:v3.3.0 as shfmt
