@@ -54,7 +54,7 @@ jobs:
           mv ${{ env.CACHE_NEW }} ${{ env.CACHE_OLD }}
 
       - name: Build Elixir cache
-        id: cache-elixir
+        id: elixir-cache
         uses: actions/cache@v2.1.6
         with:
           path: |
@@ -65,22 +65,24 @@ jobs:
             ${{ runner.os }}-mix-
 
       - name: Install Elixir dependencies
-        if: steps.cache-elixir.outputs.cache-hit != 'true'
+        if: steps.elixir-cache.outputs.cache-hit != 'true'
         run: |
           ./run dc:run mix deps.get
 
       - name: Compile Elixir application (dev)
-        if: steps.cache-elixir.outputs.cache-hit != 'true'
+        if: steps.elixir-cache.outputs.cache-hit != 'true'
         run: |
           ./run dc:run mix compile
 
       - name: Compile Elixir application (test)
-        if: steps.cache-elixir.outputs.cache-hit != 'true'
+        if: steps.elixir-cache.outputs.cache-hit != 'true'
         run: |
           ./run dc:run bash -c "MIX_ENV=test mix compile"
 
       - name: Test
-        run: ./run dc:run ./run test
+        run: |
+          ./run dc:run ./run test
 
       - name: Lint
-        run: ./run dc:run ./run lint
+        run: |
+          ./run dc:run ./run lint
