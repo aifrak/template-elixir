@@ -10,5 +10,6 @@ services:
         USER_UID: ${USER_UID:-1000}
         USER_GID: ${USER_GID:-1000}
     user: ${USER_UID:-1000}:${USER_GID:-1000}
+    command: sleep infinity
     volumes:
       - .:/app
