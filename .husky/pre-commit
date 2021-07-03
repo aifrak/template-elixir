@@ -1,4 +1,10 @@
 #!/bin/sh
+
+# shellcheck source=.husky/_/husky.sh
 . "$(dirname "$0")/_/husky.sh"
+
+if [ "${INSIDE_DOCKER:-0}" -ne 1 ]; then
+  ./run dc:build
+fi
 
 ./run pre-commit

@@ -47,11 +47,25 @@
       "detail": "Build all docker services"
     },
     {
+      "label": "dc:exec",
+      "type": "shell",
+      "command": "./run dc:exec",
+      "problemMatcher": [],
+      "detail": "Execute a command in a 'app' docker service"
+    },
+    {
       "label": "dc:run",
       "type": "shell",
       "command": "./run dc:run ${input:cmd}",
       "problemMatcher": [],
       "detail": "Run a command inside the 'app' docker service and remove stopped containers"
+    },
+    {
+      "label": "dc:up",
+      "type": "shell",
+      "command": "./run dc:up",
+      "problemMatcher": [],
+      "detail": "Starts all docker services"
     },
     /* -------------------------------------------- */
     /*                      Dev                     */

@@ -5,4 +5,3 @@ services:
     image: aifrak/template-elixir:dev
     build:
       target: dev
-    command: sleep infinity

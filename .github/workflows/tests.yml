@@ -57,6 +57,10 @@ jobs:
           rm -rf ${{ env.CACHE_OLD }}
           mv ${{ env.CACHE_NEW }} ${{ env.CACHE_OLD }}
 
+      - name: Starts all docker services
+        run: |
+          ./run dc:up
+
       # ---------------------------------------------- #
       #                     NodeJS                     #
       # ---------------------------------------------- #
@@ -73,7 +77,7 @@ jobs:
       - name: Install node modules
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:run bash -c "npm ci --quiet && touch node_modules/.gitkeep"
+          ./run dc:exec bash -c "npm ci --quiet && touch node_modules/.gitkeep"
 
       # ---------------------------------------------- #
       #                     Elixir                     #
@@ -93,17 +97,17 @@ jobs:
       - name: Install Elixir dependencies
         if: steps.elixir-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:run mix deps.get
+          ./run dc:exec mix deps.get
 
       - name: Compile Elixir application (dev)
         if: steps.elixir-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:run mix compile
+          ./run dc:exec mix compile
 
       - name: Compile Elixir application (test)
         if: steps.elixir-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:run bash -c "MIX_ENV=test mix compile"
+          ./run dc:exec bash -c "MIX_ENV=test mix compile"
 
       # ---------------------------------------------- #
       #                   Application                  #
@@ -111,8 +115,8 @@ jobs:
 
       - name: Test
         run: |
-          ./run dc:run ./run test
+          ./run dc:exec ./run test
 
       - name: Lint
         run: |
-          ./run dc:run ./run lint
+          ./run dc:exec ./run lint
