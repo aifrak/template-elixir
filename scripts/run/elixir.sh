@@ -36,7 +36,13 @@ function elixir:test {
 }
 
 function elixir:version {
-  mix run --no-mix-exs -e "IO.puts(System.version)"
+  mix run \
+    --no-compile \
+    --no-deps-check \
+    --no-archives-check \
+    --no-mix-exs \
+    --no-start \
+    -e "IO.puts(System.version)"
 }
 
 # ---------------------------------------------- #
