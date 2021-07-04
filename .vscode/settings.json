@@ -140,6 +140,7 @@
     "chmod",
     "deps",
     "editorconfig",
+    "eval",
     "gitkeep",
     "gnupg",
     "hadolint",
@@ -166,11 +167,13 @@
     "esbenp",
     "exiasr",
     "fkirc",
+    "fwrite",
     "hexpm",
     "jakebecker",
     "koalaman",
     "mvdan",
     "nosborn",
+    "noshell",
     "softprops",
     "tvdias"
   ]

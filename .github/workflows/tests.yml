@@ -10,8 +10,8 @@ jobs:
     env:
       IMAGE_TARGET: base
       IMAGE_TAG: aifrak/template-elixir:latest
-      CACHE_OLD: /tmp/.buildx-cache
-      CACHE_NEW: /tmp/.buildx-cache-new
+      DOCKER_CACHE_OLD: /tmp/.buildx-cache
+      DOCKER_CACHE_NEW: /tmp/.buildx-cache-new
 
     steps:
       - name: Checkout
@@ -46,16 +46,16 @@ jobs:
           build-args: |
             USER_UID=${{ env.USER_UID }}
             USER_GID=${{ env.USER_GID }}
-          cache-from: type=local,src=${{ env.CACHE_OLD }}
-          cache-to: type=local,dest=${{ env.CACHE_NEW }}
+          cache-from: type=local,src=${{ env.DOCKER_CACHE_OLD }}
+          cache-to: type=local,dest=${{ env.DOCKER_CACHE_NEW }}
 
       # Temp fix
       # https://github.com/docker/build-push-action/issues/252
       # https://github.com/moby/buildkit/issues/1896
       - name: Move Docker cache
         run: |
-          rm -rf ${{ env.CACHE_OLD }}
-          mv ${{ env.CACHE_NEW }} ${{ env.CACHE_OLD }}
+          rm -rf ${{ env.DOCKER_CACHE_OLD }}
+          mv ${{ env.DOCKER_CACHE_NEW }} ${{ env.DOCKER_CACHE_OLD }}
 
       - name: Starts all docker services
         run: |
@@ -65,14 +65,18 @@ jobs:
       #                     NodeJS                     #
       # ---------------------------------------------- #
 
+      - name: Add NodeJS version as environment variable
+        run: |
+          echo "NODE_VERSION=$(./run dc:exec npm -v)" >> $GITHUB_ENV
+
       - name: Build node modules cache
         uses: actions/cache@v2.1.6
         id: node-modules-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
       - name: Install node modules
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
@@ -83,6 +87,11 @@ jobs:
       #                     Elixir                     #
       # ---------------------------------------------- #
 
+      - name: Add Elixir and Erlang versions as environment variables
+        run: |
+          echo "ELIXIR_VERSION=$(./run dc:exec ./run elixir:version)" >> $GITHUB_ENV
+          echo "ERLANG_VERSION=$(./run dc:exec ./run erlang:version)" >> $GITHUB_ENV
+
       - name: Build Elixir cache
         id: elixir-cache
         uses: actions/cache@v2.1.6
@@ -90,9 +99,9 @@ jobs:
           path: |
             deps
             _build
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-mix-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: |
-            ${{ runner.os }}-mix-
+            ${{ runner.os }}-mix-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-
 
       - name: Install Elixir dependencies
         if: steps.elixir-cache.outputs.cache-hit != 'true'
