@@ -81,6 +81,8 @@ USER ${USERNAME}
 
 WORKDIR ${APP_DIR}
 
+ENV CI=true
+
 CMD [ "bash" ]
 
 FROM base as dev
@@ -101,6 +103,8 @@ RUN set -e \
   && apt-get clean \
   && apt-get autoremove \
   && rm -rf /var/lib/apt/lists/*
+
+ENV CI=false
 
 USER ${USERNAME}
 

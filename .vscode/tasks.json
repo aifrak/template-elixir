@@ -21,6 +21,14 @@
       "detail": "Install all dependencies"
     },
     {
+      "label": "install-husky",
+      "type": "shell",
+      "command": "./run",
+      "args": ["install-husky"],
+      "problemMatcher": [],
+      "detail": "Install husky"
+    },
+    {
       "label": "lint",
       "type": "shell",
       "command": "./run",
