@@ -5,6 +5,8 @@
 
 if [ "${INSIDE_DOCKER:-0}" -ne 1 ]; then
   ./run dc:build
+  ./run dc:up
+  ./run install-deps
 fi
 
 ./run pre-commit
