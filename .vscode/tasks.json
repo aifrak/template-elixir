@@ -13,6 +13,14 @@
       "detail": "Format code of the whole project"
     },
     {
+      "label": "install-deps",
+      "type": "shell",
+      "command": "./run",
+      "args": ["install-deps"],
+      "problemMatcher": [],
+      "detail": "Install all dependencies"
+    },
+    {
       "label": "lint",
       "type": "shell",
       "command": "./run",
@@ -71,14 +79,6 @@
     /*                      Dev                     */
     /* -------------------------------------------- */
     {
-      "label": "dev:code",
-      "type": "shell",
-      "command": "./run",
-      "args": ["dev:code"],
-      "problemMatcher": [],
-      "detail": "Build, run a command and down a docker service"
-    },
-    {
       "label": "dev:dc",
       "type": "shell",
       "command": "./run",
@@ -93,6 +93,14 @@
       "args": ["dev:build"],
       "problemMatcher": [],
       "detail": "Build docker service with development configuration"
+    },
+    {
+      "label": "dev:code",
+      "type": "shell",
+      "command": "./run",
+      "args": ["dev:code"],
+      "problemMatcher": [],
+      "detail": "Build, run a command and down a docker service"
     },
     /* -------------------------------------------- */
     /*                    Elixir                    */
