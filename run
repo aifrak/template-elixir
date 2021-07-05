@@ -25,6 +25,7 @@ $0 [command] [options...]
 
 Main commands:
   format                     Format code of the whole project
+  install-deps               Install all dependencies
   lint                       Lint the whole project
   pre-commit                 Format, lint and test the whole project
   test                       Test the whole project
@@ -36,9 +37,9 @@ docker-compose commands:
   dc:up                      Starts all docker services
 
 Dev commands:
+  dev:build                  Build docker service with development configuration
   dev:code                   Prepare docker services for development environment
   dev:dc                     Run docker-compose with development configuration
-  dev:build                  Build docker service with development configuration
 EOF
 
   elixir:help
@@ -115,6 +116,15 @@ function pre-commit {
     test
   else
     dc:exec ./run pre-commit
+  fi
+}
+
+function install-deps {
+  if is_inside_docker; then
+    npm install --quiet
+    mix deps.get
+  else
+    dc:exec ./run install-deps
   fi
 }
 
