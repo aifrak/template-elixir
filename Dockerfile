@@ -1,4 +1,8 @@
 FROM hexpm/elixir:1.12.2-erlang-24.0.2-ubuntu-focal-20210325 as elixir
+# Install hex and rebar
+RUN set -e \
+  && mix local.hex --force \
+  && mix local.rebar --force
 
 FROM node:16.3.0-buster as node
 RUN npm install -g npm@7.19.1 --quiet
@@ -33,6 +37,23 @@ RUN set -e \
 # Added here instead before `locale-gen` to avoid warnings
 ENV LC_ALL=${LANG}
 
+ENV USERNAME=app-user
+ARG GROUPNAME=${USERNAME}
+ARG USER_UID=1000
+ARG USER_GID=${USER_UID}
+
+ENV HOME=/home/${USERNAME}
+ENV APP_DIR=/app
+
+# 1. Add username and groupname
+# 2. Create project directory and add ownership
+RUN set -e \
+  && groupadd --gid ${USER_GID} ${GROUPNAME} \
+  && useradd --uid ${USER_UID} --gid ${USER_GID} --shell /bin/bash \
+    --create-home ${USERNAME} \
+  && mkdir ${APP_DIR} \
+  && chown ${USERNAME}: ${APP_DIR}
+
 # Add shellcheck
 COPY --from=shellcheck --chown=root /bin/shellcheck /usr/local/bin/
 
@@ -54,32 +75,11 @@ RUN find /usr/local/bin/. -xtype l -exec rm {} \; 2>/dev/null
 COPY --from=elixir --chown=root /usr/local/bin /usr/local/bin
 COPY --from=elixir --chown=root /usr/local/lib /usr/local/lib
 COPY --from=elixir --chown=root /usr/local/sbin /usr/local/sbin
-
-ENV USERNAME=app-user
-ARG GROUPNAME=${USERNAME}
-ARG USER_UID=1000
-ARG USER_GID=${USER_UID}
-
-ENV HOME=/home/${USERNAME}
-ENV APP_DIR=/app
-
-# 1. Add username and groupname
-# 2. Create project directory and add ownership
-RUN set -e \
-  && groupadd --gid ${USER_GID} ${GROUPNAME} \
-  && useradd --uid ${USER_UID} --gid ${USER_GID} --shell /bin/bash \
-    --create-home ${USERNAME} \
-  && mkdir ${APP_DIR} \
-  && chown ${USERNAME}: ${APP_DIR}
+COPY --from=elixir --chown=${USERNAME} /root/.mix ${HOME}/.mix
 
 USER ${USERNAME}
 
 WORKDIR ${APP_DIR}
-
-# Install hex and rebar
-RUN set -e \
-  && mix local.hex --force \
-  && mix local.rebar --force
 
 CMD [ "bash" ]
 
