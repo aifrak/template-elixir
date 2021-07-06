@@ -3,7 +3,7 @@
 # shellcheck source=.husky/_/husky.sh
 . "$(dirname "$0")/_/husky.sh"
 
-if [ "${INSIDE_DOCKER:-0}" -ne 1 ]; then
+if [ -n "$INSIDE_DOCKER" ]; then
   ./run dc:build
   ./run dc:up
   ./run install-deps

@@ -7,14 +7,6 @@ set -euo pipefail
 . ./scripts/run/shell.sh
 . ./scripts/lib/utils.sh
 
-# If we're running in CI we need to disable TTY allocation for docker-compose
-# commands that enable it by default, such as exec and run.
-# Idea from: https://github.com/nickjj/docker-flask-example/blob/main/run
-TTY=""
-if [[ ! -t 1 ]] || [[ ${CI:-false} = true ]]; then
-  TTY="-T"
-fi
-
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
@@ -26,6 +18,7 @@ $0 [command] [options...]
 Main commands:
   format                     Format code of the whole project
   install-deps               Install all dependencies
+  install-husky              Install husky
   lint                       Lint the whole project
   pre-commit                 Format, lint and test the whole project
   test                       Test the whole project
@@ -60,6 +53,22 @@ function is_inside_docker {
     return 1
   fi
 }
+
+function is_ci {
+  if [[ "${CI:-false}" = true ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+# If we're running in CI we need to disable TTY allocation for docker-compose
+# commands that enable it by default, such as exec and run.
+# Idea from: https://github.com/nickjj/docker-flask-example/blob/main/run
+TTY=""
+if [[ ! -t 1 ]] || is_ci; then
+  TTY="-T"
+fi
 
 # ---------------------------------------------- #
 #                      Main                      #
@@ -125,6 +134,14 @@ function install-deps {
     mix deps.get
   else
     dc:exec ./run install-deps
+  fi
+}
+
+function install-husky {
+  if is_ci; then
+    warning "skip husky install"
+  else
+    npx husky install
   fi
 }
 
