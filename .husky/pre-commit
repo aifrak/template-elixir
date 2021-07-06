@@ -4,9 +4,10 @@
 . "$(dirname "$0")/_/husky.sh"
 
 if [ -n "$INSIDE_DOCKER" ]; then
-  ./run dc:build
-  ./run dc:up
-  ./run install-deps
+  npx lint-staged
+else
+  ./run dev:build
+  ./run dev:up
+  ./run dev:exec ./run install-deps
+  ./run dev:exec npx lint-staged
 fi
-
-./run pre-commit

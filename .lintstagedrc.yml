@@ -1,0 +1,24 @@
+"*.{ex,exs}":
+  - ./run elixir:format
+  - ./run elixir:lint
+
+"*.html.{eex,leex}":
+  - ./run elixir:eex:format
+  - ./run elixir:eex:lint
+
+"{run,pre-commit,*.sh}":
+  - ./run shell:format
+  - ./run shell:lint
+
+"Dockerfile*":
+  - ./run dockerfile:format
+  - ./run dockerfile:lint
+
+"*.{json,yaml,yml}":
+  - ./run prettier:format
+  - ./run prettier:lint
+
+"*.md":
+  - ./run prettier:format
+  - ./run prettier:lint
+  - ./run markdown:lint

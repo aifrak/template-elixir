@@ -11,7 +11,7 @@ insert_final_newline = true
 max_line_length = 80
 quote_type = auto
 
-[{*.ex,*.exs}]
+[*.{ex,exs}]
 max_line_length = 98
 
 [{*.html.eex,*.html.leex}]
@@ -21,8 +21,8 @@ max_line_length = 120
 binary_next_line = true
 switch_case_indent = true
 
-[{Dockerfile*,*.dockerfile}]
+[Dockerfile*]
 binary_next_line = true
 
-[{*.md,*.markdown}]
+[*.md]
 trim_trailing_whitespace = false

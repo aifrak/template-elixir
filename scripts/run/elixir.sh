@@ -23,12 +23,18 @@ EOF
 # ---------------------------------------------- #
 
 function elixir:lint {
-  mix credo
-  mix format --check-formatted
+  local status=0
+
+  mix credo "${@}" || status=${?}
+  mix format --check-formatted "${@}" || status=${?}
+
+  if [[ ${status} -ne 0 ]]; then
+    exit ${status}
+  fi
 }
 
 function elixir:format {
-  mix format
+  mix format "${@}"
 }
 
 function elixir:test {
@@ -56,11 +62,11 @@ function prettier-eex {
 }
 
 function elixir:eex:lint {
-  prettier-eex --check .
+  prettier-eex --check "${@:-.}"
 }
 
 function elixir:eex:format {
-  prettier-eex --list-different --write .
+  prettier-eex --list-different --write "${@:-.}"
 }
 
 # ---------------------------------------------- #
