@@ -12,9 +12,9 @@ EOF
 }
 
 function dockerfile:lint {
-  hadolint "${dockerfile_globs[@]}"
+  hadolint "${@:-${dockerfile_globs[@]}}"
 }
 
 function dockerfile:format {
-  shfmt -w "${dockerfile_globs[@]}"
+  shfmt -w "${@:-${dockerfile_globs[@]}}"
 }

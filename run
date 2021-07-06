@@ -4,6 +4,8 @@ set -euo pipefail
 
 . ./scripts/run/docker-file.sh
 . ./scripts/run/elixir.sh
+. ./scripts/run/markdown.sh
+. ./scripts/run/prettier.sh
 . ./scripts/run/shell.sh
 . ./scripts/lib/utils.sh
 
@@ -33,9 +35,13 @@ Dev commands:
   dev:build                  Build docker service with development configuration
   dev:code                   Prepare docker services for development environment
   dev:dc                     Run docker-compose with development configuration
+  dev:exec                   Execute a command in a "app" docker service for development environment
+  dev:up                     Starts all docker services for development environment
 EOF
 
   elixir:help
+  markdown:help
+  prettier:help
   shell:help
   dockerfile:help
 }
@@ -83,6 +89,7 @@ function test {
 }
 
 function lint {
+  # shellcheck disable=SC2119
   if is_inside_docker; then
     local status=0
 
@@ -90,8 +97,8 @@ function lint {
     elixir:eex:lint || status=${?}
     shell:lint || status=${?}
     dockerfile:lint || status=${?}
-    npx markdownlint . || status=${?}
-    npx prettier --check . || status=${?}
+    markdown:lint || status=${?}
+    prettier:lint || status=${?}
 
     if [[ ${status} -eq 0 ]]; then
       success "✔ Project linted"
@@ -105,12 +112,13 @@ function lint {
 }
 
 function format {
+  # shellcheck disable=SC2119
   if is_inside_docker; then
     elixir:format
     elixir:eex:format
     shell:format
     dockerfile:format
-    npx prettier --list-different --write .
+    prettier:format
 
     success "✔ Project formatted"
   else
@@ -177,8 +185,8 @@ dev_dc_options=(
 
 function dev:code {
   dev:build
-  dev:dc up -d --remove-orphans
-  dev:dc exec app bash
+  dev:up
+  dev:exec bash
 }
 
 function dev:dc {
@@ -187,6 +195,14 @@ function dev:dc {
 
 function dev:build {
   docker buildx bake "${dev_dc_options[@]}"
+}
+
+function dev:exec {
+  dev:dc exec ${TTY} app "${@}"
+}
+
+function dev:up {
+  dev:dc up -d --remove-orphans
 }
 
 # Idea from: https://github.com/adriancooney/Taskfile

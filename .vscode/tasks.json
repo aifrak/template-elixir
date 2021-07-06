@@ -110,6 +110,20 @@
       "problemMatcher": [],
       "detail": "Build, run a command and down a docker service"
     },
+    {
+      "label": "dev:exec",
+      "type": "shell",
+      "command": "./run dev:exec",
+      "problemMatcher": [],
+      "detail": "Execute a command in a 'app' docker service for development environment"
+    },
+    {
+      "label": "dev:up",
+      "type": "shell",
+      "command": "./run dev:up",
+      "problemMatcher": [],
+      "detail": "Starts all docker services for development environment"
+    },
     /* -------------------------------------------- */
     /*                    Elixir                    */
     /* -------------------------------------------- */
