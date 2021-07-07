@@ -12,6 +12,6 @@
     "npm": "7"
   },
   "scripts": {
-    "prepare": "./run install-husky"
+    "prepare": "husky install"
   }
 }
