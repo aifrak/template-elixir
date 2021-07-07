@@ -17,3 +17,5 @@ jobs:
           approve: true
           merge-minor: true
           merge-patch: true
+          merge-preminor: true
+          merge-prepatch: true
