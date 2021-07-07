@@ -154,6 +154,8 @@
     "noninteractive",
     "nopasswd",
     "npmrc",
+    "preminor",
+    "prepatch",
     "prettierignore",
     "rebar",
     "sbin",
