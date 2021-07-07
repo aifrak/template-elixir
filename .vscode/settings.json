@@ -140,6 +140,7 @@
     "buildx",
     "chmod",
     "deps",
+    "doctest",
     "editorconfig",
     "eval",
     "gitkeep",
