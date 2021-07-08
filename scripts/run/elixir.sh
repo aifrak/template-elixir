@@ -4,17 +4,17 @@ function elixir:help {
   cat <<EOF
 
 Elixir commands:
-  elixir:format              Format Elixir files
-  elixir:lint                Lint Elixir files
-  elixir:test                Test Elixir files
-  elixir:version             Show Elixir version
+  elixir:format               Format Elixir files
+  elixir:lint                 Lint Elixir files
+  elixir:test                 Test Elixir files
+  elixir:version              Show Elixir version
 
 Elixir EEx commands:
-  elixir:eex:format          Format Embedded Elixir files
-  elixir:eex:lint            Lint Embedded Elixir files
+  elixir:eex:format           Format Embedded Elixir files
+  elixir:eex:lint             Lint Embedded Elixir files
 
 Erlang commands:
-  erlang:format              Show Erlang version
+  erlang:format               Show Erlang version
 EOF
 }
 

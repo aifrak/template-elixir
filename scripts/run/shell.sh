@@ -9,8 +9,8 @@ function shell:help {
   cat <<EOF
 
 Shell commands:
-  shell:format               Format given Shell scripts
-  shell:lint                 Lint given Shell scripts
+  shell:format                Format given Shell scripts
+  shell:lint                  Lint given Shell scripts
 EOF
 }
 

@@ -18,7 +18,8 @@ USER root
 ENV INSIDE_DOCKER=1
 ENV LANG=en_US.UTF-8
 
-# 1. Install erlang dependencies
+# 1. Install dependencies
+#   - erlang: libodbc1, libssl1, libsctp1
 # 2. Install `locales` package and setup locale
 # 3. Clean
 RUN set -e \
