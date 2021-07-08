@@ -16,15 +16,14 @@
 
 ### Development without VSCode
 
-1. Run `./run dev:code` to enter the container.
+1. Run `./run dc:console --dev` to enter the container.
 1. Run `./run install-deps` to install all dependencies.
 1. Run `./run help` to see all commands for this project.
 
 ## UID and GID inside the container
 
 You can change the user's UID/GID inside the container, you can export the
-variables `USER_UID` and/or `USER_GID`. This can be used when using
-`./run dev:...`.
+variables `USER_UID` and/or `USER_GID`.
 
 ```bash
 export USER_UID=1000 USER_GID=1000; ./run dev:code
