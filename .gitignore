@@ -3,7 +3,6 @@
 
 # Node
 node_modules/
-.npm-cache/
 
 # Elixir
 _build/
