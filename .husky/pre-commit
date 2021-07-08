@@ -7,9 +7,9 @@ if [ -n "$INSIDE_DOCKER" ]; then
   npx lint-staged
   ./run test
 else
-  ./run dc:build --dev
-  ./run dc:up --dev
-  ./run dc:exec --dev ./run install-deps
-  ./run dc:exec --dev npx lint-staged
-  ./run dc:exec --dev ./run test
+  ./run --dev dc:build
+  ./run --dev dc:up
+  ./run --dev dc:exec ./run install-deps
+  ./run --dev dc:exec npx lint-staged
+  ./run --dev dc:exec ./run test
 fi

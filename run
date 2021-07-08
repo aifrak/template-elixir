@@ -17,7 +17,10 @@ function help {
 
 $0 [command] [--dev] [sub-command]
 
-Example: $0 dc:exec --dev ./run test
+Example: $0 --dev dc:exec ./run test
+
+Options:
+  --dev                      Use "dev" file when docker compose
 
 Main commands:
   format                     Format code of the whole project
@@ -178,25 +181,19 @@ function dc:console {
   dc:exec bash
 }
 
-function parse_dc_options {
-  for opt in "${@}"; do
-    case ${opt} in
-      --dev) dc_options=("${dev_dc_options[@]}") ;;
-
-      --* | -*) alert_die "Unknown option ${opt}" ;;
-
-      *) args+=("${opt}") ;;
-    esac
-  done
-}
-
 # ---------------------------------------------- #
 #                       run                      #
 # ---------------------------------------------- #
-args=()
 
-parse_dc_options "${@}"
+for opt in "${@}"; do
+  case ${opt} in
+    --dev)
+      dc_options=("${dev_dc_options[@]}")
+      shift
+      ;;
+  esac
+done
 
 # Idea from: https://github.com/adriancooney/Taskfile
 TIMEFORMAT=$'\nTask completed in %3lR'
-time "${args:-help}"
+time "${@:-help}"
