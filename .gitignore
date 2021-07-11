@@ -1,8 +1,11 @@
 # VSCode
 .history/
 
-# Node
+# NodeJS
 node_modules/
+
+# Docker compose
+docker-compose.override.yml
 
 # Elixir
 _build/
