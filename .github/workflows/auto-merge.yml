@@ -2,16 +2,20 @@ name: Dependabot auto merge
 
 on:
   workflow_run:
-    workflows: ["Tests"]
+    workflows: ["CI"]
     types:
       - completed
 
 jobs:
   auto-merge:
     runs-on: ubuntu-20.04
-    if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' && github.actor == 'dependabot[bot]' }}
+    if: >
+      ${{ github.event.workflow_run.event == 'pull_request'
+      && github.event.workflow_run.conclusion == 'success'
+      && github.actor == 'dependabot[bot]' }}
     steps:
       - name: Dependabot auto merge
-        uses: fastify/github-action-merge-dependabot@v2.2.0
+        uses: jo-sm/at-dependabot-merge@v1.2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          token: ${{ secrets.AUTO_MERGE_TOKEN }}
