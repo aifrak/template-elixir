@@ -1,4 +1,4 @@
-name: Tests
+name: CI
 
 on: [pull_request, push]
 
@@ -129,3 +129,12 @@ jobs:
       - name: Lint
         run: |
           ./run dc:exec ./run lint
+
+  auto-merge:
+    needs: tests
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Dependabot auto merge
+        uses: fastify/github-action-merge-dependabot@v2.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
