@@ -136,6 +136,6 @@ jobs:
     steps:
       - name: Dependabot auto merge
         uses: fastify/github-action-merge-dependabot@v2.2.0
-        if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
+        if: ${{ github.actor == 'dependabot[bot]' }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
