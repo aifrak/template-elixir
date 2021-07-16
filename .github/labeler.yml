@@ -1,0 +1,60 @@
+# ---------------------------------------------- #
+#                Labels by purpose               #
+# ---------------------------------------------- #
+
+source:
+  - lib/**/*
+
+tests:
+  - test/**/*
+
+dependencies:
+  - package*.json
+  - mix.exs
+  - mix.lock
+
+documentation:
+  - ./**/*.md
+
+chore:
+  - .credo.exs
+  - .devcontainer
+  - .editorconfig
+  - .formatter.exs
+  - .gitignore
+  - .hadolint*
+  - .husky/**/*
+  - .lintstaged*
+  - .markdownlint*
+  - .npmrc
+  - .prettier*
+  - .vscode/**/*
+  - scripts/**/*
+  - run
+  - LICENSE
+
+# ---------------------------------------------- #
+#         Labels by technology / language        #
+# ---------------------------------------------- #
+
+docker:
+  - .dockerignore
+  - docker-compose*.yml
+  - Dockerfile*
+
+elixir:
+  - ./**/*.ex
+  - ./**/*.exs
+  - ./**/*.html.eex
+  - ./**/*.html.leex
+
+github_actions:
+  - .github/**/*
+
+shellscript:
+  - pre-commit
+  - run
+  - ./**/*.sh
+
+vscode:
+  - .vscode/**/*
