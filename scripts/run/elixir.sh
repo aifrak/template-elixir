@@ -55,10 +55,8 @@ function elixir:version {
 #                   Elixir EEx                   #
 # ---------------------------------------------- #
 
-eex_globs=(
-  "**/*.eex"
-  "**/*.leex"
-)
+# NOTE: Avoid error "No files matching the pattern were found" by adding prettierrc.yml
+eex_glob="**/*.{eex,leex,prettierrc.yml}"
 
 # Prettier 2.2 version for Embedded Elixir files
 function prettier-eex {
@@ -67,11 +65,11 @@ function prettier-eex {
 }
 
 function elixir:eex:lint {
-  prettier-eex --check "${@:-${eex_globs[@]}}"
+  prettier-eex --check "${@:-${eex_glob}}"
 }
 
 function elixir:eex:format {
-  prettier-eex --list-different --write "${@:-${eex_globs[@]}}"
+  prettier-eex --list-different --write "${@:-${eex_glob}}"
 }
 
 # ---------------------------------------------- #

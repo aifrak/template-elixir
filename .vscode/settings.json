@@ -167,6 +167,7 @@
     "preminor",
     "prepatch",
     "prettierignore",
+    "prettierrc",
     "rebar",
     "sbin",
     "semver",
