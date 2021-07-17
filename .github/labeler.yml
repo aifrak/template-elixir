@@ -9,24 +9,25 @@ tests:
   - test/**/*
 
 dependencies:
-  - package*.json
-  - mix.exs
-  - mix.lock
+  - "**/package*.json"
+  - "**/mix.exs"
+  - "**/mix.lock"
 
 documentation:
-  - ./**/*.md
+  - "**/*.md"
 
 chore:
-  - .credo.exs
+  - "**/.credo.exs"
+  - "**/.formatter.exs"
   - .devcontainer
   - .editorconfig
-  - .formatter.exs
-  - .gitignore
+  - "**/.gitignore"
+  - "**/.gitkeep"
   - .hadolint*
   - .husky/**/*
   - .lintstaged*
   - .markdownlint*
-  - .npmrc
+  - "**/.npmrc"
   - .prettier*
   - .vscode/**/*
   - scripts/**/*
@@ -47,30 +48,30 @@ docker:
   - Dockerfile*
 
 elixir:
-  - ./**/*.ex
-  - ./**/*.exs
+  - "**/*.ex"
+  - "**/*.exs"
   - "**/*.eex"
   - "**/*.leex"
-  - .credo.exs
-  - .formatter.exs
-  - mix.exs
-  - mix.lock
+  - "**/.credo.exs"
+  - "**/.formatter.exs"
+  - "**/mix.exs"
+  - "**/mix.lock"
 
 github_actions:
   - .github/**/*
 
 html:
-  - "**/*.html"
+  - "**/*.html*"
 
 javascript:
-  - ./**/*.js
-  - .npmrc
-  - package*.json
+  - "**/*.js"
+  - "**/.npmrc"
+  - "**/package*.json"
 
 shellscript:
   - pre-commit
   - run
-  - ./**/*.sh
+  - "**/*.sh"
 
 vscode:
   - .vscode/**/*
