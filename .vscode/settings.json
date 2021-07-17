@@ -147,6 +147,7 @@
     "chmod",
     "deps",
     "devcontainer",
+    "dockerfiles",
     "dockerignore",
     "doctest",
     "editorconfig",
