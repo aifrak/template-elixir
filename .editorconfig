@@ -14,7 +14,7 @@ quote_type = auto
 [*.{ex,exs}]
 max_line_length = 98
 
-[{*.html.eex,*.html.leex}]
+[*.{html,eex,leex}]
 max_line_length = 120
 
 [{run,pre-commit,*.sh}]

@@ -1,0 +1,6 @@
+overrides:
+  - files:
+      - "*.eex"
+      - "*.leex"
+    options:
+      parser: eex

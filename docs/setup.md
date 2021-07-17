@@ -40,13 +40,13 @@ description of `remoteUser` and `updateRemoteUserUID` on this [page](https://cod
    ([more info](https://github.com/adamzapasnik/prettier-plugin-eex/issues/51))
    For this reason, two versions of `prettier` are installed with two `.prettierignore`:
    - `^2.3.x`:
-     1. used for all accepted files but `*.eex` files
+     1. used for all accepted files but `*.eex` and `*.leex` files
      1. uses `.prettierignore`
      1. used by VSCode
    - `~2.2.x`:
      1. used only for `*.eex`; all other extensions are excluded
      1. uses `.prettierignore-eex`, a copy from `.prettierignore` without
-        ignoring `*.eex` files
+        ignoring `*.eex` and `*.leex` files
      1. **not** used by VSCode
 
 ## FAQ

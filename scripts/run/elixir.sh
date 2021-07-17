@@ -55,6 +55,11 @@ function elixir:version {
 #                   Elixir EEx                   #
 # ---------------------------------------------- #
 
+eex_globs=(
+  "**/*.eex"
+  "**/*.leex"
+)
+
 # Prettier 2.2 version for Embedded Elixir files
 function prettier-eex {
   ./node_modules/prettier2.2/bin-prettier.js \
@@ -62,11 +67,11 @@ function prettier-eex {
 }
 
 function elixir:eex:lint {
-  prettier-eex --check "${@:-.}"
+  prettier-eex --check "${@:-${eex_globs[@]}}"
 }
 
 function elixir:eex:format {
-  prettier-eex --list-different --write "${@:-.}"
+  prettier-eex --list-different --write "${@:-${eex_globs[@]}}"
 }
 
 # ---------------------------------------------- #
