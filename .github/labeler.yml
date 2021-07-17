@@ -47,9 +47,18 @@ elixir:
   - ./**/*.exs
   - ./**/*.html.eex
   - ./**/*.html.leex
+  - .credo.exs
+  - .formatter.exs
+  - mix.exs
+  - mix.lock
 
 github_actions:
   - .github/**/*
+
+javascript:
+  - ./**/*.js
+  - .npmrc
+  - package*.json
 
 shellscript:
   - pre-commit
