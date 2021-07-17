@@ -1,12 +1,15 @@
+# Labels for action/labeler
+
 # ---------------------------------------------- #
 #                Labels by purpose               #
 # ---------------------------------------------- #
 
 source:
-  - lib/**/*
+  - "**/lib/**/*"
+  - "!scripts/lib/**/*"
 
 tests:
-  - test/**/*
+  - "**/test/**/*"
 
 dependencies:
   - "**/package*.json"
