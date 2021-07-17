@@ -88,6 +88,9 @@
   "[html-eex]": {
     "editor.rulers": [120]
   },
+  "[html]": {
+    "editor.rulers": [120]
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -164,6 +167,7 @@
     "preminor",
     "prepatch",
     "prettierignore",
+    "prettierrc",
     "rebar",
     "sbin",
     "semver",

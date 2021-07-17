@@ -33,6 +33,10 @@ chore:
   - run
   - LICENSE
 
+template:
+  - "**/*.eex"
+  - "**/*.leex"
+
 # ---------------------------------------------- #
 #         Labels by technology / language        #
 # ---------------------------------------------- #
@@ -45,8 +49,8 @@ docker:
 elixir:
   - ./**/*.ex
   - ./**/*.exs
-  - ./**/*.html.eex
-  - ./**/*.html.leex
+  - "**/*.eex"
+  - "**/*.leex"
   - .credo.exs
   - .formatter.exs
   - mix.exs
@@ -54,6 +58,9 @@ elixir:
 
 github_actions:
   - .github/**/*
+
+html:
+  - "**/*.html"
 
 javascript:
   - ./**/*.js

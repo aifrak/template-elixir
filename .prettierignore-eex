@@ -13,7 +13,5 @@ doc/
 .elixir_ls/
 
 # see ./docs/setup.md in "Known issues" section
-*.md
-*.json
-*.yaml
-*.yml
+!*.eex
+!*.leex

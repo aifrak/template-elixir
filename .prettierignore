@@ -13,5 +13,5 @@ doc/
 .elixir_ls/
 
 # see ./docs/setup.md in "Known issues" section
-*.html.eex
-*.html.leex
+*.eex
+*.leex
