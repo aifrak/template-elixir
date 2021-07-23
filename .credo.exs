@@ -9,10 +9,7 @@
       strict: true,
       checks: [
         {Credo.Check.Design.AliasUsage, []},
-        # Avoid vscode-elixir-credo showing warnings wherease credo excludes ".exs" files.
-        # see: https://github.com/rrrene/credo/blob/master/lib/credo/check/readability/module_doc.ex
         {Credo.Check.Readability.MaxLineLength, [max_length: 98]},
-        {Credo.Check.Readability.ModuleDoc, [files: %{excluded: ["**/*.exs"]}]},
         {Credo.Check.Warning.MixEnv, [files: %{excluded: ["mix.exs"]}]},
 
         # Controversial and experimental checks
