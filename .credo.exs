@@ -4,7 +4,8 @@
       name: "default",
       files: %{
         included: ["lib/", "test/", "mix.exs", ".credo.exs", ".formatter.exs"],
-        excluded: []
+        # HACK: Exclude mix.exs because of bug from https://github.com/rrrene/credo/issues/873
+        excluded: ["mix.exs"]
       },
       strict: true,
       checks: [
