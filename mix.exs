@@ -22,7 +22,9 @@ defmodule App.MixProject do
 
   defp deps do
     [
-      {:credo, "~> 1.5", only: [:test], runtime: false}
+      {:credo, "~> 1.5", only: [:test], runtime: false},
+      {:credo_contrib, "~> 0.2.0", only: [:test], runtime: false},
+      {:credo_naming, "~> 1.0", only: [:test], runtime: false}
     ]
   end
 end

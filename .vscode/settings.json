@@ -160,6 +160,7 @@
     "libsctp",
     "libssl",
     "lintstaged",
+    "macrocallback",
     "markdownlint",
     "mkdir",
     "noninteractive",
@@ -174,6 +175,8 @@
     "semver",
     "shellcheck",
     "shfmt",
+    "shortdoc",
+    "typep",
     "xtype"
   ],
   "cSpell.ignoreWords": [
