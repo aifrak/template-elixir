@@ -11,7 +11,6 @@ defmodule App do
 
       iex> App.hello()
       :world
-
   """
   def hello do
     :world
