@@ -108,11 +108,6 @@ jobs:
         run: |
           ./run dc:exec mix deps.get
 
-      - name: Compile Elixir application (dev)
-        if: steps.elixir-cache.outputs.cache-hit != 'true'
-        run: |
-          ./run dc:exec mix compile
-
       - name: Compile Elixir application (test)
         if: steps.elixir-cache.outputs.cache-hit != 'true'
         run: |
