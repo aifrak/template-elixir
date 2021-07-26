@@ -177,6 +177,7 @@
     "shfmt",
     "shortdoc",
     "typep",
+    "xargs",
     "xtype"
   ],
   "cSpell.ignoreWords": [
