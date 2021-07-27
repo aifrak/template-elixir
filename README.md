@@ -6,7 +6,7 @@ This is a template repository for Elixir projects.
 [![License](https://img.shields.io/github/license/aifrak/template-elixir?color=blue)](https://github.com/aifrak/template-elixir/blob/master/LICENSE)
 
 After cloning this template repository, rework the content of `README.md` and 
-rename it with this command:
+rename the project with this command:
 
 ```bash
 bash ./scripts/rename_project.sh [PROJECT_NAME] [OWNER_NAME]
