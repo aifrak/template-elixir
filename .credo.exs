@@ -3,15 +3,35 @@
     %{
       name: "default",
       files: %{
-        included: ["lib/", "test/", "mix.exs", ".credo.exs", ".formatter.exs"],
-        # HACK: Exclude mix.exs because of bug from https://github.com/rrrene/credo/issues/873
-        excluded: ["mix.exs"]
+        included: [
+          "lib/",
+          "test/",
+          "mix.exs",
+          ".credo.exs",
+          ".formatter.exs",
+          "apps/*/lib/",
+          "apps/*/test/",
+          "apps/*/mix.exs",
+          "apps/*/.credo.exs",
+          "apps/*/.formatter.exs"
+        ],
+        excluded: [
+          ~r"/.history/",
+          ~r"/_build/",
+          ~r"/deps/",
+          ~r"/node_modules/",
+          ~r"/assets/",
+          ~r"/priv/",
+          # HACK: Exclude mix.exs because of bug from https://github.com/rrrene/credo/issues/873
+          "mix.exs",
+          "apps/*/mix.exs"
+        ]
       },
       strict: true,
       checks: [
         {Credo.Check.Design.AliasUsage, []},
         {Credo.Check.Readability.MaxLineLength, [max_length: 98]},
-        {Credo.Check.Warning.MixEnv, [files: %{excluded: ["mix.exs"]}]},
+        {Credo.Check.Warning.MixEnv, [files: %{excluded: ["mix.exs", "apps/*/mix.exs"]}]},
 
         # Checks from credo_naming
         {CredoNaming.Check.Warning.AvoidSpecificTermsInModuleNames,
@@ -25,7 +45,16 @@
            ~r/^Utils?$/i
          ]},
         {CredoNaming.Check.Consistency.ModuleFilename,
-         excluded_paths: ["config", "mix.exs", "priv", "test/support"],
+         excluded_paths: [
+           "config",
+           "mix.exs",
+           "priv",
+           "test/support",
+           "apps/*/config",
+           "apps/*/mix.exs",
+           "apps/*/priv",
+           "apps/*/test/support"
+         ],
          acronyms: [{"GraphQL", "graphql"}]},
 
         # Checks from credo_contrib
@@ -47,7 +76,7 @@
         {Credo.Check.Readability.MultiAlias, []},
         {Credo.Check.Readability.SeparateAliasRequire, []},
         {Credo.Check.Readability.SinglePipe, []},
-        {Credo.Check.Readability.Specs, [files: %{excluded: ["mix.exs"]}]},
+        {Credo.Check.Readability.Specs, [files: %{excluded: ["mix.exs", "apps/*/mix.exs"]}]},
         # Base on https://github.com/christopheradams/elixir_style_guide#module-attribute-ordering
         {Credo.Check.Readability.StrictModuleLayout,
          [
