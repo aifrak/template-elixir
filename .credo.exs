@@ -16,12 +16,13 @@
           "apps/*/.formatter.exs"
         ],
         excluded: [
-          ~r"/.history/",
           ~r"/_build/",
+          ~r"/.history/",
+          ~r"/assets/",
           ~r"/deps/",
           ~r"/node_modules/",
-          ~r"/assets/",
           ~r"/priv/",
+          ~r"/vendor/",
           # HACK: Exclude mix.exs because of bug from https://github.com/rrrene/credo/issues/873
           "mix.exs",
           "apps/*/mix.exs"
