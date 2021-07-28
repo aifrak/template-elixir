@@ -13,7 +13,7 @@
   "extensions": [
     // Elixir
     "jakebecker.elixir-ls",
-    "pantajoe.vscode-elixir-credo",
+    "adamzapasnik.credo-linter",
 
     // EditorConfig
     "editorconfig.editorconfig",
