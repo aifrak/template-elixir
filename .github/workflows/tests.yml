@@ -73,8 +73,13 @@ jobs:
         uses: actions/cache@v2.1.6
         id: node-modules-cache
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
+          path: |
+            **/node_modules
+          key: "\
+            ${{ runner.os }}-node-\
+            ${{ env.NODE_VERSION }}-\
+            ${{ hashFiles('**/package-lock.json') }}\
+            "
           restore-keys: |
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
@@ -97,11 +102,19 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: |
-            deps
-            _build
-          key: ${{ runner.os }}-mix-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-${{ hashFiles('**/mix.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-mix-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-
+            **/deps
+            **/_build
+          key: "\
+            ${{ runner.os }}-mix-\
+            ${{ env.ELIXIR_VERSION }}-\
+            ${{ env.ERLANG_VERSION }}-\
+            ${{ hashFiles('**/mix.lock') }}\
+            "
+          restore-keys: "\
+            ${{ runner.os }}-mix-\
+            ${{ env.ELIXIR_VERSION }}-\
+            ${{ env.ERLANG_VERSION }}-\
+            "
 
       - name: Install Elixir dependencies
         if: steps.elixir-cache.outputs.cache-hit != 'true'
