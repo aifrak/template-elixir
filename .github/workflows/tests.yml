@@ -62,28 +62,6 @@ jobs:
           ./run dc:up
 
       # ---------------------------------------------- #
-      #                     NodeJS                     #
-      # ---------------------------------------------- #
-
-      - name: Add NodeJS version as environment variable
-        run: |
-          echo "NODE_VERSION=$(./run dc:exec npm -v)" >> $GITHUB_ENV
-
-      - name: Build node modules cache
-        uses: actions/cache@v2.1.6
-        id: node-modules-cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
-
-      - name: Install node modules
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        run: |
-          ./run dc:exec bash -c "npm ci --quiet"
-
-      # ---------------------------------------------- #
       #                     Elixir                     #
       # ---------------------------------------------- #
 
@@ -97,11 +75,19 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: |
-            deps
-            _build
-          key: ${{ runner.os }}-mix-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-${{ hashFiles('**/mix.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-mix-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-
+            **/deps
+            **/_build
+          key: "\
+            ${{ runner.os }}-mix-\
+            ${{ env.ELIXIR_VERSION }}-\
+            ${{ env.ERLANG_VERSION }}-\
+            ${{ hashFiles('**/mix.lock') }}\
+            "
+          restore-keys: "\
+            ${{ runner.os }}-mix-\
+            ${{ env.ELIXIR_VERSION }}-\
+            ${{ env.ERLANG_VERSION }}-\
+            "
 
       - name: Install Elixir dependencies
         if: steps.elixir-cache.outputs.cache-hit != 'true'
@@ -112,6 +98,33 @@ jobs:
         if: steps.elixir-cache.outputs.cache-hit != 'true'
         run: |
           ./run dc:exec bash -c "MIX_ENV=test mix compile"
+
+      # ---------------------------------------------- #
+      #                     NodeJS                     #
+      # ---------------------------------------------- #
+
+      - name: Add NodeJS version as environment variable
+        run: |
+          echo "NODE_VERSION=$(./run dc:exec npm -v)" >> $GITHUB_ENV
+
+      - name: Build node modules cache
+        uses: actions/cache@v2.1.6
+        id: node-modules-cache
+        with:
+          path: |
+            **/node_modules
+          key: "\
+            ${{ runner.os }}-node-\
+            ${{ env.NODE_VERSION }}-\
+            ${{ hashFiles('**/package-lock.json') }}\
+            "
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+
+      - name: Install node modules
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: |
+          ./run dc:exec bash -c "npm ci --quiet"
 
       # ---------------------------------------------- #
       #                   Application                  #
