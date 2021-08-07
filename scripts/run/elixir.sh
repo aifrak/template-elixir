@@ -28,6 +28,13 @@ function elixir:lint {
   mix credo "${@}" || status=${?}
   mix format --check-formatted "${@}" || status=${?}
 
+  mix check \
+    --only compiler \
+    --only dialyzer \
+    --only doctor \
+    --only unused_deps \
+    || status=${?}
+
   if [[ ${status} -ne 0 ]]; then
     exit ${status}
   fi
@@ -38,7 +45,7 @@ function elixir:format {
 }
 
 function elixir:test {
-  mix test
+  mix check --only ex_unit
 }
 
 function elixir:version {

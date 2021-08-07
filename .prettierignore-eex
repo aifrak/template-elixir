@@ -5,6 +5,7 @@ vendor/
 
 # Node
 node_modules/
+npm_cache/
 
 # Elixir
 _build/

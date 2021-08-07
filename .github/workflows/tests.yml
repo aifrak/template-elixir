@@ -62,64 +62,61 @@ jobs:
           ./run dc:up
 
       # ---------------------------------------------- #
-      #                     Elixir                     #
+      #                      Cache                     #
       # ---------------------------------------------- #
 
-      - name: Add Elixir and Erlang versions as environment variables
+      - name: Get versions
         run: |
+          echo "NODE_VERSION=$(./run dc:exec npm -v)" >> $GITHUB_ENV
           echo "ELIXIR_VERSION=$(./run dc:exec ./run elixir:version)" >> $GITHUB_ENV
           echo "ERLANG_VERSION=$(./run dc:exec ./run erlang:version)" >> $GITHUB_ENV
 
-      - name: Build Elixir cache
-        id: elixir-cache
+      - name: Cache Elixir deps
+        id: elixir-deps-cache
         uses: actions/cache@v2.1.6
         with:
           path: |
             **/deps
+          key: |
+            ${{ runner.os }}-elixir-deps-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-${{ hashFiles('**/mix.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-elixir-deps-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-
+
+      - name: Cache Elixir build
+        id: elixir-build-cache
+        uses: actions/cache@v2.1.6
+        with:
+          path: |
             **/_build
-          key: "\
-            ${{ runner.os }}-mix-\
-            ${{ env.ELIXIR_VERSION }}-\
-            ${{ env.ERLANG_VERSION }}-\
-            ${{ hashFiles('**/mix.lock') }}\
-            "
-          restore-keys: "\
-            ${{ runner.os }}-mix-\
-            ${{ env.ELIXIR_VERSION }}-\
-            ${{ env.ERLANG_VERSION }}-\
-            "
+            **/priv/plts/*.plt
+            **/priv/plts/*.plt.hash
+            **/.sobelow
+          key: |
+            ${{ runner.os }}-elixir-build-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-${{ hashFiles('**/mix.lock') }}-${{ hashFiles( '**/lib/**/*.{ex,eex}', '**/config/*.exs', '**/mix.exs' ) }}
+          restore-keys: |
+            ${{ runner.os }}-elixir-build-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-${{ hashFiles('**/mix.lock') }}-
+            ${{ runner.os }}-elixir-build-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-
 
-      - name: Install Elixir dependencies
-        if: steps.elixir-cache.outputs.cache-hit != 'true'
-        run: |
-          ./run dc:exec mix deps.get
-
-      - name: Compile Elixir application (test)
-        if: steps.elixir-cache.outputs.cache-hit != 'true'
-        run: |
-          ./run dc:exec bash -c "MIX_ENV=test mix compile"
-
-      # ---------------------------------------------- #
-      #                     NodeJS                     #
-      # ---------------------------------------------- #
-
-      - name: Add NodeJS version as environment variable
-        run: |
-          echo "NODE_VERSION=$(./run dc:exec npm -v)" >> $GITHUB_ENV
-
-      - name: Build node modules cache
+      - name: Cache node modules
         uses: actions/cache@v2.1.6
         id: node-modules-cache
         with:
           path: |
             **/node_modules
-          key: "\
-            ${{ runner.os }}-node-\
-            ${{ env.NODE_VERSION }}-\
-            ${{ hashFiles('**/package-lock.json') }}\
-            "
+            **/npm_cache
+          key: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+
+      # ---------------------------------------------- #
+      #                  Dependencies                  #
+      # ---------------------------------------------- #
+
+      - name: Fetch and compile Elixir dependencies
+        if: steps.elixir-deps-cache.outputs.cache-hit != 'true'
+        run: |
+          ./run dc:exec bash -c "mix deps.get && mix deps.compile"
 
       - name: Install node modules
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
@@ -130,10 +127,11 @@ jobs:
       #                   Application                  #
       # ---------------------------------------------- #
 
-      - name: Test
+      - name: Compile Elixir application
+        if: steps.elixir-build-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:exec ./run test
+          ./run dc:exec bash -c "MIX_ENV=test mix compile"
 
-      - name: Lint
+      - name: Run all checks
         run: |
-          ./run dc:exec ./run lint
+          ./run dc:exec mix check

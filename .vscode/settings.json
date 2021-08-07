@@ -8,6 +8,7 @@
   // Files:
   "files.associations": {
     ".prettierignore-eex": "ignore",
+    ".sobelow-conf": "elixir",
     "run": "shellscript",
     "pre-commit": "shellscript"
   },
@@ -18,11 +19,16 @@
     "**/.history/**": true,
     // NodeJS
     "**/node_modules/**": true,
+    "**/npm_cache/**": true,
     // Elixir
     "**/deps/**": true,
+    "**/doc/**": true,
     "**/_build/**": true,
     "**/.elixir_ls/**": true,
-    "**/erl_crash.dump": true
+    "**/erl_crash.dump": true,
+    "**/dialyzer.plt": true,
+    "**/dialyzer.plt.hash": true,
+    "**/.sobelow": true
   },
   "files.exclude": {
     "**/.git": true,
@@ -32,16 +38,21 @@
   // Search:
   "search.exclude": {
     "**/.git": true,
-    "**/.husky/_/**": true,
+    "**/.husky/_": true,
     // VSCode
-    "**/.history/**": true,
+    "**/.history": true,
     // NodeJS
     "**/node_modules": true,
+    "**/npm_cache": true,
     // Elixir
-    "**/deps/**": true,
-    "**/_build/**": true,
-    "**/.elixir_ls/**": true,
-    "**/erl_crash.dump": true
+    "**/deps": true,
+    "**/doc": true,
+    "**/_build": true,
+    "**/.elixir_ls": true,
+    "**/erl_crash.dump": true,
+    "**/dialyzer.plt": true,
+    "**/dialyzer.plt.hash": true,
+    "**/.sobelow": true
   },
 
   // Prettier:
@@ -60,6 +71,7 @@
     "**/.history/**",
     // NodeJS
     "**/node_modules/**",
+    "**/npm_cache/**",
     // Elixir
     "**/deps/**",
     "**/_build/**",
@@ -147,6 +159,7 @@
     "chmod",
     "deps",
     "devcontainer",
+    "dialyxir",
     "dockerfiles",
     "dockerignore",
     "doctest",
@@ -166,6 +179,7 @@
     "noninteractive",
     "nopasswd",
     "npmrc",
+    "plts",
     "preminor",
     "prepatch",
     "prettierignore",
@@ -176,7 +190,9 @@
     "shellcheck",
     "shfmt",
     "shortdoc",
+    "sobelow",
     "typep",
+    "underspecs",
     "xargs",
     "xtype"
   ],
