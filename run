@@ -86,7 +86,7 @@ fi
 
 function test {
   if is_inside_docker; then
-    elixir:test
+    mix check --only ex_unit
   else
     dc:exec ./run test
   fi
@@ -95,21 +95,7 @@ function test {
 function lint {
   # shellcheck disable=SC2119
   if is_inside_docker; then
-    local status=0
-
-    elixir:eex:lint || status=${?}
-    elixir:lint || status=${?}
-    shell:lint || status=${?}
-    dockerfile:lint || status=${?}
-    markdown:lint || status=${?}
-    prettier:lint || status=${?}
-
-    if [[ ${status} -eq 0 ]]; then
-      success "✔ Project linted"
-    else
-      alert "✖ Project linted: issue(s) found"
-      exit ${status}
-    fi
+    mix check --except ex_unit
   else
     dc:exec ./run lint
   fi
@@ -133,8 +119,7 @@ function format {
 function pre-commit {
   if is_inside_docker; then
     format
-    lint
-    test
+    mix check
   else
     dc:exec ./run pre-commit
   fi

@@ -1,5 +1,5 @@
 # Used by "mix format"
 [
-  inputs: ["{mix,.formatter,.credo}.exs", "{config,lib,test}/**/*.{ex,exs}"],
+  inputs: ["*.exs", "{config,lib,test}/**/*.{ex,exs}", ".sobelow-conf"],
   line_length: 98
 ]
