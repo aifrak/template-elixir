@@ -19,8 +19,11 @@ documentation:
   - "**/*.md"
 
 chore:
+  - "**/.check*.exs"
   - "**/.credo.exs"
+  - "**/.dialyzer_ignore.exs"
   - "**/.formatter.exs"
+  - "**/.sobelow-conf"
   - .devcontainer
   - .editorconfig
   - "**/.gitignore"
@@ -33,6 +36,8 @@ chore:
   - .prettier*
   - .vscode/**/*
   - scripts/**/*
+  - codecov.yml
+  - coveralls.json
   - run
   - LICENSE
 
