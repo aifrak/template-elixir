@@ -15,4 +15,17 @@ defmodule App do
   def hello do
     :world
   end
+
+  @doc """
+  Add a to b.
+
+  ## Examples
+
+      iex> App.add(10, 15)
+      25
+  """
+  @spec add(integer, integer) :: integer
+  def add(a, b) do
+    a + b
+  end
 end
