@@ -3,7 +3,7 @@
 This is a template repository for Elixir projects.
 
 [![Tests](https://github.com/aifrak/template-elixir/actions/workflows/tests.yml/badge.svg)](https://github.com/aifrak/template-elixir/actions/workflows/tests.yml)
-[![codecov](https://codecov.io/gh/aifrak/exercism-elixir/branch/main/graph/badge.svg?token=P1NY8S6A8F)](https://codecov.io/gh/aifrak/exercism-elixir)
+[![codecov](https://codecov.io/gh/aifrak/template-elixir/branch/main/graph/badge.svg?token=7UD31ZYUEV)](https://codecov.io/gh/aifrak/template-elixir)
 [![License](https://img.shields.io/github/license/aifrak/template-elixir?color=blue)](https://github.com/aifrak/template-elixir/blob/master/LICENSE)
 
 After cloning this template repository, rework the content of `README.md` and
