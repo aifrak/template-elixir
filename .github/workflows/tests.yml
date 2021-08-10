@@ -116,7 +116,7 @@ jobs:
       - name: Fetch and compile Elixir dependencies
         if: steps.elixir-deps-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:exec mix install.deps.ci
+          ./run dc:exec mix install_deps.ci
 
       - name: Install node modules
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
