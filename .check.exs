@@ -4,13 +4,20 @@
   tools: [
     # Curated tools from ex_check
     {:compiler, env: %{"MIX_ENV" => "test"}},
+    {
+      :doctor,
+      "mix doctor --summary",
+      detect: [
+        {:package, :doctor},
+        {:elixir, ">= 1.8.0"}
+      ]
+    },
     {:ex_doc, env: %{"MIX_ENV" => "test"}},
     {:formatter, env: %{"MIX_ENV" => "test"}},
     {:npm_test, false},
     {
       :sobelow,
       "mix sobelow.default",
-      env: %{"MIX_ENV" => "test"},
       umbrella: [recursive: true],
       detect: [
         {:package, :sobelow, else: :skip},

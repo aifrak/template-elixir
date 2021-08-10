@@ -4,7 +4,6 @@
     {
       :ex_unit,
       "mix test.cover",
-      env: %{"MIX_ENV" => "test"},
       detect: [
         {:package, :excoveralls, else: :skip},
         {:file, "coveralls.json", else: :skip},
