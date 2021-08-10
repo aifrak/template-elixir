@@ -1,4 +1,6 @@
+# Override default config from the "ex_check"
 [
+  retry: false,
   tools: [
     # Curated tools from ex_check
     {:compiler, env: %{"MIX_ENV" => "test"}},
@@ -7,11 +9,16 @@
     {:npm_test, false},
     {
       :sobelow,
-      "mix sobelow --config",
-      env: %{"MIX_ENV" => "test"}, detect: [{:package, :phoenix, else: :disable}]
+      "mix sobelow.default",
+      env: %{"MIX_ENV" => "test"},
+      umbrella: [recursive: true],
+      detect: [
+        {:package, :sobelow, else: :skip},
+        {:package, :phoenix, else: :skip}
+      ]
     },
 
-    # Custom lints
+    # Custom tools
     {:dockerfile_lint, "./run dockerfile:lint"},
     {:elixir_eex_lint, "./run elixir:eex:lint"},
     {:markdown_lint, "./run markdown:lint"},

@@ -1,19 +1,25 @@
+# Override default config from the "credo"
 %{
   configs: [
     %{
       name: "default",
       files: %{
         included: [
+          "config/",
           "lib/",
           "test/",
           "mix.exs",
+          ".check*.exs",
           ".credo.exs",
           ".formatter.exs",
+          ".sobelow-conf",
           "apps/*/lib/",
           "apps/*/test/",
-          "apps/*/mix.exs",
+          "apps/*/.check*.exs",
           "apps/*/.credo.exs",
-          "apps/*/.formatter.exs"
+          "apps/*/.formatter.exs",
+          "apps/*/.sobelow-conf",
+          "apps/*/mix.exs"
         ],
         excluded: [
           ~r"/_build/",
@@ -47,14 +53,14 @@
          ]},
         {CredoNaming.Check.Consistency.ModuleFilename,
          excluded_paths: [
-           "config",
+           "config/",
            "mix.exs",
-           "priv",
-           "test/support",
-           "apps/*/config",
-           "apps/*/mix.exs",
-           "apps/*/priv",
-           "apps/*/test/support"
+           "priv/",
+           "test/support/",
+           "apps/*/config/",
+           "apps/*/priv/",
+           "apps/*/test/support/",
+           "apps/*/mix.exs"
          ],
          acronyms: [{"GraphQL", "graphql"}]},
 
