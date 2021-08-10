@@ -116,12 +116,12 @@ jobs:
       - name: Fetch and compile Elixir dependencies
         if: steps.elixir-deps-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:exec bash -c "mix deps.get && mix deps.compile"
+          ./run dc:exec mix install.deps.ci
 
       - name: Install node modules
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:exec bash -c "npm ci --quiet"
+          ./run dc:exec npm ci --quiet
 
       # ---------------------------------------------- #
       #                   Application                  #
@@ -130,8 +130,15 @@ jobs:
       - name: Compile Elixir application
         if: steps.elixir-build-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:exec bash -c "MIX_ENV=test mix compile"
+          ./run dc:exec mix compile.ci
 
       - name: Run all checks
         run: |
-          ./run dc:exec mix check
+          ./run dc:exec mix check.ci
+
+      - name: Upload Code Coverage report
+        uses: codecov/codecov-action@v2.0.2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./cover/excoveralls.json
+          fail_ci_if_error: true

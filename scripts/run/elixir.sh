@@ -33,6 +33,7 @@ function elixir:lint {
     --only dialyzer \
     --only doctor \
     --only unused_deps \
+    --only sobelow \
     || status=${?}
 
   if [[ ${status} -ne 0 ]]; then

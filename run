@@ -127,8 +127,8 @@ function pre-commit {
 
 function install-deps {
   if is_inside_docker; then
+    mix install_deps
     npm install --quiet
-    mix deps.get
   else
     dc:exec ./run install-deps
   fi
