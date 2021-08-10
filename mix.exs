@@ -40,7 +40,7 @@ defmodule App.MixProject do
       "check.ci": ["check --config .check-ci.exs"],
       "compile.ci": ["compile"],
       install_deps: ["deps.unlock --unused", "deps.clean --unused", "deps.get"],
-      "install_deps.ci": ["install.deps", "deps.compile"],
+      "install_deps.ci": ["install_deps", "deps.compile"],
       "sobelow.default": ["sobelow --config --exit"],
       test: ["test --warnings-as-errors"],
       "test.cover": ["test --cover"],
