@@ -2,8 +2,7 @@
 [
   retry: false,
   tools: [
-    # Curated tools from ex_check
-    {:compiler, env: %{"MIX_ENV" => "test"}},
+    # Extends curated tools from ex_check
     {
       :doctor,
       "mix doctor --summary",
@@ -12,8 +11,6 @@
         {:elixir, ">= 1.8.0"}
       ]
     },
-    {:ex_doc, env: %{"MIX_ENV" => "test"}},
-    {:formatter, env: %{"MIX_ENV" => "test"}},
     {:npm_test, false},
     {
       :sobelow,

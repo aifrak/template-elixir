@@ -127,12 +127,7 @@ jobs:
       #                   Application                  #
       # ---------------------------------------------- #
 
-      - name: Compile Elixir application
-        if: steps.elixir-build-cache.outputs.cache-hit != 'true'
-        run: |
-          ./run dc:exec mix compile.ci
-
-      - name: Run all checks
+      - name: Compile Elixir application and run all checks
         run: |
           ./run dc:exec mix check.ci
 
