@@ -10,6 +10,7 @@
         {:file, "codecov.yml", else: :skip}
       ],
       retry: "mix coveralls.json --failed"
-    }
+    },
+    {:inch, "mix inch.report", detect: [{:package, :inch_ex, else: :skip}]}
   ]
 ]
