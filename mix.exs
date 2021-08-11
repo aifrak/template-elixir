@@ -30,7 +30,7 @@ defmodule App.MixProject do
       {:doctor, ">= 0.18.0", only: :test, runtime: false},
       {:ex_check, ">= 0.14.0", only: :test, runtime: false},
       {:excoveralls, ">= 0.14.2", only: :test, runtime: false},
-      {:inch_ex, ">= 2.0.0", only: :test, runtime: false},
+      {:inch_ex, ">= 2.0.0", only: :docs, runtime: false},
       {:sobelow, ">= 0.11.1", only: :test, runtime: false}
     ]
   end
@@ -63,7 +63,7 @@ defmodule App.MixProject do
       dialyzer: :test,
       doctor: :test,
       inch: :test,
-      "inch.report": :test,
+      "inch.report": :docs,
       "test.cover": :test,
       "test.cover.recent": :test,
       sobelow: :test,

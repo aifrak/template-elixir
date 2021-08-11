@@ -142,3 +142,21 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./cover/excoveralls.json
           fail_ci_if_error: true
+
+  docs-badge:
+    name: Documentations badge
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Setup Elixir and Erlang
+        uses: erlef/setup-beam@v1.8.3
+        with:
+          otp-version: "24"
+          elixir-version: "1.12.2"
+
+      - name: Generate Documentations badge
+        run: |
+          mix inch.report
