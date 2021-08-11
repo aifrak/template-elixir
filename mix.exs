@@ -61,7 +61,6 @@ defmodule App.MixProject do
       dialyxir: :test,
       dialyzer: :test,
       doctor: :test,
-      "inch.report": :docs,
       "test.cover": :test,
       "test.cover.recent": :test,
       sobelow: :test,
