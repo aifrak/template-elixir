@@ -157,6 +157,5 @@ jobs:
           otp-version: "24"
           elixir-version: "1.12.2"
 
-      - name: Generate Documentations badge
-        run: |
-          mix inch.report
+      - run: mix deps.get
+      - run: mix inch.report
