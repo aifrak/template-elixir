@@ -38,7 +38,6 @@ defmodule App.MixProject do
     [
       check: ["check --config .check-dev.exs"],
       "check.ci": ["check --config .check-ci.exs"],
-      "compile.ci": ["compile"],
       install_deps: ["deps.unlock --unused", "deps.clean --unused", "deps.get"],
       "install_deps.ci": ["install_deps", "deps.compile"],
       "sobelow.default": ["sobelow --config --exit"],
@@ -52,7 +51,7 @@ defmodule App.MixProject do
     [
       check: :test,
       "check.ci": :test,
-      "compile.ci": :test,
+      compile: :test,
       credo: :test,
       coveralls: :test,
       "coveralls.detail": :test,
