@@ -2,7 +2,7 @@
 
 This is a template repository for Elixir projects.
 
-[![Tests](https://github.com/aifrak/template-elixir/actions/workflows/tests.yml/badge.svg)](https://github.com/aifrak/template-elixir/actions/workflows/tests.yml)
+[![CI](https://github.com/aifrak/template-elixir/actions/workflows/ci.yml/badge.svg)](https://github.com/aifrak/template-elixir/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/aifrak/template-elixir/branch/main/graph/badge.svg?token=7UD31ZYUEV)](https://codecov.io/gh/aifrak/template-elixir)
 [![License](https://img.shields.io/github/license/aifrak/template-elixir?color=blue)](https://github.com/aifrak/template-elixir/blob/master/LICENSE)
 
