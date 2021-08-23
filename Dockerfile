@@ -1,4 +1,4 @@
-FROM hexpm/elixir:1.12.2-erlang-24.0.2-ubuntu-focal-20210325 as elixir
+FROM hexpm/elixir:1.12.2-erlang-24.0.5-ubuntu-focal-20210325 as elixir
 # Install hex and rebar
 RUN set -e \
   && mix local.hex --force \
