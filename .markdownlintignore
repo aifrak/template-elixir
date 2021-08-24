@@ -11,4 +11,6 @@ cover/
 deps/
 doc/
 .fetch/
+
+# ElixirLS VSCode extension
 .elixir_ls/

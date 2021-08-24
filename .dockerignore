@@ -15,4 +15,6 @@ erl_crash.dump
 *.ez
 *.beam
 /config/*.secret.exs
+
+# ElixirLS VSCode extension
 .elixir_ls/
