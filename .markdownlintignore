@@ -1,4 +1,4 @@
-# VSCode
+# Local history (VSCode extension)
 .history/
 
 # NodeJS
@@ -12,5 +12,5 @@ deps/
 doc/
 .fetch/
 
-# ElixirLS VSCode extension
+# ElixirLS (VSCode extension)
 .elixir_ls/

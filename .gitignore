@@ -1,4 +1,4 @@
-# VSCode
+# Local history (VSCode extension)
 .history/
 
 # NodeJS
@@ -19,7 +19,7 @@ erl_crash.dump
 *.beam
 config/*.secret.exs
 
-# ElixirLS VSCode extension
+# ElixirLS (VSCode extension)
 .elixir_ls/
 
 # Dialyzer
