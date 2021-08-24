@@ -1,6 +1,6 @@
 vendor/
 
-# VSCode
+# Local history (VSCode extension)
 .history/
 
 # NodeJS
@@ -13,6 +13,8 @@ cover/
 deps/
 doc/
 .fetch/
+
+# ElixirLS (VSCode extension)
 .elixir_ls/
 
 # see ./docs/setup.md in "Known issues" section

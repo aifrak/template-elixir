@@ -1,9 +1,9 @@
 vendor/
 
-# VSCode
+# Local history (VSCode extension)
 .history/
 
-# Node
+# NodeJS
 node_modules/
 npm_cache/
 
@@ -13,6 +13,8 @@ cover/
 deps/
 doc/
 .fetch/
+
+# ElixirLS (VSCode extension)
 .elixir_ls/
 
 # see ./docs/setup.md in "Known issues" section
