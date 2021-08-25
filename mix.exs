@@ -38,8 +38,11 @@ defmodule App.MixProject do
     [
       check: ["check --config .check-dev.exs"],
       "check.ci": ["check --config .check-ci.exs"],
-      install_deps: ["deps.unlock --unused", "deps.clean --unused", "deps.get"],
-      "install_deps.ci": ["install_deps", "deps.compile"],
+      "npm.dev": ["cmd npm install --quiet"],
+      "npm.ci": ["cmd npm ci --quiet"],
+      setup: ["deps.unlock --unused", "deps.clean --unused", "deps.get"],
+      "setup.dev": ["setup", "npm.dev"],
+      "setup.ci": ["setup", "deps.compile"],
       "sobelow.default": ["sobelow --config --exit"],
       test: ["test --warnings-as-errors"],
       "test.cover": ["test --cover"],
