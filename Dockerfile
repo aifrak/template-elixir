@@ -5,7 +5,7 @@ RUN set -e \
   && mix local.rebar --force
 
 FROM node:16.7.0-buster as node
-RUN npm install -g npm@7.20.6 --quiet
+RUN npm install -g npm@7.21.0 --quiet
 
 FROM koalaman/shellcheck:v0.7.2 as shellcheck
 FROM mvdan/shfmt:v3.3.1 as shfmt
