@@ -41,7 +41,7 @@ description of `remoteUser` and `updateRemoteUserUID` on this [page](https://cod
 
 1. `*.eex` files are not formatted or not correctly formatted in VSCode.
 
-   **Answer**:`prettier-plugin-eex` supports `prettier` up to `2.2.x` only.
+   **Answer**: `prettier-plugin-eex` supports `prettier` up to `2.2.x` only.
 
    **Temporary solution**: Run `./run elixir:eex:format` to format all `*.eex` files.
    ([more info](https://github.com/adamzapasnik/prettier-plugin-eex/issues/51))
