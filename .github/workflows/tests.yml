@@ -132,7 +132,7 @@ jobs:
           ./run dc:exec mix check.ci
 
       - name: Upload Code Coverage report
-        uses: codecov/codecov-action@v2.0.2
+        uses: codecov/codecov-action@v2.0.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./cover/excoveralls.json
