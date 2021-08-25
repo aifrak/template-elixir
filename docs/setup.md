@@ -35,10 +35,14 @@ description of `remoteUser` and `updateRemoteUserUID` on this [page](https://cod
 ## Known issues
 
 1. `*.eex` files are not formatted or not correctly formatted in VSCode.
-   **Answer**:`prettier-plugin-eex` supports `prettier` up to `2.2.x` only.
+
+   **Answer**: `prettier-plugin-eex` supports `prettier` up to `2.2.x` only.
+
    **Temporary solution**: Run `./run elixir:eex:format` to format all `*.eex` files.
    ([more info](https://github.com/adamzapasnik/prettier-plugin-eex/issues/51))
+
    For this reason, two versions of `prettier` are installed with two `.prettierignore`:
+
    - `^2.3.x`:
      1. used for all accepted files but `*.eex` and `*.leex` files
      1. uses `.prettierignore`
@@ -52,4 +56,10 @@ description of `remoteUser` and `updateRemoteUserUID` on this [page](https://cod
 ## FAQ
 
 1. `husky` pre-commit is not triggered.
+
    **Solution**: Run `npm install`.
+
+1. `mix dialyxir` shows
+   `:dialyzer.run error: Old PLT file /app/priv/plts/dialyzer.plt`:
+
+   **Solution**: Delete all files under `priv/plts/*` and run `mix dialyxir` again.
