@@ -34,11 +34,6 @@ description of `remoteUser` and `updateRemoteUserUID` on this [page](https://cod
 
 ## Known issues
 
-1. `mix dialyxir` shows
-   `:dialyzer.run error: Old PLT file /app/priv/plts/dialyzer.plt`:
-
-   **Solution**: Delete all files under `priv/plts/*`.
-
 1. `*.eex` files are not formatted or not correctly formatted in VSCode.
 
    **Answer**: `prettier-plugin-eex` supports `prettier` up to `2.2.x` only.
@@ -63,3 +58,8 @@ description of `remoteUser` and `updateRemoteUserUID` on this [page](https://cod
 1. `husky` pre-commit is not triggered.
 
    **Solution**: Run `npm install`.
+
+1. `mix dialyxir` shows
+   `:dialyzer.run error: Old PLT file /app/priv/plts/dialyzer.plt`:
+
+   **Solution**: Delete all files under `priv/plts/*`.
