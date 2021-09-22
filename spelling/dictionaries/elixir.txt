@@ -1,0 +1,16 @@
+# Ascending sort, case insensitive
+dialyxir
+doctest
+eval
+excoveralls
+fwrite
+hexpm
+leex
+macrocallback
+noshell
+plts
+rebar
+shortdoc
+sobelow
+typep
+underspecs

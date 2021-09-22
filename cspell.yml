@@ -1,0 +1,45 @@
+version: "0.2"
+language: en
+
+enableFiletypes:
+  - dockercompose
+  - dockerfile
+  - editorconfig
+  - elixir
+  - ignore
+  - properties
+  - shellscript
+
+dictionaries:
+  - elixir-custom
+  - workspace
+
+dictionaryDefinitions:
+  - name: elixir-custom
+    path: "./spelling/dictionaries/elixir.txt"
+    addWords: true
+  - name: workspace
+    path: "./spelling/dictionaries/workspace.txt"
+    addWords: true
+
+flagWords:
+  - hte
+
+ignorePaths:
+  - "spelling/**"
+  - ".history/**"
+  - "**/.git"
+  - "**/node_modules/**"
+  - "**/npm_cache/**"
+  - "**/package-lock.json"
+
+ignoreWords:
+  - aifrak
+  - davidanson
+  - esbenp
+  - exiasr
+  - jakebecker
+  - koalaman
+  - mvdan
+  - softprops
+  - tvdias
