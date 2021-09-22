@@ -24,6 +24,8 @@ chore:
   - "**/.dialyzer_ignore.exs"
   - "**/.formatter.exs"
   - "**/.sobelow-conf"
+  - .commitlintrc.js
+  - .czrc
   - .devcontainer
   - .editorconfig
   - "**/.gitignore"
@@ -76,6 +78,7 @@ javascript:
   - "**/package*.json"
 
 shellscript:
+  - commit-msg
   - pre-commit
   - run
   - "**/*.sh"

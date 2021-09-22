@@ -19,12 +19,14 @@ ENV INSIDE_DOCKER=1
 ENV LANG=en_US.UTF-8
 
 # 1. Install dependencies
+#   - git
 #   - erlang: libodbc1, libssl1, libsctp1
 # 2. Install `locales` package and setup locale
 # 3. Clean
 RUN set -e \
   && apt-get update -qq \
   && apt-get install -y -qq --no-install-recommends \
+    git=1:2.25.1-* \
     libodbc1=2.3.6-* \
     libssl1.1=1.1.1f-* \
     libsctp1=1.0.18+* \
@@ -95,7 +97,6 @@ RUN set -e \
   && apt-get update -qq \
   && apt-get install -y -qq --no-install-recommends \
     ca-certificates=* \
-    git=* \
     gnupg2=* \
     openssh-client=* \
     sudo=* \

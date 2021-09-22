@@ -131,6 +131,10 @@ jobs:
         run: |
           ./run dc:exec mix check.ci
 
+      - name: Lint latest git commit message
+        run: |
+          ./run dc:exec ./run lint-latest-commit
+
       - name: Upload Code Coverage report
         uses: codecov/codecov-action@v2.1.0
         with:
