@@ -7,10 +7,12 @@
 
   // Files:
   "files.associations": {
+    ".czrc": "json",
     ".prettierignore-eex": "ignore",
     ".sobelow-conf": "elixir",
-    "run": "shellscript",
-    "pre-commit": "shellscript"
+    "commit-msg": "shellscript",
+    "pre-commit": "shellscript",
+    "run": "shellscript"
   },
   "files.watcherExclude": {
     "**/.git": true,
@@ -55,6 +57,9 @@
     "**/.sobelow": true
   },
 
+  // Git:
+  "git.inputValidationSubjectLength": 100,
+
   // Prettier:
   "prettier.useEditorConfig": true,
 
@@ -87,6 +92,11 @@
   // Markdown All in One:
   "markdown.extension.orderedList.marker": "one",
 
+  // Conventional Commits:
+  "conventionalCommits.autoCommit": false,
+  "conventionalCommits.gitmoji": false,
+  "conventionalCommits.lineBreak": "\\n",
+
   // Override languages:
   "[dockerfile]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -96,6 +106,12 @@
   },
   "[eex]": {
     "editor.rulers": [120]
+  },
+  "[git-commit]": {
+    "editor.rulers": [100]
+  },
+  "[git-rebase]": {
+    "editor.rulers": [100]
   },
   "[html-eex]": {
     "editor.rulers": [120]
@@ -158,6 +174,10 @@
     "buildx",
     "chmod",
     "codecov",
+    "commitlint",
+    "commitlintrc",
+    "commitizen",
+    "czrc",
     "deps",
     "devcontainer",
     "dialyxir",

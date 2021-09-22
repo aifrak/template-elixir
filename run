@@ -32,6 +32,7 @@ Main commands:
   format                      Format code of the whole project
   install-deps                Install all dependencies
   lint                        Lint the whole project
+  lint-latest-commit          Lint latest git commit message
   pre-commit                  Format, lint and test the whole project
   test                        Test the whole project
 
@@ -99,6 +100,14 @@ function lint {
   else
     dc:exec ./run lint
   fi
+}
+
+function lint-latest-commit {
+  local commit_message
+
+  commit_message=$(git log -1 --pretty=format:"%s")
+
+  echo "${commit_message}" | npx commitlint --color
 }
 
 function format {
