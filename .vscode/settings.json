@@ -97,6 +97,11 @@
   "conventionalCommits.gitmoji": false,
   "conventionalCommits.lineBreak": "\\n",
 
+  // YAML:
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json": "cspell.yml"
+  },
+
   // Override languages:
   "[dockerfile]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -150,89 +155,5 @@
       "extensions": [".prettierignore-eex"],
       "filename": true
     }
-  ],
-
-  // Spelling:
-  "cSpell.enableFiletypes": [
-    "dockercompose",
-    "dockerfile",
-    "editorconfig",
-    "elixir",
-    "ignore",
-    "properties",
-    "shellscript"
-  ],
-  "cSpell.words": [
-    "BUILDKIT",
-    "Dependabot",
-    "Dockerfiles",
-    "GROUPNAME",
-    "TIMEFORMAT",
-    "WORKDIR",
-    "automerge",
-    "autoremove",
-    "buildx",
-    "chmod",
-    "codecov",
-    "commitlint",
-    "commitlintrc",
-    "commitizen",
-    "czrc",
-    "deps",
-    "devcontainer",
-    "dialyxir",
-    "dockerfiles",
-    "dockerignore",
-    "doctest",
-    "editorconfig",
-    "eval",
-    "excoveralls",
-    "gitkeep",
-    "gnupg",
-    "hadolint",
-    "leex",
-    "libodbc",
-    "libsctp",
-    "libssl",
-    "lintstaged",
-    "macrocallback",
-    "markdownlint",
-    "mkdir",
-    "noninteractive",
-    "nopasswd",
-    "npmrc",
-    "plts",
-    "preminor",
-    "prepatch",
-    "prettierignore",
-    "prettierrc",
-    "rebar",
-    "sbin",
-    "semver",
-    "shellcheck",
-    "shfmt",
-    "shortdoc",
-    "sobelow",
-    "typep",
-    "underspecs",
-    "xargs",
-    "xtype"
-  ],
-  "cSpell.ignoreWords": [
-    "aifrak",
-    "davidanson",
-    "esbenp",
-    "exiasr",
-    "fastify",
-    "fkirc",
-    "fwrite",
-    "hexpm",
-    "jakebecker",
-    "koalaman",
-    "mvdan",
-    "nosborn",
-    "noshell",
-    "softprops",
-    "tvdias"
   ]
 }
