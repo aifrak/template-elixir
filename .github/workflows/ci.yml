@@ -132,6 +132,12 @@ jobs:
           ./run dc:exec mix check.ci
 
       - name: Lint latest git commit message
+        if: >-
+          github.actor != 'dependabot[bot]'
+          && (
+            github.event_name != 'pull_request'
+            || (github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]')
+          )
         run: |
           ./run dc:exec ./run lint-latest-commit
 
