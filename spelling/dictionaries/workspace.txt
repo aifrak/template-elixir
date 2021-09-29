@@ -16,6 +16,7 @@ dockercompose
 dockerfiles
 dockerignore
 editorconfig
+FUNCNAME
 gitkeep
 gnupg
 GROUPNAME
