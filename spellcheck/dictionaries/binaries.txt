@@ -1,0 +1,7 @@
+# Ascending sort, case insensitive
+libodbc
+libsctp
+hadolint
+shellcheck
+shellformat
+shfmt

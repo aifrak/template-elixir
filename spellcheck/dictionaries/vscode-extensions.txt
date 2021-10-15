@@ -1,0 +1,22 @@
+# Ascending sort, case insensitive
+adamzapasnik
+azuretools
+codezombiech
+cschleiden
+davidanson
+dbaeumer
+devcontainer
+esbenp
+exiasr
+foxundermoon
+gitmoji
+jakebecker
+joshbolduc
+spmeesseman
+stackbreak
+taskexplorer
+timonwong
+tumido
+vivaxy
+vsicons
+yzhang

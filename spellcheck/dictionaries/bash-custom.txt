@@ -1,0 +1,14 @@
+# Ascending sort, case insensitive
+autoremove
+BUILDKIT
+buildx
+chmod
+FUNCNAME
+gnupg
+mkdir
+noninteractive
+NOPASSWD
+tagstring
+TIMEFORMAT
+xargs
+xtype
