@@ -1,0 +1,12 @@
+# Ascending sort, case insensitive
+codecov
+Dependabot
+dockercompose
+dockerfiles
+GROUPNAME
+preminor
+prepatch
+semver
+specialchars
+tagname
+uncommented

@@ -2,7 +2,7 @@
   "recommendations": [
     // Elixir
     "jakebecker.elixir-ls",
-    "pantajoe.vscode-elixir-credo",
+    "adamzapasnik.credo-linter",
 
     // Remote container
     "ms-vscode-remote.remote-containers",

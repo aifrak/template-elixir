@@ -11,6 +11,7 @@ fi
 . "${APP_DIR}/scripts/run/markdown.sh"
 . "${APP_DIR}/scripts/run/prettier.sh"
 . "${APP_DIR}/scripts/run/shell.sh"
+. "${APP_DIR}/scripts/run/spellcheck.sh"
 . "${APP_DIR}/scripts/lib/utils.sh"
 
 export DOCKER_BUILDKIT=1
@@ -48,6 +49,7 @@ EOF
   markdown:help
   prettier:help
   shell:help
+  spellcheck:help
   dockerfile:help
 }
 

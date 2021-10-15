@@ -1,0 +1,14 @@
+# Ascending sort, case insensitive
+COMMIT_EDITMSG
+commitlintrc
+czrc
+dockerignore
+editorconfig
+eslintcache
+gitkeep
+htmlhintrc
+markdownlintignore
+npmrc
+prettierignore
+prettierrc
+stylelintcache

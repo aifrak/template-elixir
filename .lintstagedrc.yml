@@ -1,3 +1,6 @@
+"*":
+  - ./run spellcheck:lint
+
 "*.{ex,exs}":
   - ./run elixir:format
   - ./run elixir:lint
@@ -5,6 +8,9 @@
 "*.html.{eex,leex}":
   - ./run elixir:eex:format
   - ./run elixir:eex:lint
+
+"*(!**/spelling/dictionaries/**)":
+  - ./run spellcheck:lint
 
 "{run,commit-msg,pre-commit,*.sh}":
   - ./run shell:format

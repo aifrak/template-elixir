@@ -28,6 +28,7 @@
     {:elixir_eex_lint, "./run elixir:eex:lint"},
     {:markdown_lint, "./run markdown:lint"},
     {:prettier_lint, "./run prettier:lint"},
-    {:shell_lint, "./run shell:lint"}
+    {:shell_lint, "./run shell:lint"},
+    {:spellcheck_lint, "./run spellcheck:lint"}
   ]
 ]

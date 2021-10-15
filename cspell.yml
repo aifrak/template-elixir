@@ -1,6 +1,9 @@
 version: "0.2"
 language: en
 
+flagWords:
+  - hte
+
 enableFiletypes:
   - dockercompose
   - dockerfile
@@ -11,35 +14,94 @@ enableFiletypes:
   - shellscript
 
 dictionaries:
-  - elixir-custom
+  - abbreviations
+  - binaries
+  - elixir-for-workspace
+  - filenames
+  - npm-packages
+  - repo-owners
+  - vscode-extensions
   - workspace
 
 dictionaryDefinitions:
-  - name: elixir-custom
-    path: "./spelling/dictionaries/elixir.txt"
+  - name: abbreviations
+    path: "./spellcheck/dictionaries/abbreviations.txt"
     addWords: true
+  - name: bash-custom
+    path: "./spellcheck/dictionaries/bash-custom.txt"
+    addWords: true
+  - name: binaries
+    path: "./spellcheck/dictionaries/binaries.txt"
+    addWords: true
+    noSuggest: true
+  - name: docker
+    path: "./spellcheck/dictionaries/docker.txt"
+    addWords: true
+  - name: elixir-for-workspace
+    path: "./spellcheck/dictionaries/elixir-for-workspace.txt"
+    addWords: true
+  - name: filenames
+    path: "./spellcheck/dictionaries/filenames.txt"
+    addWords: true
+    noSuggest: true
+  - name: repo-owners
+    path: "./spellcheck/dictionaries/repo-owners.txt"
+    addWords: true
+    noSuggest: true
+  - name: npm-packages
+    path: "./spellcheck/dictionaries/npm-packages.txt"
+    addWords: true
+    noSuggest: true
+  - name: vscode-extensions
+    path: "./spellcheck/dictionaries/vscode-extensions.txt"
+    addWords: true
+    noSuggest: true
   - name: workspace
-    path: "./spelling/dictionaries/workspace.txt"
+    path: "./spellcheck/dictionaries/workspace.txt"
     addWords: true
+    noSuggest: true
 
-flagWords:
-  - hte
+languageSettings:
+  - languageId: shellscript,dockerfile
+    dictionaries:
+      - bash
+      - bash-custom
+  - languageId: dockerfile
+    dictionaries:
+      - docker
+  - languageId: elixir
+    dictionaries:
+      - elixir
+      - elixir-for-workspace
+
+overrides:
+  - filename: "{run,.husky/*}"
+    languageId: "shellscript"
+  - filename: "Dockerfile*"
+    languageId: "dockerfile"
+  - filename: ".github/workflows/ci.yml"
+    dictionaries:
+      - bash
+      - bash-custom
+  - filename: ".czrc"
+    languageId: "json"
 
 ignorePaths:
-  - "spelling/**"
-  - ".history/**"
-  - "**/.git"
+  - "**/_build/**"
+  - "**/.git/**/!(COMMIT_EDITMSG)*"
+  - "**/.eslintcache"
+  - "**/.elixir_ls/**"
+  - "**/.history/**"
+  - "**/.husky/_/**"
+  - "**/.stylelintcache"
+  - "**/.sobelow"
+  - "**/.vscode-insiders/**"
+  - "**/deps/**"
+  - "**/doc/**"
   - "**/node_modules/**"
   - "**/npm_cache/**"
   - "**/package-lock.json"
-
-ignoreWords:
-  - aifrak
-  - davidanson
-  - esbenp
-  - exiasr
-  - jakebecker
-  - koalaman
-  - mvdan
-  - softprops
-  - tvdias
+  - "**/priv/plts/*.plt"
+  - "**/priv/plts/*.plt.hash"
+  - "**/spellcheck/**"
+  - "**/vscode-extension/**"
