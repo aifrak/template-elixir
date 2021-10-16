@@ -1,7 +1,6 @@
 # Ascending sort, case insensitive
 COMMIT_EDITMSG
 commitlintrc
-czrc
 dockerignore
 editorconfig
 eslintcache
