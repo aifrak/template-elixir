@@ -9,9 +9,6 @@
   - ./run elixir:eex:format
   - ./run elixir:eex:lint
 
-"*(!**/spelling/dictionaries/**)":
-  - ./run spellcheck:lint
-
 "{run,.husky/*,*.sh}":
   - ./run shell:format
   - ./run shell:lint
