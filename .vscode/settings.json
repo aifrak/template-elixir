@@ -10,8 +10,7 @@
     ".czrc": "json",
     ".prettierignore-eex": "ignore",
     ".sobelow-conf": "elixir",
-    "commit-msg": "shellscript",
-    "pre-commit": "shellscript",
+    "**/.husky/*": "shellscript",
     "run": "shellscript"
   },
   "files.watcherExclude": {
