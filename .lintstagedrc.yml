@@ -5,6 +5,12 @@
   - ./run elixir:format
   - ./run elixir:lint
 
+"*.{css,less,sass,scss}":
+  - ./run css:format
+  - ./run prettier:format
+  - ./run css:lint
+  - ./run prettier:lint
+
 "*.html.{eex,leex}":
   - ./run elixir:eex:format
   - ./run elixir:eex:lint
