@@ -31,9 +31,11 @@ chore:
   - "**/.gitignore"
   - "**/.gitkeep"
   - .hadolint*
+  - .htmlhint*
   - .husky/**/*
   - .lintstaged*
   - .markdownlint*
+  - .stylelint*
   - "**/.npmrc"
   - .prettier*
   - .vscode/**/*

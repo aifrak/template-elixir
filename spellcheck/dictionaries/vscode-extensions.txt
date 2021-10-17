@@ -12,6 +12,7 @@ foxundermoon
 gitmoji
 jakebecker
 joshbolduc
+mkaufman
 spmeesseman
 stackbreak
 taskexplorer

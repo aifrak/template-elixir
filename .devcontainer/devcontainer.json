@@ -18,6 +18,9 @@
     // EditorConfig
     "editorconfig.editorconfig",
 
+    // HTML
+    "mkaufman.htmlhint",
+
     // CSS, SCSS, SASS, LESS
     "stylelint.vscode-stylelint",
 
