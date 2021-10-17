@@ -157,6 +157,36 @@
       "args": ["dockerfile:lint"],
       "problemMatcher": [],
       "detail": "Lint all Dockerfiles"
+    },
+    /* -------------------------------------------- */
+    /*             CSS, SCSS, SASS, LESS            */
+    /* -------------------------------------------- */
+    {
+      "label": "css:format",
+      "type": "shell",
+      "command": "./run",
+      "args": ["css:format "],
+      "problemMatcher": [],
+      "detail": "Format CSS, SCSS, SASS, LESS and any files containing CSS"
+    },
+    {
+      "label": "css:lint",
+      "type": "shell",
+      "command": "./run",
+      "args": ["css:lint "],
+      "problemMatcher": [],
+      "detail": "Lint CSS, SCSS, SASS, LESS and any files containing CSS"
+    },
+    /* -------------------------------------------- */
+    /*                     HTML                     */
+    /* -------------------------------------------- */
+    {
+      "label": "html:lint",
+      "type": "shell",
+      "command": "./run",
+      "args": ["html:lint"],
+      "problemMatcher": [],
+      "detail": "Lint HTML files and templates"
     }
   ],
   "inputs": [

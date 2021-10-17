@@ -10,6 +10,7 @@ fi
 . "${APP_DIR}/scripts/run/docker-file.sh"
 . "${APP_DIR}/scripts/run/elixir.sh"
 . "${APP_DIR}/scripts/run/git.sh"
+. "${APP_DIR}/scripts/run/html.sh"
 . "${APP_DIR}/scripts/run/markdown.sh"
 . "${APP_DIR}/scripts/run/prettier.sh"
 . "${APP_DIR}/scripts/run/shell.sh"
@@ -47,6 +48,7 @@ docker-compose commands:
 EOF
 
   css:help
+  html:help
   elixir:help
   markdown:help
   prettier:help
