@@ -24,6 +24,7 @@
     },
 
     # Custom tools
+    {:css_lint, "./run css:lint"},
     {:dockerfile_lint, "./run dockerfile:lint"},
     {:elixir_eex_lint, "./run elixir:eex:lint"},
     {:markdown_lint, "./run markdown:lint"},

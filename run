@@ -6,6 +6,7 @@ if [[ -z "${APP_DIR:-""}" ]]; then
   APP_DIR="$(dirname "${0}")"
 fi
 
+. "${APP_DIR}/scripts/run/css.sh"
 . "${APP_DIR}/scripts/run/docker-file.sh"
 . "${APP_DIR}/scripts/run/elixir.sh"
 . "${APP_DIR}/scripts/run/git.sh"
@@ -45,6 +46,7 @@ docker-compose commands:
   dc:up                       Starts all docker services
 EOF
 
+  css:help
   elixir:help
   markdown:help
   prettier:help
@@ -108,6 +110,7 @@ function lint {
 function format {
   # shellcheck disable=SC2119
   if is_inside_docker; then
+    css:format
     elixir:eex:format
     elixir:format
     shell:format

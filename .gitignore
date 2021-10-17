@@ -8,6 +8,9 @@ npm_cache/
 # Docker compose
 docker-compose.override.yml
 
+# Stylelint
+.stylelintcache
+
 # Elixir
 _build/
 cover/

@@ -1,0 +1,16 @@
+# Local history (VSCode extension)
+.history/
+
+# NodeJS
+node_modules/
+npm_cache/
+
+# Elixir
+_build/
+cover/
+deps/
+doc/
+.fetch/
+
+# ElixirLS (VSCode extension)
+.elixir_ls/

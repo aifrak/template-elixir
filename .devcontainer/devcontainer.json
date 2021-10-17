@@ -18,6 +18,9 @@
     // EditorConfig
     "editorconfig.editorconfig",
 
+    // CSS, SCSS, SASS, LESS
+    "stylelint.vscode-stylelint",
+
     // Commit:
     "joshbolduc.commitlint",
     "vivaxy.vscode-conventional-commits",

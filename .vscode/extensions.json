@@ -10,6 +10,9 @@
     // EditorConfig:
     "editorconfig.editorconfig",
 
+    // CSS, SCSS, SASS, LESS:
+    "stylelint.vscode-stylelint",
+
     // Tasks / Makefile targets
     "spmeesseman.vscode-taskexplorer",
 
