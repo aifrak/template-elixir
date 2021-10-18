@@ -1,15 +1,9 @@
-vendor/
-
 # Local history (VSCode extension)
 .history/
 
 # NodeJS
 node_modules/
 npm_cache/
-
-# Cache for lints
-.eslintcache
-.stylelintcache
 
 # Elixir
 _build/
@@ -20,7 +14,3 @@ doc/
 
 # ElixirLS (VSCode extension)
 .elixir_ls/
-
-# see ./docs/setup.md in "Known issues" section
-*.eex
-*.leex

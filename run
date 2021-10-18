@@ -11,6 +11,7 @@ fi
 . "${APP_DIR}/scripts/run/elixir.sh"
 . "${APP_DIR}/scripts/run/git.sh"
 . "${APP_DIR}/scripts/run/html.sh"
+. "${APP_DIR}/scripts/run/javascript.sh"
 . "${APP_DIR}/scripts/run/markdown.sh"
 . "${APP_DIR}/scripts/run/prettier.sh"
 . "${APP_DIR}/scripts/run/shell.sh"
@@ -47,9 +48,10 @@ docker-compose commands:
   dc:up                       Starts all docker services
 EOF
 
+  elixir:help
   css:help
   html:help
-  elixir:help
+  js:help
   markdown:help
   prettier:help
   shell:help
@@ -115,6 +117,7 @@ function format {
     css:format
     elixir:eex:format
     elixir:format
+    js:format
     shell:format
     dockerfile:format
     prettier:format

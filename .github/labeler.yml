@@ -24,7 +24,7 @@ chore:
   - "**/.dialyzer_ignore.exs"
   - "**/.formatter.exs"
   - "**/.sobelow-conf"
-  - .commitlintrc.js
+  - .commitlint*
   - .cz.json
   - .devcontainer
   - .editorconfig
