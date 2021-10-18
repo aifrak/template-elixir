@@ -28,6 +28,7 @@
     {:dockerfile_lint, "./run dockerfile:lint"},
     {:elixir_eex_lint, "./run elixir:eex:lint"},
     {:html_lint, "./run html:lint"},
+    {:js_lint, "./run js:lint"},
     {:markdown_lint, "./run markdown:lint"},
     {:prettier_lint, "./run prettier:lint"},
     {:shell_lint, "./run shell:lint"},

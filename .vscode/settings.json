@@ -122,6 +122,10 @@
   "[html]": {
     "editor.rulers": [120]
   },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [100] // Follow rule from eslint-config-airbnb-base
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
