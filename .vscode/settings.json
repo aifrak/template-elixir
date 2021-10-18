@@ -21,14 +21,16 @@
     "**/node_modules/**": true,
     "**/npm_cache/**": true,
     // Elixir
-    "**/deps/**": true,
-    "**/doc/**": true,
     "**/_build/**": true,
     "**/.elixir_ls/**": true,
+    "**/.sobelow": true,
+    "**/.fetch/**": true,
+    "**/cover/**": true,
+    "**/deps/**": true,
+    "**/doc/**": true,
     "**/erl_crash.dump": true,
     "**/dialyzer.plt": true,
-    "**/dialyzer.plt.hash": true,
-    "**/.sobelow": true
+    "**/dialyzer.plt.hash": true
   },
   "files.exclude": {
     "**/.git": true,
@@ -45,14 +47,16 @@
     "**/node_modules": true,
     "**/npm_cache": true,
     // Elixir
-    "**/deps": true,
-    "**/doc": true,
     "**/_build": true,
     "**/.elixir_ls": true,
+    "**/.sobelow": true,
+    "**/.fetch": true,
+    "**/cover": true,
+    "**/deps": true,
+    "**/doc": true,
     "**/erl_crash.dump": true,
     "**/dialyzer.plt": true,
-    "**/dialyzer.plt.hash": true,
-    "**/.sobelow": true
+    "**/dialyzer.plt.hash": true
   },
 
   // Git:
@@ -76,9 +80,11 @@
     "**/node_modules/**",
     "**/npm_cache/**",
     // Elixir
-    "**/deps/**",
     "**/_build/**",
-    "**/.elixir_ls/**"
+    "**/.elixir_ls/**",
+    "**/.fetch/**",
+    "**/cover/**",
+    "**/deps/**"
   ],
 
   // Comments:
@@ -89,7 +95,7 @@
   "comment-divider.lineFiller": "—",
   "comment-divider.mainHeaderFiller": "—",
   "comment-divider.subheaderFiller": "—",
-  "commentAnchors.workspace.excludeFiles": "**/{node_modules,npm_cache,.husky/_,.history}/**/*",
+  "commentAnchors.workspace.excludeFiles": "**/{node_modules,npm_cache,.husky/_,.history,_build,.elixir_ls,.fetch,cover,deps}/**/*",
   "commentAnchors.tags.list": [
     {
       "tag": "TEMP",
