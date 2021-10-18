@@ -28,7 +28,7 @@ defmodule App.MixProject do
       {:credo_naming, ">= 1.0.0", only: :test, runtime: false},
       {:dialyxir, ">= 1.1.0", only: :test, runtime: false},
       {:doctor, ">= 0.18.0", only: :test, runtime: false},
-      {:ex_check, ">= 0.14.0", only: :test, runtime: false},
+      {:ex_check, ">= 0.14.0", only: [:dev, :test], runtime: false},
       {:excoveralls, ">= 0.14.2", only: :test, runtime: false},
       {:sobelow, ">= 0.11.1", only: :test, runtime: false}
     ]
@@ -38,6 +38,17 @@ defmodule App.MixProject do
     [
       check: ["check --config .check-dev.exs"],
       "check.ci": ["check --config .check-ci.exs"],
+      "format.all": [
+        "check --config .check-format.exs \
+          --only css_format \
+          --only dockerfile_format \
+          --only elixir_format \
+          --only elixir_eex_format \
+          --only js_format \
+          --only prettier_format \
+          --only shell_format \
+        "
+      ],
       "npm.dev": ["cmd npm install --quiet"],
       "npm.ci": ["cmd npm ci --quiet"],
       setup: ["deps.unlock --unused", "deps.clean --unused", "deps.get"],
@@ -52,7 +63,6 @@ defmodule App.MixProject do
 
   defp preferred_cli_env do
     [
-      check: :test,
       "check.ci": :test,
       compile: :test,
       credo: :test,
@@ -63,6 +73,7 @@ defmodule App.MixProject do
       dialyxir: :test,
       dialyzer: :test,
       doctor: :test,
+      "format.all": :dev,
       "test.cover": :test,
       "test.cover.recent": :test,
       sobelow: :test,
