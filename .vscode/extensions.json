@@ -55,6 +55,7 @@
 
     // Comments:
     "stackbreak.comment-divider",
+    "exodiusstudios.comment-anchors",
 
     // Cron jobs:
     "tumido.cron-explained",
