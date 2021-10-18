@@ -94,6 +94,7 @@ ignorePaths:
   - "**/.stylelintcache"
   - "**/.sobelow"
   - "**/.vscode-insiders/**"
+  - "**/cover/**"
   - "**/deps/**"
   - "**/doc/**"
   - "**/node_modules/**"
