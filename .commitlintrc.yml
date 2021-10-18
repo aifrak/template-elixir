@@ -21,6 +21,7 @@ rules:
       - git
       - lint
       - logs
+      - mix
       - npm
       - license
       - readme

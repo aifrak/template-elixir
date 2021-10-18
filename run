@@ -114,15 +114,7 @@ function lint {
 function format {
   # shellcheck disable=SC2119
   if is_inside_docker; then
-    css:format
-    elixir:eex:format
-    elixir:format
-    js:format
-    shell:format
-    dockerfile:format
-    prettier:format
-
-    success "✔ Project formatted"
+    mix format.all
   else
     dc:exec ./run format
   fi
