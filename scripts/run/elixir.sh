@@ -18,9 +18,9 @@ Erlang commands:
 EOF
 }
 
-# ---------------------------------------------- #
+# —————————————————————————————————————————————— #
 #                     Elixir                     #
-# ---------------------------------------------- #
+# —————————————————————————————————————————————— #
 
 function elixir:lint {
   local status=0
@@ -59,9 +59,9 @@ function elixir:version {
     -e "IO.puts(System.version)"
 }
 
-# ---------------------------------------------- #
+# —————————————————————————————————————————————— #
 #                   Elixir EEx                   #
-# ---------------------------------------------- #
+# —————————————————————————————————————————————— #
 
 # NOTE: Avoid error "No files matching the pattern were found" by adding prettierrc.yml
 eex_glob="**/*.{eex,leex,prettierrc.yml}"
@@ -80,9 +80,9 @@ function elixir:eex:format {
   prettier-eex --list-different --write "${@:-${eex_glob}}"
 }
 
-# ---------------------------------------------- #
+# —————————————————————————————————————————————— #
 #                     Erlang                     #
-# ---------------------------------------------- #
+# —————————————————————————————————————————————— #
 
 function erlang:version {
   erl -eval "{ok, Version} = file:read_file(filename:join([code:root_dir(), \

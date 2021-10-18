@@ -86,6 +86,9 @@
   "comment-divider.languagesMap": {
     "elixir": ["#", "#"]
   },
+  "comment-divider.lineFiller": "—",
+  "comment-divider.mainHeaderFiller": "—",
+  "comment-divider.subheaderFiller": "—",
 
   // Markdown All in One:
   "markdown.extension.orderedList.marker": "one",
