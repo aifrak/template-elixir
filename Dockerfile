@@ -4,7 +4,7 @@ RUN set -e \
   && mix local.hex --force \
   && mix local.rebar --force
 
-FROM node:16.12.0-buster as node
+FROM node:16.13.0-buster as node
 RUN npm install -g npm@8.1.0 --quiet
 
 FROM koalaman/shellcheck:v0.7.2 as shellcheck
