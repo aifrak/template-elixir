@@ -7,7 +7,7 @@ RUN set -e \
 FROM node:16.13.0-buster as node
 RUN npm install -g npm@8.1.0 --quiet
 
-FROM koalaman/shellcheck:v0.7.2 as shellcheck
+FROM koalaman/shellcheck:v0.8.0 as shellcheck
 FROM mvdan/shfmt:v3.4.0 as shfmt
 FROM hadolint/hadolint:v2.8.0 as hadolint
 
