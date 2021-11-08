@@ -9,7 +9,7 @@ RUN npm install -g npm@8.1.0 --quiet
 
 FROM koalaman/shellcheck:v0.7.2 as shellcheck
 FROM mvdan/shfmt:v3.4.0 as shfmt
-FROM hadolint/hadolint:v2.7.0 as hadolint
+FROM hadolint/hadolint:v2.8.0 as hadolint
 
 FROM ubuntu:focal-20211006 as base
 
