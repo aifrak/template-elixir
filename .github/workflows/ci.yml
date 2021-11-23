@@ -30,7 +30,7 @@ jobs:
         uses: docker/setup-buildx-action@v1.6.0
 
       - name: Cache Docker layers
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}
@@ -73,7 +73,7 @@ jobs:
 
       - name: Cache Elixir deps
         id: elixir-deps-cache
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: |
             **/deps
@@ -84,7 +84,7 @@ jobs:
 
       - name: Cache Elixir build
         id: elixir-build-cache
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         with:
           path: |
             **/_build
@@ -98,7 +98,7 @@ jobs:
             ${{ runner.os }}-elixir-build-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-
 
       - name: Cache node modules
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         id: node-modules-cache
         with:
           path: |
