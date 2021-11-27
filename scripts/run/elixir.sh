@@ -23,22 +23,14 @@ EOF
 # —————————————————————————————————————————————— #
 
 function elixir:lint {
-  local status=0
-
-  mix credo "${@}" || status=${?}
-  mix format --check-formatted "${@}" || status=${?}
-
   mix check \
     --only compiler \
+    --only credo \
     --only dialyzer \
     --only doctor \
+    --only formatter \
     --only unused_deps \
-    --only sobelow ||
-    status=${?}
-
-  if [[ ${status} -ne 0 ]]; then
-    exit ${status}
-  fi
+    --only sobelow
 }
 
 function elixir:format {
