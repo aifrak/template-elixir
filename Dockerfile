@@ -1,15 +1,6 @@
-FROM hexpm/elixir:1.12.2-erlang-24.0.5-ubuntu-focal-20210325 as elixir
-# Install hex and rebar
-RUN set -e \
-  && mix local.hex --force \
-  && mix local.rebar --force
-
-FROM node:16.13.0-buster as node
-RUN npm install -g npm@8.1.0 --quiet
-
-FROM koalaman/shellcheck:v0.8.0 as shellcheck
-FROM mvdan/shfmt:v3.4.1 as shfmt
-FROM hadolint/hadolint:v2.8.0 as hadolint
+# —————————————————————————————————————————————— #
+#                      base                      #
+# —————————————————————————————————————————————— #
 
 FROM ubuntu:focal-20211006 as base
 
@@ -21,7 +12,8 @@ ENV LANG=en_US.UTF-8
 # 1. Install dependencies
 #   - git
 #   - erlang: libodbc1, libssl1, libsctp1
-# 2. Install `locales` package and setup locale
+#   - locales
+# 2. Setup locales
 # 3. Clean
 RUN set -e \
   && apt-get update -qq \
@@ -57,6 +49,33 @@ RUN set -e \
   && mkdir ${APP_DIR} \
   && chown ${USERNAME}: ${APP_DIR}
 
+USER ${USERNAME}
+
+WORKDIR ${APP_DIR}
+
+CMD [ "bash" ]
+
+# —————————————————————————————————————————————— #
+#                       ci                       #
+# —————————————————————————————————————————————— #
+
+FROM koalaman/shellcheck:v0.8.0 as shellcheck
+FROM mvdan/shfmt:v3.4.1 as shfmt
+FROM hadolint/hadolint:v2.8.0 as hadolint
+
+FROM hexpm/elixir:1.12.2-erlang-24.0.5-ubuntu-focal-20210325 as elixir
+# Install hex and rebar
+RUN set -e \
+  && mix local.hex --force \
+  && mix local.rebar --force
+
+FROM node:16.13.0-buster as node
+RUN npm install -g npm@8.1.0 --quiet
+
+FROM base as ci
+
+USER root
+
 # Add shellcheck
 COPY --from=shellcheck --chown=root /bin/shellcheck /usr/local/bin/
 
@@ -82,16 +101,19 @@ COPY --from=elixir --chown=${USERNAME} /root/.mix ${HOME}/.mix
 
 USER ${USERNAME}
 
-WORKDIR ${APP_DIR}
-
 ENV CI=true
 
-CMD [ "bash" ]
+# —————————————————————————————————————————————— #
+#                       dev                      #
+# —————————————————————————————————————————————— #
 
-FROM base as dev
+FROM ci as dev
 
 USER root
 
+# 1. Install packages
+# 2. Give sudo rights to "USERNAME"
+# 3. Clean
 RUN set -e \
   && export DEBIAN_FRONTEND=noninteractive \
   && apt-get update -qq \
@@ -109,6 +131,10 @@ RUN set -e \
 ENV CI=false
 
 USER ${USERNAME}
+
+# —————————————————————————————————————————————— #
+#                     vscode                     #
+# —————————————————————————————————————————————— #
 
 FROM dev as vscode
 

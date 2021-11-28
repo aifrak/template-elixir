@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-20.04
 
     env:
-      IMAGE_TARGET: base
-      IMAGE_TAG: aifrak/template-elixir:latest
+      IMAGE_TARGET: ci
+      IMAGE_TAG: aifrak/template-elixir:ci
       DOCKER_CACHE_OLD: /tmp/.buildx-cache
       DOCKER_CACHE_NEW: /tmp/.buildx-cache-new
 
@@ -59,7 +59,7 @@ jobs:
 
       - name: Starts all docker services
         run: |
-          ./run dc:up
+          ./run --dc-ci dc:up
 
       # —————————————————————————————————————————————— #
       #                      Cache                     #
@@ -67,9 +67,9 @@ jobs:
 
       - name: Get versions
         run: |
-          echo "NODE_VERSION=$(./run dc:exec npm -v)" >> $GITHUB_ENV
-          echo "ELIXIR_VERSION=$(./run dc:exec ./run elixir:version)" >> $GITHUB_ENV
-          echo "ERLANG_VERSION=$(./run dc:exec ./run erlang:version)" >> $GITHUB_ENV
+          echo "NODE_VERSION=$(./run --dc-ci dc:exec npm -v)" >> $GITHUB_ENV
+          echo "ELIXIR_VERSION=$(./run --dc-ci dc:exec ./run elixir:version)" >> $GITHUB_ENV
+          echo "ERLANG_VERSION=$(./run --dc-ci dc:exec ./run erlang:version)" >> $GITHUB_ENV
 
       - name: Cache Elixir deps
         id: elixir-deps-cache
@@ -118,12 +118,12 @@ jobs:
       - name: Fetch and compile Elixir dependencies
         if: steps.elixir-deps-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:exec mix setup.ci
+          ./run --dc-ci dc:exec mix setup.ci
 
       - name: Install node modules
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: |
-          ./run dc:exec mix npm.ci
+          ./run --dc-ci dc:exec mix npm.ci
 
       # —————————————————————————————————————————————— #
       #                   Application                  #
@@ -131,7 +131,7 @@ jobs:
 
       - name: Compile Elixir application and run all checks
         run: |
-          ./run dc:exec mix check.ci
+          ./run --dc-ci dc:exec mix check.ci
 
       - name: Lint latest git commit message
         if: >-
@@ -141,7 +141,7 @@ jobs:
             || (github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]')
           )
         run: |
-          ./run dc:exec ./run git:commit:lint-latest
+          ./run --dc-ci dc:exec ./run git:commit:lint-latest
 
       - name: Upload Code Coverage report
         uses: codecov/codecov-action@v2.1.0
