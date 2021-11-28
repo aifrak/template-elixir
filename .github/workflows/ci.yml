@@ -88,14 +88,23 @@ jobs:
         with:
           path: |
             **/_build
-            **/priv/plts/*.plt
-            **/priv/plts/*.plt.hash
             **/.sobelow
           key: |
             ${{ runner.os }}-elixir-build-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-${{ hashFiles('**/mix.lock') }}-${{ hashFiles( '**/lib/**/*.{ex,eex}', '**/config/*.exs', '**/mix.exs' ) }}
           restore-keys: |
             ${{ runner.os }}-elixir-build-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-${{ hashFiles('**/mix.lock') }}-
             ${{ runner.os }}-elixir-build-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}-
+
+      - name: Cache Dialyzer PLTs
+        id: dialyzer-plts-cache
+        uses: actions/cache@v2.1.7
+        with:
+          path: |
+            **/priv/plts
+          key: |
+            ${{ runner.os }}-dialyzer-plts-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}
+          restore-keys: |
+            ${{ runner.os }}-dialyzer-plts-${{ env.ELIXIR_VERSION }}-${{ env.ERLANG_VERSION }}
 
       - name: Cache node modules
         uses: actions/cache@v2.1.7
