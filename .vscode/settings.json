@@ -188,6 +188,9 @@
   "[git-rebase]": {
     "editor.rulers": [100]
   },
+  "[handlebars]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[html-eex]": {
     "editor.rulers": [120]
   },
