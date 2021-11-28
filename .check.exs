@@ -4,6 +4,7 @@
   retry: false,
   tools: [
     # Extends curated tools from ex_check
+    {:dialyzer, "mix dialyzer --format short", detect: [{:package, :dialyxir}]},
     {
       :doctor,
       "mix doctor --summary",
