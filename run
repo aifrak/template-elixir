@@ -14,6 +14,7 @@ fi
 . "${APP_DIR}/scripts/run/javascript.sh"
 . "${APP_DIR}/scripts/run/markdown.sh"
 . "${APP_DIR}/scripts/run/prettier.sh"
+. "${APP_DIR}/scripts/run/release.sh"
 . "${APP_DIR}/scripts/run/shell.sh"
 . "${APP_DIR}/scripts/run/spellcheck.sh"
 . "${APP_DIR}/scripts/lib/utils.sh"
@@ -48,6 +49,7 @@ docker-compose commands:
   dc:up                       Starts all docker services
 EOF
 
+  release:help
   elixir:help
   css:help
   html:help
@@ -96,7 +98,9 @@ fi
 
 function test {
   if is_inside_docker; then
-    mix check --only ex_unit
+    mix check \
+      --only ex_unit \
+      --only release_test
   else
     dc:exec ./run test
   fi
@@ -105,7 +109,9 @@ function test {
 function lint {
   # shellcheck disable=SC2119
   if is_inside_docker; then
-    mix check --except ex_unit
+    mix check \
+      --except ex_unit \
+      --except release_test
   else
     dc:exec ./run lint
   fi

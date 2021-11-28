@@ -35,3 +35,6 @@ config/*.secret.exs
 
 # Keep .gitkeep files
 !/**/.gitkeep
+
+# Generated temporary files
+*.tmp

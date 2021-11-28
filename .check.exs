@@ -31,6 +31,7 @@
     {:js_lint, "./run js:lint"},
     {:markdown_lint, "./run markdown:lint"},
     {:prettier_lint, "./run prettier:lint"},
+    {:release_test, "./run release:test"},
     {:shell_lint, "./run shell:lint"},
     {:spellcheck_lint, "./run spellcheck:lint"}
   ]
