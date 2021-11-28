@@ -2,6 +2,6 @@ version: "3.9"
 
 services:
   app:
-    image: aifrak/template-repo:ci
+    image: aifrak/template-elixir:ci
     build:
       target: ci
