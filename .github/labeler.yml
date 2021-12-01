@@ -6,6 +6,7 @@
 
 source:
   - any: ["**/lib/**/*", "!scripts/lib/**/*"]
+  - "**/src/**/*"
 
 tests:
   - "**/test/**/*"
@@ -16,34 +17,40 @@ dependencies:
   - "**/mix.lock"
 
 documentation:
-  - "**/*.md"
+  - docs/**/*
+  - README.md
+  - RELEASE.md
 
 chore:
-  - "**/.check*.exs"
-  - "**/.credo.exs"
-  - "**/.dialyzer_ignore.exs"
-  - "**/.formatter.exs"
-  - "**/.sobelow-conf"
+  - .browserslist*
   - .commitlint*
   - .cz.json
   - .devcontainer
   - .editorconfig
-  - "**/.gitignore"
-  - "**/.gitkeep"
+  - .eslint*
   - .hadolint*
   - .htmlhint*
   - .husky/**/*
   - .lintstaged*
   - .markdownlint*
-  - .stylelint*
-  - "**/.npmrc"
   - .prettier*
+  - .stylelint*
   - .vscode/**/*
-  - scripts/**/*
+  - "**/.check*.exs"
+  - "**/.credo.exs"
+  - "**/.dialyzer_ignore.exs"
+  - "**/.formatter.exs"
+  - "**/.gitignore"
+  - "**/.gitkeep"
+  - "**/.npmrc"
+  - "**/.sobelow-conf"
   - codecov.yml
   - coveralls.json
-  - run
+  - cspell.yml
   - LICENSE
+  - run
+  - scripts/**/*
+  - spellcheck/**/*
 
 template:
   - "**/*.eex"
