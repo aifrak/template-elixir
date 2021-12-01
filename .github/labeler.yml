@@ -18,6 +18,7 @@ dependencies:
 
 documentation:
   - docs/**/*
+  - LICENSE
   - README.md
   - RELEASE.md
 
@@ -47,7 +48,6 @@ chore:
   - codecov.yml
   - coveralls.json
   - cspell.yml
-  - LICENSE
   - run
   - scripts/**/*
   - spellcheck/**/*
