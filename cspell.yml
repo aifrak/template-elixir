@@ -83,6 +83,7 @@ overrides:
 
 ignorePaths:
   - "**/_build/**"
+  - "**/.cspellcache"
   - "**/.elixir_ls/**"
   - "**/.eslintcache"
   - "**/.git/**/!(COMMIT_EDITMSG)*"
