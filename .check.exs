@@ -30,6 +30,7 @@
     {:elixir_eex_lint, "./run elixir:eex:lint"},
     {:html_lint, "./run html:lint"},
     {:js_lint, "./run js:lint"},
+    {:lint_staged, "./run lint-staged"},
     {:markdown_lint, "./run markdown:lint"},
     {:prettier_lint, "./run prettier:lint"},
     {:release_test, "./run release:test"},

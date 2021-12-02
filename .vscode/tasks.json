@@ -26,7 +26,15 @@
       "command": "./run",
       "args": ["lint"],
       "problemMatcher": [],
-      "detail": "Lint of the whole project"
+      "detail": "Lint the whole project"
+    },
+    {
+      "label": "lint-staged",
+      "type": "shell",
+      "command": "./run",
+      "args": ["lint-staged"],
+      "problemMatcher": [],
+      "detail": "Lint staged files"
     },
     {
       "label": "pre-commit",
@@ -34,7 +42,7 @@
       "command": "./run",
       "args": ["pre-commit"],
       "problemMatcher": [],
-      "detail": "Format, lint and test the whole project"
+      "detail": "Lint staged files and test the whole project"
     },
     {
       "label": "test",
