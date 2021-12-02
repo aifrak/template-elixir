@@ -19,6 +19,8 @@ updates:
     commit-message:
       prefix: chore(deps)
     ignore:
+      # Dependabot fails to update Elixir and Erlang. They are updated manually.
+      - dependency-name: hexpm/elixir
       - dependency-name: node
         update-types: [version-update:semver-major]
 
@@ -29,9 +31,6 @@ updates:
       time: "05:00"
     commit-message:
       prefix: chore(deps)
-    ignore:
-      # Dependabot fails to update it. Elixir/Erlang is updated manually.
-      - dependency-name: hexpm/elixir
 
   - package-ecosystem: npm
     directory: /
