@@ -31,15 +31,16 @@ Example: $0 --dc-dev dc:exec ./run test
 
 Options:
   -h, --help                  Print this message
-  --dc-ci                        Use "ci" file when docker compose
-  --dc-dev                       Use "dev" file when docker compose
+  --dc-ci                     Use "ci" file when docker compose
+  --dc-dev                    Use "dev" file when docker compose
 
 Main commands:
   help                        Print this message
   format                      Format code of the whole project
   install-deps                Install all dependencies
   lint                        Lint the whole project
-  pre-commit                  Format, lint and test the whole project
+  lint-staged                 Lint staged files
+  pre-commit                  Lint staged files and test the whole project
   test                        Test the whole project
 
 docker-compose commands:
@@ -112,6 +113,7 @@ function lint {
   if is_inside_docker; then
     mix check \
       --except ex_unit \
+      --except lint_staged \
       --except release_test
   else
     dc:exec ./run lint
@@ -129,11 +131,16 @@ function format {
 
 function pre-commit {
   if is_inside_docker; then
-    format
-    mix check
+    mix check \
+      --only ex_unit \
+      --only lint_staged
   else
     dc:exec ./run pre-commit
   fi
+}
+
+function lint-staged {
+  npx lint-staged
 }
 
 function install-deps {
