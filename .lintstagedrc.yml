@@ -2,7 +2,13 @@
   - ./run spellcheck:lint
 
 "*.{ex,exs}":
-  - ./run elixir:lint
+  - ./run elixir:credo
+  - ./run elixir:format:lint
+
+# HACK: "fake1" is a workaround to run different Elixir checks in parallel
+# https://github.com/okonet/lint-staged/issues/934#issuecomment-743299357
+"*.{ex,exs,fake1}":
+  - ./run elixir:lint:light
 
 "*.{css,less,sass,scss}":
   - ./run css:lint

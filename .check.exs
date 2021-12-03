@@ -3,7 +3,10 @@
 [
   retry: false,
   tools: [
-    # Extends curated tools from ex_check
+    # —————————————————————————————————————————————— #
+    #       Extends curated tools from ex_check      #
+    # —————————————————————————————————————————————— #
+    {:credo, "./run elixir:credo", detect: [{:package, :credo}]},
     {:dialyzer, "mix dialyzer --format short", detect: [{:package, :dialyxir}]},
     {
       :doctor,
@@ -13,6 +16,8 @@
         {:elixir, ">= 1.8.0"}
       ]
     },
+    {:formatter, "./run elixir:format:lint",
+     detect: [{:file, ".formatter.exs"}], fix: "./run elixir:format"},
     {:npm_test, false},
     {
       :sobelow,
@@ -23,8 +28,9 @@
         {:package, :phoenix, else: :skip}
       ]
     },
-
-    # Custom tools
+    # —————————————————————————————————————————————— #
+    #                  Custom tools                  #
+    # —————————————————————————————————————————————— #
     {:css_lint, "./run css:lint"},
     {:dockerfile_lint, "./run dockerfile:lint"},
     {:elixir_eex_lint, "./run elixir:eex:lint"},

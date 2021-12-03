@@ -4,8 +4,11 @@ function elixir:help {
   cat <<EOF
 
 Elixir commands:
+  elixir:credo                Perform checks with Credo on Elixir files
   elixir:format               Format Elixir files
+  elixir:format:lint          Check format on Elixir files
   elixir:lint                 Lint Elixir files
+  elixir:lint:light           Lint Elixir files without credo and formatter
   elixir:test                 Test Elixir files
   elixir:version              Show Elixir version
 
@@ -33,8 +36,27 @@ function elixir:lint {
     --only sobelow
 }
 
+# The checks below are performed on the whole project.
+# "lint-staged" passes file paths to "credo" and "formatter" which are excluded below.
+function elixir:lint:light {
+  mix check \
+    --only compiler \
+    --only dialyzer \
+    --only doctor \
+    --only unused_deps \
+    --only sobelow
+}
+
+function elixir:credo {
+  mix credo "${@}"
+}
+
 function elixir:format {
   mix format "${@}"
+}
+
+function elixir:format:lint {
+  mix format --check-formatted "${@}"
 }
 
 function elixir:test {
