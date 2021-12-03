@@ -10,6 +10,7 @@
         {:file, "codecov.yml", else: :skip}
       ],
       retry: "mix coveralls.json --failed"
-    }
+    },
+    {:lint_staged, false}
   ]
 ]
