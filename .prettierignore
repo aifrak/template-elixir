@@ -1,4 +1,5 @@
-vendor/
+# Git
+.git/
 
 # Local history (VSCode extension)
 .history/
@@ -25,6 +26,9 @@ doc/
 
 # ElixirLS (VSCode extension)
 .elixir_ls/
+
+# Dialyzer
+priv/plts/
 
 # see ./docs/setup.md in "Known issues" section
 *.eex

@@ -19,14 +19,16 @@
         ],
         excluded: [
           ~r"/_build/",
+          ~r"/.elixir_ls/",
           ~r"/.git/",
           ~r"/.history/",
           ~r"/assets/",
+          ~r"/cover/",
           ~r"/deps/",
+          ~r"/doc/",
           ~r"/node_modules/",
           ~r"/npm_cache/",
-          ~r"/priv/",
-          ~r"/vendor/"
+          ~r"/priv/plts/"
         ]
       },
       checks: %{
