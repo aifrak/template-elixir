@@ -28,7 +28,7 @@
           ~r"/doc/",
           ~r"/node_modules/",
           ~r"/npm_cache/",
-          ~r"/priv/plts/"
+          ~r"/dialyzer/plts/"
         ]
       },
       checks: %{

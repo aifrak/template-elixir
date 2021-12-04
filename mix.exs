@@ -95,7 +95,7 @@ defmodule App.MixProject do
         :mix
       ],
       plt_add_deps: :apps_direct,
-      plt_local_path: "priv/plts"
+      plt_local_path: "dialyzer/plts"
     ]
   end
 

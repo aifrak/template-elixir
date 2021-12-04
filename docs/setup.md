@@ -58,8 +58,3 @@ description of `remoteUser` and `updateRemoteUserUID` on this [page](https://cod
 1. `husky` pre-commit is not triggered.
 
    **Solution**: Run `npm install`.
-
-1. `mix dialyxir` shows
-   `:dialyzer.run error: Old PLT file /app/priv/plts/dialyzer.plt`:
-
-   **Solution**: Delete all files under `priv/plts/*` and run `mix dialyxir` again.

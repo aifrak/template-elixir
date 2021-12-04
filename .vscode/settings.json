@@ -31,7 +31,7 @@
     "**/doc/**": true,
     "**/erl_crash.dump": true,
     // Dialyzer
-    "**/priv/plts": true
+    "**/dialyzer/plts": true
   },
   "files.exclude": {
     "**/.git": true,
@@ -57,7 +57,7 @@
     "**/doc": true,
     "**/erl_crash.dump": true,
     // Dialyzer
-    "**/priv/plts": true
+    "**/dialyzer/plts": true
   },
 
   // Git:
@@ -89,7 +89,7 @@
     "**/deps/**",
     "**/doc/**",
     // Dialyzer
-    "**/priv/plts/**"
+    "**/dialyzer/plts/**"
   ],
 
   // Comments:
