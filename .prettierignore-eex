@@ -1,4 +1,5 @@
-vendor/
+# Git
+.git/
 
 # Local history (VSCode extension)
 .history/
@@ -6,6 +7,15 @@ vendor/
 # NodeJS
 node_modules/
 npm_cache/
+
+# Cache for lints
+.eslintcache
+.stylelintcache
+.cspellcache
+
+# Text is generated automatically.
+# Also, as the file grows, it will take longer to lint and format.
+CHANGELOG.md
 
 # Elixir
 _build/
@@ -16,6 +26,9 @@ doc/
 
 # ElixirLS (VSCode extension)
 .elixir_ls/
+
+# Dialyzer
+priv/plts/
 
 # see ./docs/setup.md in "Known issues" section
 !*.eex

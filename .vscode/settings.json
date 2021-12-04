@@ -8,6 +8,7 @@
   // Files:
   "files.associations": {
     ".prettierignore-eex": "ignore",
+    ".markdownlintignore": "ignore",
     ".sobelow-conf": "elixir",
     "**/.husky/*": "shellscript",
     "run": "shellscript"
@@ -29,8 +30,8 @@
     "**/deps/**": true,
     "**/doc/**": true,
     "**/erl_crash.dump": true,
-    "**/dialyzer.plt": true,
-    "**/dialyzer.plt.hash": true
+    // Dialyzer
+    "**/priv/plts": true
   },
   "files.exclude": {
     "**/.git": true,
@@ -55,8 +56,8 @@
     "**/deps": true,
     "**/doc": true,
     "**/erl_crash.dump": true,
-    "**/dialyzer.plt": true,
-    "**/dialyzer.plt.hash": true
+    // Dialyzer
+    "**/priv/plts": true
   },
 
   // Git:
@@ -75,6 +76,7 @@
   // Task explorer:
   "taskExplorer.groupSeparator": ":",
   "taskExplorer.exclude": [
+    "**/.git/**",
     "**/.history/**",
     // NodeJS
     "**/node_modules/**",
@@ -84,7 +86,10 @@
     "**/.elixir_ls/**",
     "**/.fetch/**",
     "**/cover/**",
-    "**/deps/**"
+    "**/deps/**",
+    "**/doc/**",
+    // Dialyzer
+    "**/priv/plts/**"
   ],
 
   // Comments:
@@ -238,14 +243,5 @@
       "extensions": [".prettierignore-eex"],
       "filename": true
     }
-  ],
-
-  // Code Spell Checker:
-  "cSpell.ignorePaths": [
-    "**/package-lock.json/**",
-    "**/node_modules/**",
-    "**/vscode-extension/**",
-    "**/.git/objects",
-    "**/.vscode-insiders/**"
   ]
 }

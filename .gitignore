@@ -28,7 +28,7 @@ config/*.secret.exs
 .elixir_ls/
 
 # Dialyzer
-**/priv/plts/
+priv/plts/
 
 # Sobelow
 .sobelow

@@ -10,14 +10,17 @@ EOF
 
 function html:lint {
   local ignore_globs=(
-    **/.history/**
-    **/node_modules/**
-    **/npm_cache/**
     **/_build/**
+    **/.elixir_ls/**
+    **/.fetch/**
+    **/.git/**
+    **/.history/**
     **/cover/**
     **/deps/**
     **/doc/**
-    **/.fetch/**
+    **/node_modules/**
+    **/npm_cache/**
+    **/priv/plts/**
   )
 
   local ignore_string="${ignore_globs[*]}"
