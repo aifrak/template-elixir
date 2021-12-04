@@ -98,8 +98,8 @@ ignorePaths:
   - "**/node_modules/**"
   - "**/npm_cache/**"
   - "**/package-lock.json"
-  - "**/priv/plts/*.plt.hash"
-  - "**/priv/plts/*.plt"
+  - "**/dialyzer/plts/*.plt.hash"
+  - "**/dialyzer/plts/*.plt"
   - "**/spellcheck/**"
   - "**/vscode-extension/**"
   # Text is generated automatically.

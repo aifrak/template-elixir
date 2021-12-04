@@ -28,7 +28,7 @@ doc/
 .elixir_ls/
 
 # Dialyzer
-priv/plts/
+dialyzer/plts/
 
 # see ./docs/setup.md in "Known issues" section
 *.eex

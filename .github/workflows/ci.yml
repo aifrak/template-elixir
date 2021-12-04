@@ -112,7 +112,7 @@ jobs:
         uses: actions/cache@v2.1.7
         with:
           path: |
-            **/priv/plts
+            **/dialyzer/plts
           key: |
             ${{ runner.os }}-dialyzer-plts-${{ steps.versions.outputs.elixir }}-${{ steps.versions.outputs.erlang }}
           restore-keys: |

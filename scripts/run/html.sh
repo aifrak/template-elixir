@@ -20,7 +20,7 @@ function html:lint {
     **/doc/**
     **/node_modules/**
     **/npm_cache/**
-    **/priv/plts/**
+    **/dialyzer/plts/**
   )
 
   local ignore_string="${ignore_globs[*]}"

@@ -22,4 +22,4 @@ doc/
 .elixir_ls/
 
 # Dialyzer
-priv/plts/
+dialyzer/plts/
