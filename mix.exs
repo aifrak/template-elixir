@@ -57,7 +57,8 @@ defmodule App.MixProject do
       "sobelow.default": ["sobelow --config --exit"],
       test: ["test --warnings-as-errors"],
       "test.cover": ["test --cover"],
-      "test.cover.recent": ["test --cover --stale"]
+      "test.cover.recent": ["test.cover --stale"],
+      "test.recent": ["test --stale"]
     ]
   end
 
@@ -76,6 +77,7 @@ defmodule App.MixProject do
       "format.all": :dev,
       "test.cover": :test,
       "test.cover.recent": :test,
+      "test.recent": :test,
       sobelow: :test,
       "sobelow.default": :test
     ]
