@@ -1,6 +1,13 @@
+htmlWhitespaceSensitivity: ignore
+
 overrides:
   - files:
       - "*.eex"
       - "*.leex"
     options:
       parser: eex
+
+  - files:
+      - "*.hbs"
+    options:
+      htmlWhitespaceSensitivity: css
