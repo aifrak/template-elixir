@@ -1,3 +1,5 @@
+htmlWhitespaceSensitivity: ignore
+
 overrides:
   - files:
       - "*.eex"
