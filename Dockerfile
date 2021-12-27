@@ -60,7 +60,7 @@ CMD [ "bash" ]
 # —————————————————————————————————————————————— #
 
 FROM koalaman/shellcheck:v0.8.0 as shellcheck
-FROM mvdan/shfmt:v3.4.1 as shfmt
+FROM mvdan/shfmt:v3.4.2 as shfmt
 FROM hadolint/hadolint:v2.8.0 as hadolint
 
 FROM hexpm/elixir:1.12.3-erlang-24.1.7-ubuntu-focal-20210325 as elixir
