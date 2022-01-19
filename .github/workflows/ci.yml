@@ -166,6 +166,7 @@ jobs:
           ./run --dc-ci dc:exec ./run git:commit:lint-latest
 
       - name: Upload Code Coverage report
+        if: github.actor != 'dependabot[bot]' && github.event_name == 'push'
         uses: codecov/codecov-action@v2.1.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
