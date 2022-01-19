@@ -5,7 +5,7 @@ defmodule App.MixProject do
     [
       app: :app,
       version: "2021.10.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
