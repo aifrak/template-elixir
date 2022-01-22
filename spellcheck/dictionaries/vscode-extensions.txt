@@ -1,6 +1,8 @@
 # Ascending sort, case insensitive
+
 adamzapasnik
 azuretools
+bradgashler
 codezombiech
 cschleiden
 davidanson
@@ -9,16 +11,27 @@ devcontainer
 esbenp
 exiasr
 exodiusstudios
+florinpatrascu
+formulahendry
 foxundermoon
+gencer
 gitmoji
+htmltagwrap
 jakebecker
+jamilabreu
+javascriptsnippets
 joshbolduc
 mkaufman
+mrmlnc
+nathanchapman
+sadeghpm
 spmeesseman
 stackbreak
+stefanjarina
 taskexplorer
 timonwong
 tumido
 vivaxy
 vsicons
+xabikos
 yzhang

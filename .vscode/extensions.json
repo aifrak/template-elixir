@@ -3,18 +3,27 @@
     // Elixir
     "jakebecker.elixir-ls",
     "adamzapasnik.credo-linter",
+    "florinpatrascu.vscode-elixir-snippets",
+    "stefanjarina.vscode-eex-snippets",
+    "jamilabreu.vscode-phoenix-snippets",
 
     // Remote container
     "ms-vscode-remote.remote-containers",
 
     // HTML:
     "mkaufman.htmlhint",
+    "bradgashler.htmltagwrap",
+    "formulahendry.auto-rename-tag",
 
     // CSS, SCSS, SASS, LESS:
     "stylelint.vscode-stylelint",
+    "gencer.html-slim-scss-css-class-completion",
+    "mrmlnc.vscode-scss",
 
     // Javascript:
     "dbaeumer.vscode-eslint",
+    "xabikos.javascriptsnippets",
+    "nathanchapman.javascriptsnippets",
 
     // EditorConfig:
     "editorconfig.editorconfig",
@@ -41,6 +50,10 @@
     // Shell:
     "foxundermoon.shell-format",
     "timonwong.shellcheck",
+    "sadeghpm.sql-snippets",
+
+    // SQL
+    "sadeghpm.sql-snippets",
 
     // YAML
     "redhat.vscode-yaml",
