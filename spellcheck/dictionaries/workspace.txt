@@ -1,4 +1,3 @@
-# Ascending sort, case insensitive
 !hte
 calver
 codecov
@@ -9,6 +8,7 @@ dockerfiles
 GROUPNAME
 infile
 noreply
+POSIX
 prealpha
 preminor
 prepatch
