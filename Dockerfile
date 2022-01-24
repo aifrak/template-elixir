@@ -9,13 +9,11 @@ USER root
 ENV INSIDE_DOCKER=1
 ENV LANG=en_US.UTF-8
 
-# 1. Install dependencies
-#   - git
-#   - erlang: libodbc1, libssl1, libsctp1
-#   - locales
-# 2. Setup locales
-# 3. Clean
+# Required packages:
+#   - for erlang: libodbc1, libssl1, libsctp1
 RUN set -e \
+  && export DEBIAN_FRONTEND=noninteractive \
+  && echo "--- Install packages ---" \
   && apt-get update -qq \
   && apt-get install -y -qq --no-install-recommends \
     git=1:2.25.1-* \
@@ -23,8 +21,10 @@ RUN set -e \
     libssl1.1=1.1.1f-* \
     libsctp1=1.0.18+* \
     locales=2.31-* \
+  && echo "--- Add locales ---" \
   && sed -i "/${LANG}/s/^# //g" /etc/locale.gen \
   && locale-gen ${LANG} \
+  && echo "--- Clean ---" \
   && apt-get clean \
   && apt-get autoremove \
   && rm -rf /var/lib/apt/lists/*
@@ -43,9 +43,11 @@ ENV APP_DIR=/app
 # 1. Add username and groupname
 # 2. Create project directory and add ownership
 RUN set -e \
+  && echo "--- Add username and groupname ---" \
   && groupadd --gid ${USER_GID} ${GROUPNAME} \
   && useradd --uid ${USER_UID} --gid ${USER_GID} --shell /bin/bash \
     --create-home ${USERNAME} \
+  && echo "--- Create project directory and add ownership ---" \
   && mkdir ${APP_DIR} \
   && chown ${USERNAME}: ${APP_DIR}
 
@@ -111,19 +113,19 @@ FROM ci as dev
 
 USER root
 
-# 1. Install packages
-# 2. Give sudo rights to "USERNAME"
-# 3. Clean
 RUN set -e \
   && export DEBIAN_FRONTEND=noninteractive \
+  && echo "--- Install packages ---" \
   && apt-get update -qq \
   && apt-get install -y -qq --no-install-recommends \
     ca-certificates=* \
     gnupg2=* \
     openssh-client=* \
     sudo=* \
+  && echo "--- Give sudo rights to 'USERNAME' ---" \
   && echo "${USERNAME}" ALL=\(root\) NOPASSWD:ALL >/etc/sudoers.d/"${USERNAME}" \
   && chmod 0440 /etc/sudoers.d/"${USERNAME}" \
+  && echo "--- Clean ---" \
   && apt-get clean \
   && apt-get autoremove \
   && rm -rf /var/lib/apt/lists/*
