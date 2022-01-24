@@ -6,9 +6,6 @@ FROM ubuntu:focal-20220105 as base
 
 USER root
 
-ENV INSIDE_DOCKER=1
-ENV LANG=en_US.UTF-8
-
 # Required packages:
 #   - for erlang: libodbc1, libssl1, libsctp1
 RUN set -e \
@@ -22,15 +19,12 @@ RUN set -e \
     libsctp1=1.0.18+* \
     locales=2.31-* \
   && echo "--- Add locales ---" \
-  && sed -i "/${LANG}/s/^# //g" /etc/locale.gen \
-  && locale-gen ${LANG} \
+  && sed -i "/en_US.UTF-8/s/^# //g" /etc/locale.gen \
+  && locale-gen "en_US.UTF-8" \
   && echo "--- Clean ---" \
   && apt-get clean \
   && apt-get autoremove \
   && rm -rf /var/lib/apt/lists/*
-
-# Added here instead before `locale-gen` to avoid warnings
-ENV LC_ALL=${LANG}
 
 ENV USERNAME=app-user
 ARG GROUPNAME=${USERNAME}
@@ -103,8 +97,6 @@ COPY --from=elixir --chown=${USERNAME} /root/.mix ${HOME}/.mix
 
 USER ${USERNAME}
 
-ENV CI=true
-
 # —————————————————————————————————————————————— #
 #                       dev                      #
 # —————————————————————————————————————————————— #
@@ -129,8 +121,6 @@ RUN set -e \
   && apt-get clean \
   && apt-get autoremove \
   && rm -rf /var/lib/apt/lists/*
-
-ENV CI=false
 
 USER ${USERNAME}
 
