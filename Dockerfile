@@ -66,7 +66,7 @@ RUN set -e \
   && mix local.rebar --force
 
 FROM node:16.13.2-buster as node
-RUN npm install -g npm@8.3.1 --quiet
+RUN npm install -g npm@8.4.1 --quiet
 
 FROM base as ci
 
