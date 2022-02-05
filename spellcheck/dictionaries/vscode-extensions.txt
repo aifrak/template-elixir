@@ -1,5 +1,3 @@
-# Ascending sort, case insensitive
-
 adamzapasnik
 azuretools
 bradgashler
@@ -8,6 +6,7 @@ cschleiden
 davidanson
 dbaeumer
 devcontainer
+eamodio
 esbenp
 exiasr
 exodiusstudios
@@ -21,9 +20,11 @@ jakebecker
 jamilabreu
 javascriptsnippets
 joshbolduc
+kohler
 mkaufman
 mrmlnc
 nathanchapman
+pranaygp
 sadeghpm
 spmeesseman
 stackbreak

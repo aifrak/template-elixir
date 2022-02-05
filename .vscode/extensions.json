@@ -19,6 +19,8 @@
     "stylelint.vscode-stylelint",
     "gencer.html-slim-scss-css-class-completion",
     "mrmlnc.vscode-scss",
+    "christian-kohler.path-intellisense",
+    "pranaygp.vscode-css-peek",
 
     // Javascript:
     "dbaeumer.vscode-eslint",
@@ -28,9 +30,6 @@
     // EditorConfig:
     "editorconfig.editorconfig",
 
-    // CSS, SCSS, SASS, LESS:
-    "stylelint.vscode-stylelint",
-
     // Tasks / Makefile targets
     "spmeesseman.vscode-taskexplorer",
 
@@ -38,8 +37,14 @@
     "joshbolduc.commitlint",
     "vivaxy.vscode-conventional-commits",
 
+    // Git:
+    "eamodio.gitlens",
+
     // Github Actions:
     "cschleiden.vscode-github-actions",
+
+    // Gitignore
+    "codezombiech.gitignore",
 
     // Dockerfile:
     "exiasr.hadolint",
