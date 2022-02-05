@@ -36,8 +36,14 @@
     "joshbolduc.commitlint",
     "vivaxy.vscode-conventional-commits",
 
+    // Git:
+    "eamodio.gitlens",
+
     // Github Actions
     "cschleiden.vscode-github-actions",
+
+    // Gitignore
+    "codezombiech.gitignore",
 
     // Docker
     "ms-azuretools.vscode-docker",
@@ -55,9 +61,6 @@
 
     // YAML
     "redhat.vscode-yaml",
-
-    // Gitignore
-    "codezombiech.gitignore",
 
     // Formatters
     "esbenp.prettier-vscode",
