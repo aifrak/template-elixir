@@ -136,7 +136,7 @@ function lint-staged {
 
 function install-deps {
   if is_inside_docker; then
-    mix setup.dev
+    mix setup.deps.dev
   else
     dc:exec ./run install-deps
   fi
