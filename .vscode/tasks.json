@@ -167,6 +167,47 @@
       "detail": "Lint all Dockerfiles"
     },
     /* ———————————————————————————————————————————— */
+    /*                      Git                     */
+    /* ———————————————————————————————————————————— */
+    {
+      "label": "git:commit:lint",
+      "type": "shell",
+      "command": "./run",
+      "args": ["git:commit:lint"],
+      "problemMatcher": [],
+      "detail": "Lint git commit message"
+    },
+    /* ———————————————————————————————————————————— */
+    /*                   Markdown                   */
+    /* ———————————————————————————————————————————— */
+    {
+      "label": "markdown:lint",
+      "type": "shell",
+      "command": "./run",
+      "args": ["markdown:lint"],
+      "problemMatcher": [],
+      "detail": "Lint markdown files"
+    },
+    /* ———————————————————————————————————————————— */
+    /*                   Prettier                   */
+    /* ———————————————————————————————————————————— */
+    {
+      "label": "prettier:format",
+      "type": "shell",
+      "command": "./run",
+      "args": ["prettier:format"],
+      "problemMatcher": [],
+      "detail": "Format files handled by Prettier"
+    },
+    {
+      "label": "prettier:lint",
+      "type": "shell",
+      "command": "./run",
+      "args": ["prettier:lint"],
+      "problemMatcher": [],
+      "detail": "Lint files handled by Prettier"
+    },
+    /* ———————————————————————————————————————————— */
     /*             CSS, SCSS, SASS, LESS            */
     /* ———————————————————————————————————————————— */
     {
