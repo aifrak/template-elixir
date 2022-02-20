@@ -155,13 +155,27 @@ jobs:
         run: |
           ./run --dc-ci dc:exec mix check.ci
 
-      - name: Lint latest git commit message
-        if: github.actor != 'dependabot[bot]'
+      - name: Set commit information
+        id: commit
         run: |
-          ./run --dc-ci dc:exec ./run git:commit:lint-latest
+          is_contributor_dependabot="false"
+
+          if ./run git:commit:is-contributor-dependabot; then is_contributor_dependabot="true"; fi
+
+          echo "::set-output name=is-contributor-dependabot::$is_contributor_dependabot"
+
+      - name: Lint git commit message
+        if: >-
+          github.actor != 'dependabot[bot]'
+          && steps.commit.outputs.is-contributor-dependabot == 'false'
+        run: |
+          ./run --dc-ci dc:exec ./run git:commit:lint
 
       - name: Upload Code Coverage report
-        if: github.actor != 'dependabot[bot]' && github.event_name == 'push'
+        if: >-
+          github.actor != 'dependabot[bot]'
+          && github.event_name == 'push'
+          && steps.commit.outputs.is-contributor-dependabot == 'false'
         uses: codecov/codecov-action@v2.1.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
