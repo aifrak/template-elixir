@@ -23,7 +23,7 @@ defmodule App.MixProject do
 
   defp deps do
     [
-      {:credo, ">= 1.6.2", only: :test, runtime: false},
+      {:credo, ">= 1.6.3", only: :test, runtime: false},
       {:credo_contrib, ">= 0.2.0", only: :test, runtime: false},
       {:credo_naming, ">= 1.0.0", only: :test, runtime: false},
       {:dialyxir, ">= 1.1.0", only: :test, runtime: false},
