@@ -7,7 +7,7 @@
   "explorer.experimental.fileNesting.enabled": true,
   "explorer.experimental.fileNesting.expand": false,
   "explorer.experimental.fileNesting.patterns": {
-    ".check.exs": ".check-*.exs",
+    ".check.exs": ".check_*.exs",
     ".commitlintrc*": ".cz.*",
     ".eslintrc*": ".eslint*",
     ".markdownlint*": ".markdownlintignore",

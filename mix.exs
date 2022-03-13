@@ -36,10 +36,10 @@ defmodule App.MixProject do
 
   defp aliases do
     [
-      check: ["check --config .check-dev.exs"],
-      "check.ci": ["check --config .check-ci.exs"],
+      check: ["check --config .check_dev.exs"],
+      "check.ci": ["check --config .check_ci.exs"],
       "format.all": [
-        "check --config .check-format.exs \
+        "check --config .check_format.exs \
           --only css_format \
           --only dockerfile_format \
           --only elixir_format \
