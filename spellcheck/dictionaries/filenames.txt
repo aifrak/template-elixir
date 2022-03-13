@@ -1,4 +1,3 @@
-# Ascending sort, case insensitive
 COMMIT_EDITMSG
 commitlintrc
 cspellcache
@@ -12,3 +11,4 @@ npmrc
 prettierignore
 prettierrc
 stylelintcache
+stylelintrc
