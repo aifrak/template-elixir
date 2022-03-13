@@ -49,7 +49,7 @@ defmodule App.MixProject do
           --only shell_format \
         "
       ],
-      "npm.dev": ["cmd npm install --quiet"],
+      "npm.dev": ["cmd npm ci --quiet"],
       "npm.ci": ["cmd npm ci --quiet"],
       "setup.deps": ["deps.unlock --unused", "deps.clean --unused", "deps.get"],
       "setup.deps.dev": ["setup.deps", "npm.dev"],

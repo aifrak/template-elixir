@@ -57,4 +57,4 @@ description of `remoteUser` and `updateRemoteUserUID` on this [page](https://cod
 
 1. `husky` pre-commit is not triggered.
 
-   **Solution**: Run `npm install`.
+   **Solution**: Run `npm ci`.
