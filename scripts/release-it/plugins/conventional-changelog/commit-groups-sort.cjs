@@ -7,7 +7,7 @@
  * but without the static array.
  */
 
-const types = require('../../types');
+const types = require('../../types.cjs');
 
 function commitGroupsSort(a, b) {
   const groupA = a.title;
