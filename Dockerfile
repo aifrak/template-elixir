@@ -65,7 +65,7 @@ RUN set -e \
   && mix local.hex --force \
   && mix local.rebar --force
 
-FROM node:16.15.1-buster as node
+FROM node:16.16.0-buster as node
 RUN npm install -g npm@8.9.0 --quiet
 
 FROM base as ci
