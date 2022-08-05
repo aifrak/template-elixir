@@ -190,6 +190,7 @@ function dc:console {
 opt_dc_ci=
 opt_dc_dev=
 
+# Options
 for opt in "${@}"; do
   case ${opt} in
     --dc-ci)
@@ -213,8 +214,10 @@ for opt in "${@}"; do
       shift
       ;;
     -h | --help)
-      help
-      close
+      if [[ "${#}" -eq 1 ]]; then
+        help
+        close
+      fi
       ;;
   esac
 done
