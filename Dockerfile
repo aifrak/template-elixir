@@ -58,15 +58,13 @@ CMD [ "bash" ]
 FROM koalaman/shellcheck:v0.8.0 as shellcheck
 FROM mvdan/shfmt:v3.5.1 as shfmt
 FROM hadolint/hadolint:v2.10.0 as hadolint
+FROM node:16.16.0-buster as node
 
 FROM hexpm/elixir:1.13.2-erlang-24.2-ubuntu-focal-20210325 as elixir
 # Install hex and rebar
 RUN set -e \
   && mix local.hex --force \
   && mix local.rebar --force
-
-FROM node:16.16.0-buster as node
-RUN npm install -g npm@8.9.0 --quiet
 
 FROM base as ci
 
