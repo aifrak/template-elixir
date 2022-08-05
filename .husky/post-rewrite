@@ -9,5 +9,6 @@ if [ "${CI:-false}" = false ] && [ -n "$INSIDE_DOCKER" ]; then
 
   diff=$(git diff-tree -r --name-only --no-commit-id HEAD@\{1\} HEAD)
 
+  run_cmd_when_changed_files "mix.lock" "mix setup.deps" "$diff"
   run_cmd_when_changed_files "package-lock.json" "npm ci" "$diff"
 fi
