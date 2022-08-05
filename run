@@ -135,6 +135,8 @@ function lint-staged {
 function install-deps {
   if is_inside_docker; then
     mix setup.deps.dev
+
+    success "✔ Dependencies installed"
   else
     dc:exec ./run install-deps
   fi
