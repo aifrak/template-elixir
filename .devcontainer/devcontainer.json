@@ -28,6 +28,7 @@
     // Elixir
     "jakebecker.elixir-ls",
     "adamzapasnik.credo-linter",
+    "benvp.vscode-hex-pm-intellisense",
 
     // EditorConfig
     "editorconfig.editorconfig",

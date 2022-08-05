@@ -3,6 +3,7 @@
     // Elixir
     "jakebecker.elixir-ls",
     "adamzapasnik.credo-linter",
+    "benvp.vscode-hex-pm-intellisense",
     "florinpatrascu.vscode-elixir-snippets",
     "stefanjarina.vscode-eex-snippets",
     "jamilabreu.vscode-phoenix-snippets",
