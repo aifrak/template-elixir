@@ -11,6 +11,7 @@
       ],
       retry: "mix coveralls.json --failed"
     },
+    {:git_commit_lint, "./run git:commit:lint"},
     {:lint_staged, false}
   ]
 ]
