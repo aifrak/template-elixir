@@ -156,7 +156,7 @@ jobs:
           npm run prepare
 
       - name: Set check flag for lint:git:commit
-        id: git-commit-lint
+        id: lint-git-commit
         run: |
           is_contributor_dependabot=false
 
@@ -174,7 +174,7 @@ jobs:
         run: |
           except_opts=
 
-          if [[ ${{ steps.git-commit-lint.outputs.flag }} = false ]]; then
+          if [[ ${{ steps.lint-git-commit.outputs.flag }} = false ]]; then
             except_opts="--except lint_git_commit"
           fi
 
