@@ -40,13 +40,13 @@ defmodule App.MixProject do
       "check.ci": ["check --config .check_ci.exs"],
       "format.all": [
         "check --config .check_format.exs \
-          --only css_format \
-          --only dockerfile_format \
-          --only elixir_format \
-          --only elixir_eex_format \
-          --only js_format \
-          --only prettier_format \
-          --only shell_format \
+          --only format_css \
+          --only format_dockerfile \
+          --only format_elixir \
+          --only format_eex \
+          --only format_js \
+          --only format_prettier \
+          --only format_shell \
         "
       ],
       "npm.dev": ["cmd npm ci --quiet"],

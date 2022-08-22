@@ -11,13 +11,13 @@
 1. Install the extension `ms-vscode-remote.remote-containers`.
 1. `Ctrl+Shift+P` and choose `Remote-Containers: Open Folder in Container...`
 1. Wait container to be built (it takes a while).
-1. Run `./run install-deps` to install all dependencies.
+1. Run `./run install:deps` to install all dependencies.
 1. Run `./run help` to see all commands for this project.
 
 ### Development without VSCode
 
 1. Run `./run --dc-dev dc:console` to enter the container.
-1. Run `./run install-deps` to install all dependencies.
+1. Run `./run install:deps` to install all dependencies.
 1. Run `./run help` to see all commands for this project.
 
 ## UID and GID inside the container
@@ -38,7 +38,7 @@ description of `remoteUser` and `updateRemoteUserUID` on this [page](https://cod
 
    **Answer**: `prettier-plugin-eex` supports `prettier` up to `2.2.x` only.
 
-   **Temporary solution**: Run `./run elixir:eex:format` to format all `*.eex` files.
+   **Temporary solution**: Run `./run format:eex` to format all `*.eex` files.
    ([more info](https://github.com/adamzapasnik/prettier-plugin-eex/issues/51))
 
    For this reason, two versions of `prettier` are installed with two `.prettierignore`:

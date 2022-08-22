@@ -5,6 +5,7 @@ eval
 excoveralls
 fwrite
 hexpm
+eex
 leex
 macrocallback
 noshell

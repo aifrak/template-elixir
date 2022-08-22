@@ -1,41 +1,41 @@
 "*":
-  - ./run spellcheck:lint
+  - ./run lint:spellcheck
 
 "*.{ex,exs}":
-  - ./run elixir:credo
-  - ./run elixir:format:lint
+  - ./run lint:elixir:credo
+  - ./run lint:elixir:format
 
 # HACK: "fake1" is a workaround to run different Elixir checks in parallel
 # https://github.com/okonet/lint-staged/issues/934#issuecomment-743299357
 "*.{ex,exs,fake1}":
-  - ./run elixir:lint:light
+  - ./run lint:elixir:light
 
 "*.{css,less,sass,scss}":
-  - ./run css:lint
-  - ./run prettier:lint
+  - ./run lint:css
+  - ./run lint:prettier
 
 "*.{htm,html}":
-  - ./run html:lint
-  - ./run prettier:lint
+  - ./run lint:html
+  - ./run lint:prettier
 
 "*.js":
-  - ./run js:lint
-  - ./run prettier:lint
+  - ./run lint:js
+  - ./run lint:prettier
 
 "*.html.{eex,leex}":
-  - ./run elixir:eex:lint
+  - ./run lint:eex
 
 "{run,.husky/*,*.sh}":
-  - ./run shell:lint
+  - ./run lint:shell
 
 "Dockerfile*":
-  - ./run dockerfile:lint
+  - ./run lint:dockerfile
 
 "*.{json,yaml,yml,htmlhintrc}":
-  - ./run prettier:lint
+  - ./run lint:prettier
 
 # CHANGELOG.md text is generated automatically.
 # Also, as the file grows, it will take longer to lint and format.
 "!(CHANGELOG).md":
-  - ./run prettier:lint
-  - ./run markdown:lint
+  - ./run lint:prettier
+  - ./run lint:markdown

@@ -76,8 +76,8 @@ jobs:
         id: versions
         run: |
           echo "::set-output name=node::$(./run --dc-ci dc:exec npm -v)"
-          echo "::set-output name=elixir::$(./run --dc-ci dc:exec ./run elixir:version)"
-          echo "::set-output name=erlang::$(./run --dc-ci dc:exec ./run erlang:version)"
+          echo "::set-output name=elixir::$(./run --dc-ci dc:exec ./run version:elixir)"
+          echo "::set-output name=erlang::$(./run --dc-ci dc:exec ./run version:erlang)"
 
       # —————————————————————————————————————————————— #
       #                      Cache                     #
@@ -155,27 +155,27 @@ jobs:
         run: |
           npm run prepare
 
-      - name: Set check flag for git:commit:lint
+      - name: Set check flag for lint:git:commit
         id: git-commit-lint
         run: |
           is_contributor_dependabot=false
 
-          run_git_commit_lint=false
+          run_lint_git_commit=false
 
-          if ./run git:commit:is-contributor-dependabot; then is_contributor_dependabot=true; fi
+          if ./run is-contributor-dependabot:git:commit; then is_contributor_dependabot=true; fi
 
           if [[ github.actor != "dependabot[bot]" && $is_contributor_dependabot = false ]]; then
-            run_git_commit_lint=true;
+            run_lint_git_commit=true;
           fi
 
-          echo "::set-output name=flag::$run_git_commit_lint"
+          echo "::set-output name=flag::$run_lint_git_commit"
 
       - name: Compile Elixir application and run all checks
         run: |
           except_opts=
 
           if [[ ${{ steps.git-commit-lint.outputs.flag }} = false ]]; then
-            except_opts="--except git_commit_lint"
+            except_opts="--except lint_git_commit"
           fi
 
           ./run --dc-ci dc:exec mix check.ci $except_opts

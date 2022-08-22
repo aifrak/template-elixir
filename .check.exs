@@ -6,7 +6,7 @@
     # —————————————————————————————————————————————— #
     #       Extends curated tools from ex_check      #
     # —————————————————————————————————————————————— #
-    {:credo, "./run elixir:credo", detect: [{:package, :credo}]},
+    {:credo, "./run lint:elixir:credo", detect: [{:package, :credo}]},
     {:dialyzer, "mix dialyzer --format short", detect: [{:package, :dialyxir}]},
     {
       :doctor,
@@ -16,8 +16,8 @@
         {:elixir, ">= 1.8.0"}
       ]
     },
-    {:formatter, "./run elixir:format:lint",
-     detect: [{:file, ".formatter.exs"}], fix: "./run elixir:format"},
+    {:formatter, "./run lint:elixir:format",
+     detect: [{:file, ".formatter.exs"}], fix: "./run format:elixir"},
     {:npm_test, false},
     {
       :sobelow,
@@ -31,16 +31,16 @@
     # —————————————————————————————————————————————— #
     #                  Custom tools                  #
     # —————————————————————————————————————————————— #
-    {:css_lint, "./run css:lint"},
-    {:dockerfile_lint, "./run dockerfile:lint"},
-    {:elixir_eex_lint, "./run elixir:eex:lint"},
-    {:html_lint, "./run html:lint"},
-    {:js_lint, "./run js:lint"},
-    {:lint_staged, "./run lint-staged"},
-    {:markdown_lint, "./run markdown:lint"},
-    {:prettier_lint, "./run prettier:lint"},
-    {:release_test, "./run release:test"},
-    {:shell_lint, "./run shell:lint"},
-    {:spellcheck_lint, "./run spellcheck:lint"}
+    {:lint_css, "./run lint:css"},
+    {:lint_dockerfile, "./run lint:dockerfile"},
+    {:lint_elixir_eex, "./run lint:eex"},
+    {:lint_html, "./run lint:html"},
+    {:lint_js, "./run lint:js"},
+    {:lint_staged, "./run lint:staged"},
+    {:lint_markdown, "./run lint:markdown"},
+    {:lint_prettier, "./run lint:prettier"},
+    {:lint_shell, "./run lint:shell"},
+    {:lint_spellcheck, "./run lint:spellcheck"},
+    {:test_release, "./run test:release"}
   ]
 ]
