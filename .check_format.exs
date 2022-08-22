@@ -2,12 +2,12 @@
 [
   tools: [
     # Custom tools
-    {:css_format, "./run css:format"},
-    {:dockerfile_format, "./run dockerfile:format"},
-    {:elixir_format, "./run elixir:format"},
-    {:elixir_eex_format, "./run elixir:eex:format", deps: [:css_format, :js_format]},
-    {:js_format, "./run js:format"},
-    {:prettier_format, "./run prettier:format", deps: [:css_format, :js_format]},
-    {:shell_format, "./run shell:format"}
+    {:format_css, "./run format:css"},
+    {:format_dockerfile, "./run format:dockerfile"},
+    {:format_eex, "./run format:eex", deps: [:format_css, :format_js]},
+    {:format_elixir, "./run format:elixir"},
+    {:format_js, "./run format:js"},
+    {:format_prettier, "./run format:prettier", deps: [:format_css, :format_js]},
+    {:format_shell, "./run format:shell"}
   ]
 ]

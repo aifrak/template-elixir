@@ -13,7 +13,7 @@ enableFiletypes:
 dictionaries:
   - abbreviations
   - binaries
-  - elixir-for-workspace
+  - elixir-custom
   - filenames
   - npm-packages
   - repo-owners
@@ -34,8 +34,8 @@ dictionaryDefinitions:
   - name: docker
     path: ./spellcheck/dictionaries/docker.txt
     addWords: true
-  - name: elixir-for-workspace
-    path: "./spellcheck/dictionaries/elixir-for-workspace.txt"
+  - name: elixir-custom
+    path: "./spellcheck/dictionaries/elixir-custom.txt"
     addWords: true
   - name: filenames
     path: ./spellcheck/dictionaries/filenames.txt
@@ -69,7 +69,7 @@ languageSettings:
   - languageId: elixir
     dictionaries:
       - elixir
-      - elixir-for-workspace
+      - elixir-custom
 
 overrides:
   - filename: "{run,.husky/*}"

@@ -35,9 +35,9 @@ Options:
 Main commands:
   help                        Print this message
   format                      Format code of the whole project
-  install-deps                Install all dependencies
+  install:deps                Install all dependencies
   lint                        Lint the whole project
-  lint-staged                 Lint staged files
+  lint:staged                 Lint staged files
   pre-commit                  Lint staged files and test the whole project
   test                        Test the whole project
 
@@ -49,17 +49,17 @@ docker compose commands:
   dc:up                       Starts all docker services
 EOF
 
-  release:help
-  elixir:help
-  css:help
-  html:help
-  js:help
-  markdown:help
-  prettier:help
-  shell:help
-  dockerfile:help
-  spellcheck:help
-  git:help
+  help:release
+  help:elixir
+  help:css
+  help:html
+  help:js
+  help:markdown
+  help:prettier
+  help:shell
+  help:dockerfile
+  help:spellcheck
+  help:git
 }
 
 # —————————————————————————————————————————————— #
@@ -98,7 +98,6 @@ function test {
 }
 
 function lint {
-  # shellcheck disable=SC2119
   if is_inside_docker; then
     mix check \
       --except ex_unit \
@@ -110,7 +109,6 @@ function lint {
 }
 
 function format {
-  # shellcheck disable=SC2119
   if is_inside_docker; then
     mix format.all
   else
@@ -128,17 +126,17 @@ function pre-commit {
   fi
 }
 
-function lint-staged {
+function lint:staged {
   npx lint-staged
 }
 
-function install-deps {
+function install:deps {
   if is_inside_docker; then
     mix setup.deps.dev
 
     success "✔ Dependencies installed"
   else
-    dc:exec ./run install-deps
+    dc:exec ./run install:deps
   fi
 }
 

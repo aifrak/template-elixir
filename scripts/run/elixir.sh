@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
-function elixir:help {
+function help:elixir {
   cat <<EOF
 
 Elixir commands:
-  elixir:credo                Perform checks with Credo on Elixir files
-  elixir:format               Format Elixir files
-  elixir:format:lint          Check format on Elixir files
-  elixir:lint                 Lint Elixir files
-  elixir:lint:light           Lint Elixir files without credo and formatter
-  elixir:test                 Test Elixir files
-  elixir:version              Show Elixir version
+  format:elixir               Format Elixir files
+  lint:elixir:credo           Perform checks with Credo on Elixir files
+  lint:elixir:format          Check format on Elixir files
+  lint:elixir                 Lint Elixir files
+  lint:elixir:light           Lint Elixir files without credo and formatter
+  test:elixir                 Test Elixir files
+  version:elixir              Show Elixir version
 
-Elixir EEx commands:
-  elixir:eex:format           Format Embedded Elixir files
-  elixir:eex:lint             Lint Embedded Elixir files
+EEx commands:
+  format:eex           Format Embedded Elixir files
+  lint:eex             Lint Embedded Elixir files
 
 Erlang commands:
-  erlang:format               Show Erlang version
+  version:erlang               Show Erlang version
 EOF
 }
 
@@ -25,7 +25,7 @@ EOF
 #                     Elixir                     #
 # —————————————————————————————————————————————— #
 
-function elixir:lint {
+function lint:elixir {
   mix check \
     --only compiler \
     --only credo \
@@ -37,8 +37,8 @@ function elixir:lint {
 }
 
 # The checks below are performed on the whole project.
-# "lint-staged" passes file paths to "credo" and "formatter" which are excluded below.
-function elixir:lint:light {
+# "lint:staged" passes file paths to "credo" and "formatter" which are excluded below.
+function lint:elixir:light {
   mix check \
     --only compiler \
     --only dialyzer \
@@ -47,23 +47,23 @@ function elixir:lint:light {
     --only sobelow
 }
 
-function elixir:credo {
+function lint:elixir:credo {
   mix credo "${@}"
 }
 
-function elixir:format {
+function format:elixir {
   mix format "${@}"
 }
 
-function elixir:format:lint {
+function lint:elixir:format {
   mix format --check-formatted "${@}"
 }
 
-function elixir:test {
+function test:elixir {
   mix check --only ex_unit
 }
 
-function elixir:version {
+function version:elixir {
   mix run \
     --no-compile \
     --no-deps-check \
@@ -72,9 +72,8 @@ function elixir:version {
     --no-start \
     -e "IO.puts(System.version)"
 }
-
 # —————————————————————————————————————————————— #
-#                   Elixir EEx                   #
+#                       EEx                      #
 # —————————————————————————————————————————————— #
 
 # NOTE: Avoid error "No files matching the pattern were found" by adding prettierrc.yml
@@ -86,11 +85,11 @@ function prettier-eex {
     --ignore-path=./.prettierignore-eex "${@}"
 }
 
-function elixir:eex:lint {
+function lint:eex {
   prettier-eex --check "${@:-${eex_glob}}"
 }
 
-function elixir:eex:format {
+function format:eex {
   prettier-eex --list-different --write "${@:-${eex_glob}}"
 }
 
@@ -98,7 +97,7 @@ function elixir:eex:format {
 #                     Erlang                     #
 # —————————————————————————————————————————————— #
 
-function erlang:version {
+function version:erlang {
   erl -eval "{ok, Version} = file:read_file(filename:join([code:root_dir(), \
     'releases', erlang:system_info(otp_release), 'OTP_VERSION'])), \
     io:fwrite(Version), halt()." -noshell
