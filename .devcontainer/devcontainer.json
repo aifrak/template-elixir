@@ -36,7 +36,7 @@
         "editorconfig.editorconfig",
 
         // HTML
-        "mkaufman.htmlhint",
+        "HTMLHint.vscode-htmlhint",
 
         // CSS, SCSS, SASS, LESS
         "stylelint.vscode-stylelint",
