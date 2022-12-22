@@ -36,7 +36,7 @@ jobs:
         uses: docker/setup-buildx-action@v2.2.1
 
       - name: Cache Docker layers
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v3.2.0
         with:
           path: ${{ steps.docker-params.outputs.cache-old }}
           key: |
@@ -85,7 +85,7 @@ jobs:
 
       - name: Cache Elixir deps
         id: elixir-deps-cache
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v3.2.0
         with:
           path: |
             **/deps
@@ -96,7 +96,7 @@ jobs:
 
       - name: Cache Elixir build
         id: elixir-build-cache
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v3.2.0
         with:
           path: |
             **/_build
@@ -109,7 +109,7 @@ jobs:
 
       - name: Cache Dialyzer PLTs
         id: dialyzer-plts-cache
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v3.2.0
         with:
           path: |
             **/dialyzer/plts
@@ -119,7 +119,7 @@ jobs:
             ${{ runner.os }}-dialyzer-plts-${{ steps.versions.outputs.elixir }}-${{ steps.versions.outputs.erlang }}
 
       - name: Cache node modules
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v3.2.0
         id: node-modules-cache
         with:
           path: |
