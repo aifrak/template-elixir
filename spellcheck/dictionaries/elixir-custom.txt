@@ -1,13 +1,13 @@
-# Ascending sort, case insensitive
 dialyxir
 doctest
+eex
 eval
 excoveralls
 fwrite
 hexpm
-eex
 leex
 macrocallback
+moduledoc
 noshell
 plts
 rebar
