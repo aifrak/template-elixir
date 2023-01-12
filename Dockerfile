@@ -58,7 +58,7 @@ CMD [ "bash" ]
 FROM koalaman/shellcheck:v0.9.0 as shellcheck
 FROM mvdan/shfmt:v3.6.0 as shfmt
 FROM hadolint/hadolint:v2.12.0 as hadolint
-FROM node:16.19.0-buster as node
+FROM node:18.13.0-bullseye as node
 
 FROM hexpm/elixir:1.13.2-erlang-24.2-ubuntu-jammy-20220428 as elixir
 # Install hex and rebar
