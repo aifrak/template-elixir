@@ -1,0 +1,32 @@
+name: Audit hex packages
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - "dependabot/**"
+    paths:
+      - "**/mix.exs"
+      - "**/mix.lock"
+  schedule:
+    - cron: "30 5 * * 1-5"
+
+jobs:
+  hex-audit:
+    name: Audit hex packages
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+
+      - name: Setup Erlang/OTP with Elixir
+        uses: erlef/setup-beam@v1.15.2
+        with:
+          otp-version: 24.2
+          elixir-version: 1.13.2
+
+      - name: Fetch dependencies
+        run: mix do deps.get, deps.compile
+
+      - name: Audit packages
+        run: mix do hex.audit, deps.audit
