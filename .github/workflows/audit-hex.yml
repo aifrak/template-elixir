@@ -22,8 +22,8 @@ jobs:
       - name: Setup Erlang/OTP with Elixir
         uses: erlef/setup-beam@v1.15.2
         with:
-          otp-version: 24.2
-          elixir-version: 1.13.2
+          otp-version: 25.2.1
+          elixir-version: 1.14.3
 
       - name: Fetch dependencies
         run: mix do deps.get, deps.compile
