@@ -89,7 +89,6 @@ defmodule App.MixProject do
       ignore_warnings: ".dialyzer_ignore.exs",
       flags: [
         :error_handling,
-        :race_conditions,
         :underspecs,
         :unmatched_returns
       ],
