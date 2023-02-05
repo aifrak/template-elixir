@@ -110,25 +110,6 @@
       "detail": "Lint Elixir files"
     },
     /* ———————————————————————————————————————————— */
-    /*                      EEx                     */
-    /* ———————————————————————————————————————————— */
-    {
-      "label": "format:eex",
-      "type": "shell",
-      "command": "./run",
-      "args": ["format:eex"],
-      "problemMatcher": [],
-      "detail": "Format Embedded Elixir files"
-    },
-    {
-      "label": "lint:eex",
-      "type": "shell",
-      "command": "./run",
-      "args": ["lint:eex"],
-      "problemMatcher": [],
-      "detail": "Lint Embedded Elixir files"
-    },
-    /* ———————————————————————————————————————————— */
     /*                     Shell                    */
     /* ———————————————————————————————————————————— */
     {

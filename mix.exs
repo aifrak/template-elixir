@@ -44,7 +44,6 @@ defmodule App.MixProject do
           --only format_css \
           --only format_dockerfile \
           --only format_elixir \
-          --only format_eex \
           --only format_js \
           --only format_prettier \
           --only format_shell \
