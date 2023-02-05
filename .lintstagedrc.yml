@@ -22,9 +22,6 @@
   - ./run lint:js
   - ./run lint:prettier
 
-"*.html.{eex,leex}":
-  - ./run lint:eex
-
 "{run,.husky/*,*.sh}":
   - ./run lint:shell
 

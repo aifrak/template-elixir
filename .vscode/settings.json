@@ -25,7 +25,6 @@
 
   // Files:
   "files.associations": {
-    ".prettierignore-eex": "ignore",
     ".markdownlintignore": "ignore",
     ".sobelow-conf": "elixir",
     "**/.husky/*": "shellscript",
@@ -222,11 +221,6 @@
     {
       "icon": "markdownlint",
       "extensions": [".markdownlintignore"],
-      "filename": true
-    },
-    {
-      "icon": "prettier",
-      "extensions": [".prettierignore-eex"],
       "filename": true
     }
   ]

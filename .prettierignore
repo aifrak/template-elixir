@@ -29,7 +29,3 @@ doc/
 
 # Dialyzer
 dialyzer/plts/
-
-# see ./docs/setup.md in "Known issues" section
-*.eex
-*.leex

@@ -12,10 +12,6 @@ Elixir commands:
   test:elixir                 Test Elixir files
   version:elixir              Show Elixir version
 
-EEx commands:
-  format:eex           Format Embedded Elixir files
-  lint:eex             Lint Embedded Elixir files
-
 Erlang commands:
   version:erlang               Show Erlang version
 EOF
@@ -71,26 +67,6 @@ function version:elixir {
     --no-mix-exs \
     --no-start \
     -e "IO.puts(System.version)"
-}
-# —————————————————————————————————————————————— #
-#                       EEx                      #
-# —————————————————————————————————————————————— #
-
-# NOTE: Avoid error "No files matching the pattern were found" by adding prettierrc.yml
-eex_glob="**/*.{eex,leex,prettierrc.yml}"
-
-# Prettier 2.2 version for Embedded Elixir files
-function prettier-eex {
-  ./node_modules/prettier2.2/bin-prettier.js \
-    --ignore-path=./.prettierignore-eex "${@}"
-}
-
-function lint:eex {
-  prettier-eex --check "${@:-${eex_glob}}"
-}
-
-function format:eex {
-  prettier-eex --list-different --write "${@:-${eex_glob}}"
 }
 
 # —————————————————————————————————————————————— #

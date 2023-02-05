@@ -32,27 +32,6 @@ export USER_UID=1000 USER_GID=1000; ./run dev:code
 Note: On Linux, VSCode container handles user's UID/GID by itself. Read the
 description of `remoteUser` and `updateRemoteUserUID` on this [page](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties).
 
-## Known issues
-
-1. `*.eex` files are not formatted or not correctly formatted in VSCode.
-
-   **Answer**: `prettier-plugin-eex` supports `prettier` up to `2.2.x` only.
-
-   **Temporary solution**: Run `./run format:eex` to format all `*.eex` files.
-   ([more info](https://github.com/adamzapasnik/prettier-plugin-eex/issues/51))
-
-   For this reason, two versions of `prettier` are installed with two `.prettierignore`:
-
-   - `^2.3.x`:
-     1. used for all accepted files but `*.eex` and `*.leex` files
-     1. uses `.prettierignore`
-     1. used by VSCode
-   - `~2.2.x`:
-     1. used only for `*.eex`; all other extensions are excluded
-     1. uses `.prettierignore-eex`, a copy from `.prettierignore` without
-        ignoring `*.eex` and `*.leex` files
-     1. **not** used by VSCode
-
 ## FAQ
 
 1. `husky` pre-commit is not triggered.

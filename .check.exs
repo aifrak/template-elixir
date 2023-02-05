@@ -33,7 +33,6 @@
     # —————————————————————————————————————————————— #
     {:lint_css, "./run lint:css"},
     {:lint_dockerfile, "./run lint:dockerfile"},
-    {:lint_elixir_eex, "./run lint:eex"},
     {:lint_html, "./run lint:html"},
     {:lint_js, "./run lint:js"},
     {:lint_staged, "./run lint:staged"},
