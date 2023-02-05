@@ -1,13 +1,13 @@
 "*":
   - ./run lint:spellcheck
 
-"*.{ex,exs}":
+"*.{ex,exs,eex,leex}":
   - ./run lint:elixir:credo
   - ./run lint:elixir:format
 
 # HACK: "fake1" is a workaround to run different Elixir checks in parallel
 # https://github.com/okonet/lint-staged/issues/934#issuecomment-743299357
-"*.{ex,exs,fake1}":
+"*.{ex,exs,eex,leex,fake1}":
   - ./run lint:elixir:light
 
 "*.{css,less,sass,scss}":
