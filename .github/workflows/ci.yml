@@ -102,7 +102,7 @@ jobs:
             **/_build
             **/.sobelow
           key: |
-            ${{ runner.os }}-elixir-build-${{ steps.versions.outputs.ELIXIR }}-${{ steps.versions.outputs.ERLANG }}-${{ hashFiles('**/mix.lock') }}-${{ hashFiles( '**/lib/**/*.{ex,eex}', '**/config/*.exs', '**/mix.exs' ) }}
+            ${{ runner.os }}-elixir-build-${{ steps.versions.outputs.ELIXIR }}-${{ steps.versions.outputs.ERLANG }}-${{ hashFiles('**/mix.lock') }}-${{ hashFiles( '**/lib/**/*.{ex,eex,leex}', '**/config/*.exs', '**/mix.exs' ) }}
           restore-keys: |
             ${{ runner.os }}-elixir-build-${{ steps.versions.outputs.ELIXIR }}-${{ steps.versions.outputs.ERLANG }}-${{ hashFiles('**/mix.lock') }}-
             ${{ runner.os }}-elixir-build-${{ steps.versions.outputs.ELIXIR }}-${{ steps.versions.outputs.ERLANG }}-
