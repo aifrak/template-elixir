@@ -8,10 +8,11 @@ npm_cache/
 # Docker compose
 docker-compose.override.yml
 
-# Cache for lints
-.eslintcache
-.stylelintcache
+# Cache for lints and formatters
 .cspellcache
+.eslintcache
+.prettier-cache
+.stylelintcache
 
 # Elixir
 _build/

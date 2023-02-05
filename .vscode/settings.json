@@ -38,6 +38,8 @@
     // NodeJS
     "**/node_modules/**": true,
     "**/npm_cache/**": true,
+    // Cache for lints
+    "**/.prettier-cache": true,
     // Elixir
     "**/_build/**": true,
     "**/.elixir_ls/**": true,
@@ -64,6 +66,8 @@
     // NodeJS
     "**/node_modules": true,
     "**/npm_cache": true,
+    // Cache for lints
+    "**/.prettier-cache": true,
     // Elixir
     "**/_build": true,
     "**/.elixir_ls": true,
