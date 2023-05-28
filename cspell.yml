@@ -16,6 +16,7 @@ dictionaries:
   - elixir-custom
   - filenames
   - npm-packages
+  - repo-names
   - repo-owners
   - vscode-extensions
   - workspace
@@ -39,6 +40,10 @@ dictionaryDefinitions:
     addWords: true
   - name: filenames
     path: ./spellcheck/dictionaries/filenames.txt
+    addWords: true
+    noSuggest: true
+  - name: repo-names
+    path: ./spellcheck/dictionaries/repo-names.txt
     addWords: true
     noSuggest: true
   - name: repo-owners

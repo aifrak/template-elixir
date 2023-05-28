@@ -37,6 +37,14 @@ To see the full list of available bash commands, run this command:
 ./run help
 ```
 
+## Acknowledgements
+
+- Inspiration from [Taskfile](https://github.com/adriancooney/Taskfile) by
+  adriancooney for `run` file
+- Inspiration from
+  [elixir-boilerplate](https://github.com/mirego/elixir-boilerplate) by mirego
+  for `scripts/rename_project.sh`
+
 ## License
 
 [MIT License](https://github.com/aifrak/template-elixir/blob/main/LICENSE)
