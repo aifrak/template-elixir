@@ -4,16 +4,16 @@ function help:elixir {
   cat <<EOF
 
 Elixir commands:
-  format:elixir               Format Elixir files
-  lint:elixir:credo           Perform checks with Credo on Elixir files
-  lint:elixir:format          Check format on Elixir files
-  lint:elixir                 Lint Elixir files
-  lint:elixir:light           Lint Elixir files without credo and formatter
-  test:elixir                 Test Elixir files
-  version:elixir              Show Elixir version
+  format:elixir       Format Elixir files
+  lint:elixir:credo   Perform checks with Credo on Elixir files
+  lint:elixir:format  Check format on Elixir files
+  lint:elixir         Lint Elixir files
+  lint:elixir:light   Lint Elixir files without credo and formatter
+  test:elixir         Test Elixir files
+  version:elixir      Show Elixir version
 
 Erlang commands:
-  version:erlang               Show Erlang version
+  version:erlang      Show Erlang version
 EOF
 }
 
