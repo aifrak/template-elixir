@@ -2,6 +2,7 @@
 
 function help:js {
   cat <<EOF
+
 Javascript commands:
   format:js           Format JS files and any files containing Javascript
   lint:js             Lint JS files and any files containing Javascript
