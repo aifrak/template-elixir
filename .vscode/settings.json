@@ -40,6 +40,7 @@
     "**/npm_cache/**": true,
     // Cache for lints
     "**/.prettier-cache": true,
+    "**/.stylelintcache": true,
     // Elixir
     "**/_build/**": true,
     "**/.elixir_ls/**": true,
@@ -68,6 +69,7 @@
     "**/npm_cache": true,
     // Cache for lints
     "**/.prettier-cache": true,
+    "**/.stylelintcache": true,
     // Elixir
     "**/_build": true,
     "**/.elixir_ls": true,
@@ -105,6 +107,8 @@
   "taskExplorer.groupSeparator": ":",
   "taskExplorer.exclude": [
     "**/.git/**",
+    "**/.husky/_/**",
+    // VSCode
     "**/.history/**",
     // NodeJS
     "**/node_modules/**",
@@ -130,7 +134,7 @@
   "comment-divider.lineFiller": "—",
   "comment-divider.mainHeaderFiller": "—",
   "comment-divider.subheaderFiller": "—",
-  "commentAnchors.workspace.excludeFiles": "**/{node_modules,npm_cache,.husky/_,.history,_build,.elixir_ls,.fetch,cover,deps}/**/*",
+  "commentAnchors.workspace.excludeFiles": "**/{.elixir_ls,.fetch,.git,.husky/_,_build,node_modules,npm_cache,.history,cover,deps}/**/*",
   "commentAnchors.tags.anchors": {
     "TEMP": {
       "iconColor": "pink",
