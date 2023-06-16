@@ -15,8 +15,8 @@
     ".prettierrc*": ".prettier*",
     ".release-it.*": "VERSION",
     ".stylelintrc*": ".stylelint*",
-    "cspell.*": ".cspell*",
     "coveralls.json": "codecov.yml",
+    "cspell.*": ".cspell*",
     "Dockerfile": ".docker*, docker-compose.*, Dockerfile*",
     "mix.exs": ".formatter.exs, mix.*",
     "package.json": ".npmrc, package-lock.json",
@@ -44,8 +44,8 @@
     // Elixir
     "**/_build/**": true,
     "**/.elixir_ls/**": true,
-    "**/.sobelow": true,
     "**/.fetch/**": true,
+    "**/.sobelow": true,
     "**/cover/**": true,
     "**/deps/**": true,
     "**/doc/**": true,
@@ -74,8 +74,8 @@
     // Elixir
     "**/_build": true,
     "**/.elixir_ls": true,
-    "**/.sobelow": true,
     "**/.fetch": true,
+    "**/.sobelow": true,
     "**/cover": true,
     "**/deps": true,
     "**/doc": true,
@@ -114,6 +114,9 @@
     // NodeJS
     "**/node_modules/**",
     "**/npm_cache/**",
+    // Cache for lints
+    "**/.prettier-cache",
+    "**/.stylelintcache",
     // Elixir
     "**/_build/**",
     "**/.elixir_ls/**",
@@ -135,7 +138,7 @@
   "comment-divider.lineFiller": "—",
   "comment-divider.mainHeaderFiller": "—",
   "comment-divider.subheaderFiller": "—",
-  "commentAnchors.workspace.excludeFiles": "**/{.elixir_ls,.fetch,.git,.husky/_,_build,node_modules,npm_cache,.history,cover,deps,dialyzer/plts}/**/*",
+  "commentAnchors.workspace.excludeFiles": "**/{_build,.elixir_ls,.fetch,.git,.husky/_,node_modules,npm_cache,.history,cover,deps,dialyzer/plts}/**/*",
   "commentAnchors.tags.anchors": {
     "TEMP": {
       "iconColor": "pink",
