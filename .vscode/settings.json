@@ -191,6 +191,9 @@
     "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json": "cspell.yml"
   },
 
+  // Stylelint:
+  "stylelint.validate": ["css", "scss"],
+
   // Override languages:
   "[dockerfile]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
