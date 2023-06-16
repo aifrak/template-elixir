@@ -55,6 +55,7 @@
   },
   "files.exclude": {
     "**/.git": true,
+    // VSCode
     "**/.history": true
   },
 
@@ -134,7 +135,7 @@
   "comment-divider.lineFiller": "—",
   "comment-divider.mainHeaderFiller": "—",
   "comment-divider.subheaderFiller": "—",
-  "commentAnchors.workspace.excludeFiles": "**/{.elixir_ls,.fetch,.git,.husky/_,_build,node_modules,npm_cache,.history,cover,deps}/**/*",
+  "commentAnchors.workspace.excludeFiles": "**/{.elixir_ls,.fetch,.git,.husky/_,_build,node_modules,npm_cache,.history,cover,deps,dialyzer/plts}/**/*",
   "commentAnchors.tags.anchors": {
     "TEMP": {
       "iconColor": "pink",
