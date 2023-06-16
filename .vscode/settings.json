@@ -88,6 +88,12 @@
   "prettier.prettierPath": "./node_modules/prettier",
   "prettier.useEditorConfig": true,
 
+  // CSS:
+  "css.validate": false,
+
+  // SASS/SCSS:
+  "scss.validate": false,
+
   // Shellformat:
   "shellformat.useEditorConfig": true,
 
@@ -198,7 +204,7 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "[handlebars][html][javascript][json][jsonc][markdown][yaml]": {
+  "[css][handlebars][html][javascript][json][jsonc][markdown][sass][scss][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[elixir]": {
