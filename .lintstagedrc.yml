@@ -10,7 +10,7 @@
 "*.{ex,exs,eex,leex,fake1}":
   - ./run lint:elixir:light
 
-"*.{css,less,sass,scss}":
+"*.{css,sass,scss}":
   - ./run lint:css
   - ./run lint:prettier
 

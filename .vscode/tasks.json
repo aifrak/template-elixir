@@ -189,7 +189,7 @@
       "detail": "Lint files handled by Prettier"
     },
     /* ———————————————————————————————————————————— */
-    /*             CSS, SCSS, SASS, LESS            */
+    /*                CSS, SASS/SCSS                */
     /* ———————————————————————————————————————————— */
     {
       "label": "format:css",
@@ -197,7 +197,7 @@
       "command": "./run",
       "args": ["format:css "],
       "problemMatcher": [],
-      "detail": "Format CSS, SCSS, SASS, LESS and any files containing CSS"
+      "detail": "Format CSS, SASS/SCSS files"
     },
     {
       "label": "lint:css",
@@ -205,7 +205,7 @@
       "command": "./run",
       "args": ["lint:css "],
       "problemMatcher": [],
-      "detail": "Lint CSS, SCSS, SASS, LESS and any files containing CSS"
+      "detail": "Lint CSS, SASS/SCSS files"
     },
     /* ———————————————————————————————————————————— */
     /*                     HTML                     */
