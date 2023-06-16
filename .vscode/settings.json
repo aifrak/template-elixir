@@ -85,6 +85,7 @@
   "git.inputValidationSubjectLength": 100,
 
   // Prettier:
+  "prettier.prettierPath": "./node_modules/prettier",
   "prettier.useEditorConfig": true,
 
   // Shellformat:
