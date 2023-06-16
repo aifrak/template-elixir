@@ -6,8 +6,8 @@ function help:css {
   cat <<EOF
 
 CSS commands:
-  format:css          Format CSS, SCSS, SASS and LESS files
-  lint:css            Lint CSS, SCSS, SASS and LESS
+  format:css          Format CSS, SASS/SCSS files
+  lint:css            Lint CSS, SASS/SCSS files
 EOF
 }
 

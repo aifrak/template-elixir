@@ -38,17 +38,17 @@
         // HTML
         "HTMLHint.vscode-htmlhint",
 
-        // CSS, SCSS, SASS, LESS
+        // CSS, SASS/SCSS
         "stylelint.vscode-stylelint",
 
-        // Javascript:
+        // Javascript
         "dbaeumer.vscode-eslint",
 
-        // Commit:
+        // Commit
         "joshbolduc.commitlint",
         "vivaxy.vscode-conventional-commits",
 
-        // Git:
+        // Git
         "eamodio.gitlens",
 
         // Github Actions
