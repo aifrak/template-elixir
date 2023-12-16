@@ -2,7 +2,7 @@
 #                      base                      #
 # —————————————————————————————————————————————— #
 
-FROM ubuntu:jammy-20231004 as base
+FROM ubuntu:jammy-20231128 as base
 
 USER root
 
@@ -58,7 +58,7 @@ CMD [ "bash" ]
 FROM koalaman/shellcheck:v0.9.0 as shellcheck
 FROM mvdan/shfmt:v3.7.0 as shfmt
 FROM hadolint/hadolint:v2.12.0 as hadolint
-FROM node:18.18.2-bullseye as node
+FROM node:18.19.0-bullseye as node
 
 FROM hexpm/elixir:1.14.3-erlang-25.2.1-ubuntu-jammy-20221130 as elixir
 # Install hex and rebar
