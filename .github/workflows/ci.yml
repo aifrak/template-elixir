@@ -186,7 +186,7 @@ jobs:
           github.actor != 'dependabot[bot]'
           && github.event_name == 'push'
           && steps.lint-git-commit.outputs.FLAG == 'false'
-        uses: codecov/codecov-action@v5.0.4
+        uses: codecov/codecov-action@v5.0.7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./cover/excoveralls.json
